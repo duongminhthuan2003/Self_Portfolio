@@ -4,6 +4,7 @@ import "./globals.css";
 import App from "next/app";
 import MobileNavigationBar from "@/app/ui/mobilenavigationbar";
 import Image from "next/image";
+import { AnimatePresence } from "motion/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative">
-        <div>
-          {children}
-        </div>
+        <AnimatePresence mode="wait">
+          <div>
+            {children}
+          </div>
+        </AnimatePresence>
         <div className="absolute bottom-0">
           <MobileNavigationBar />
         </div>

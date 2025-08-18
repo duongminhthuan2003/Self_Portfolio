@@ -22,13 +22,27 @@ const appleGaramondItalic = AppleGaramondItalic({
 
 export default function Home() {
     return (
-      <AnimatePresence>
-          <div className={`antialiased h-screen`}>
-              <div className={`${appleGaramond.className} flex flex-col items-center gap-6 h-full justify-center -translate-y-8`}>
+      <AnimatePresence mode="wait">
+          <motion.div
+              className={`antialiased h-screen`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              key="home-page"
+          >
+              <motion.div
+                  className={`${appleGaramond.className} flex flex-col items-center gap-6 h-full justify-center -translate-y-8`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                  transition={{ duration: 0.4, ease: "easeInOut", delay: 0.1 }}
+              >
                   <motion.div
                       className="relative w-[190px] aspect-[2/3] -rotate-[5deg]"
                       initial={{ opacity: 0, transform: "translateY(20px)" }}
                       animate={{ opacity: 1, transform: "translateY(0px)" }}
+                      exit={{opacity: 0, transform: "translateX(-60px)" }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
                       <Image
@@ -39,6 +53,9 @@ export default function Home() {
                           style={{boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.25), 0 4px 15px 0 rgba(0, 0, 0, 0.25)"}}
                           priority
                       />
+                      <div className="absolute rotate-5 h-5 top-28 -left-2 aspect-square bg-[#BA0000] z-10"/>
+                      <div className="absolute rotate-5 h-5 -bottom-2 -right-2 aspect-square bg-[#BA0000] z-10"/>
+                      <div className="absolute rotate-5 h-5 top-8 -right-6 aspect-[3/1] bg-[#BA0000] z-10"/>
                   </motion.div>
 
                   <div className="text-[28px] text-center mx-6 -mb-4">
@@ -50,9 +67,17 @@ export default function Home() {
                           className="text-2xl"
                       />
                   </div>
-                  <Button />
-              </div>
-          </div>
+                  <motion.div
+                      className="w-fit h-fit"
+                      initial={{ opacity: 0, transform: "translateY(20px)" }}
+                      animate={{ opacity: 1, transform: "translateY(0px)" }}
+                      exit={{opacity: 0, transform: "translateX(-60px)" }}
+                      transition={{ duration: 0.3, ease: "easeInOut", delay: 0.5 }}
+                  >
+                      <Button />
+                  </motion.div>
+              </motion.div>
+          </motion.div>
       </AnimatePresence>
   );
 }

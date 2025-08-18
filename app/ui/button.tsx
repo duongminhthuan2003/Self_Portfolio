@@ -87,7 +87,7 @@ function Button() {
       </span>
 
             {/* Phản sáng trên cùng */}
-            <div className="absolute bg-linear-to-b from-[rgba(255,255,255,0.2)] from-10% via-[rgba(0,0,0,0)] via-30% to-[rgba(0,0,0,0)] to-90% inset-0 w-[88%] h-1/2 rounded-full mx-auto mt-[4px]" />
+            <div className="absolute bg-linear-to-b from-[rgba(255,255,255,0.25)] from-10% via-[rgba(0,0,0,0)] via-30% to-[rgba(0,0,0,0)] to-90% inset-0 w-[88%] h-1/2 rounded-full mx-auto mt-[4px]" />
 
             {/* Inner shadow đen mờ dần khi hover */}
             <motion.div
