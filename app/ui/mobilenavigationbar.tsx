@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {useId, useMemo} from "react";
+import TransitionLink from "@/utils/transitionlink";
+import GlassSurface from "@/app/ui/glasssurface";
 
 // Tailwind styles assume you have a light background. Adjust to your theme if needed.
 // The glossy black circle moves to the active route using Framer Motion's shared layoutId.
@@ -178,16 +180,25 @@ export default function MobileNavigationBar() {
         <nav className="fixed bottom-10 left-1/2 -translate-x-1/2 select-none">
             {/* Pill background */}
             <div
-                className="relative mx-auto h-[50px] w-fit rounded-full bg-white/30 backdrop-blur-lg shadow-[inset_6px_6px_14px_#e9eef3,inset_-6px_-6px_14px_#ffffff,0_10px_30px_rgba(0,0,0,0.12)] ring-1 ring-black/5"
+                className="relative backgroundblur mx-auto h-[50px] w-fit rounded-full ring-1 ring-black/5"
             >
+            {/*<GlassSurface*/}
+            {/*    width={232}*/}
+            {/*    height={50}*/}
+            {/*    borderRadius={50}*/}
+            {/*    distortionScale={-50}*/}
+            {/*    backgroundOpacity={0.4}*/}
+            {/*    brightness={100}*/}
+            {/*>*/}
+
                 {/* Soft top highlight */}
-                <div className="pointer-events-none absolute inset-0 rounded-full [background:radial-gradient(120%_120%_at_50%_-10%,rgba(255,255,255,0.8),transparent_55%)]" />
+                {/*<div className="pointer-events-none absolute inset-0 rounded-full [background:radial-gradient(120%_120%_at_50%_-10%,rgba(255,255,255,0.8),transparent_55%)]" />*/}
 
                 {/* Grid for items */}
                 <ul className="relative h-full flex flex-row place-items-center gap-x-2">
                     {NAV_ITEMS.map((item, i) => (
                         <li key={item.href} className="relative h-full w-full">
-                            <Link
+                            <TransitionLink
                                 href={item.href}
                                 className="group relative mx-auto flex gap-5 h-full w-full items-center justify-center"
                                 aria-label={item.label}
@@ -201,7 +212,7 @@ export default function MobileNavigationBar() {
                                         <item.icon />
                                     </IconWrapper>
                                 </div>
-                            </Link>
+                            </TransitionLink>
                         </li>
                     ))}
                 </ul>
@@ -209,6 +220,7 @@ export default function MobileNavigationBar() {
                 {/* Outer soft shadow to enhance the pill */}
                 <div className="pointer-events-none absolute inset-0 -z-10 rounded-full shadow-[0_12px_40px_rgba(0,0,0,0.18)]" />
             </div>
+            {/*</GlassSurface>*/}
         </nav>
     );
 }

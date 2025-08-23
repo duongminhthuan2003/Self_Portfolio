@@ -19,3 +19,30 @@ body {
     conic-gradient(from 90deg at 12px 12px, rgba(0,0,0,0.05) 90deg, transparent 90deg);
   background-size: 16px 16px;
 }
+.page-transition-enabled {
+  transition-property: opacity, transform, filter;
+  transition-timing-function: ease-out;
+  transition-duration: 0.25s;
+}
+
+.page-transition {
+  opacity: 0;
+  transform: translateX(-50px);
+  filter: blur(5px);
+}
+
+.backgroundblur {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.scroll-snap {
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.scroll-snap > * {
+  scroll-snap-align: start;
+}

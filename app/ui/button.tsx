@@ -30,7 +30,6 @@ function Button() {
                 tap:   { scale: 0.97 },
             }}
             transition={{
-                // đồng bộ hoá scale với tween để khớp nhịp các lớp con
                 type: "tween",
                 ease: EASE,
                 duration: DURATION,

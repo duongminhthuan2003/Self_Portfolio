@@ -29,11 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative">
-        <AnimatePresence mode="wait">
-          <div>
+        <div className="page-transition-enabled">
             {children}
-          </div>
-        </AnimatePresence>
+        </div>
         <div className="absolute bottom-0">
           <MobileNavigationBar />
         </div>
