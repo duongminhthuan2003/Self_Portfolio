@@ -22,7 +22,7 @@ function TransitionLink({ children, href, className, ...props }: TransitionLinkP
 
 		const container = document.querySelector(".page-transition-enabled");
 		container?.classList.add("page-transition");
-		await sleep(250);
+		await sleep(400);
 
 		router.push(href);
 

@@ -15,6 +15,10 @@ import SFProDisplayLight from 'next/font/local';
 import AppleGaramondItalic from "next/font/local";
 import AboutMeFolder from "@/app/ui/aboutmefolder";
 import Image from "next/image";
+import {useState} from "react";
+import TPPopup from "@/app/ui/aboutmepopup/education-TPpopup";
+import {AnimatePresence} from "motion/react";
+import AboutMeTimeLine from "@/app/ui/aboutmetimeline";
 
 const sfProDisplayLight = SFProDisplayLight({
     weight:"200",
@@ -29,10 +33,12 @@ const appleGaramondItalic = AppleGaramondItalic({
 })
 
 function AboutMe() {
+    const [tpPopup, setTpPopup] = useState(false);
+
     return (
-        <motion.div className="scroll-snap">
+        <motion.div className="scroll-snap overflow-x-hidden">
             <motion.div
-                className="flex flex-col h-screen w-full justify-center items-center leading-tight -translate-y-5"
+                className="flex flex-col h-screen w-full justify-center items-center leading-tight -translate-y-5 "
             >
                 <motion.p
                     className={`${sfProDisplayLight.className}`}
@@ -71,7 +77,13 @@ function AboutMe() {
                         stickers={[
                             {src: TPsticker, className: "scale-40 -mt-8 -ml-8 rotate-[5deg] drop-shadow-xl"}
                         ]}
+                        onClick={() => {setTpPopup(true)}}
                     />
+                    <AnimatePresence mode="wait" initial={false}>
+                        {tpPopup && (
+                            <TPPopup key="tp-popup" onClose={() => setTpPopup(false)} />
+                        )}
+                    </AnimatePresence>
                 </div>
                 <AboutMeFolder
                     images={[
@@ -94,8 +106,19 @@ function AboutMe() {
                 className="flex flex-col h-screen w-full justify-center items-center leading-tight -translate-y-5"
             >
                 <motion.p
-                    className={`absolute ${appleGaramondItalic.className} text-[40px] text-[#BA0000] bottom-2/12 left-10`}
+                    className={`absolute ${appleGaramondItalic.className} text-5xl text-[#BA0000] top-1/12`}
                 >Skills</motion.p>
+            </motion.div>
+
+            <motion.div
+                id="skills"
+                className="flex flex-col h-screen w-full justify-center items-center leading-tight -translate-y-5"
+            >
+                <motion.p
+                    className={`absolute ${appleGaramondItalic.className} text-5xl text-[#BA0000] top-1/12`}
+                >Experience</motion.p>
+
+                <AboutMeTimeLine />
             </motion.div>
         </motion.div>
     )

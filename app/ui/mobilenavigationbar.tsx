@@ -7,8 +7,6 @@ import {useId, useMemo} from "react";
 import TransitionLink from "@/utils/transitionlink";
 import GlassSurface from "@/app/ui/glasssurface";
 
-// Tailwind styles assume you have a light background. Adjust to your theme if needed.
-// The glossy black circle moves to the active route using Framer Motion's shared layoutId.
 export function HomeIcon() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
@@ -30,6 +28,7 @@ export function HomeIcon() {
         </svg>
     )
 }
+
 export function AboutIcon() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="21" viewBox="0 0 17 21" fill="none">
@@ -52,6 +51,7 @@ export function AboutIcon() {
         </svg>
     )
 }
+
 export function WorksIcon() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
@@ -76,6 +76,7 @@ export function WorksIcon() {
         </svg>
     )
 }
+
 export function ContactIcon() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -134,6 +135,7 @@ export function Orb() {
                     </linearGradient>
                 </defs>
             </svg>
+
             {/* Inner shadow đen*/}
             <motion.div
                 className="absolute inset-0 rounded-full"
