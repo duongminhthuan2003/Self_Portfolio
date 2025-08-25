@@ -36,7 +36,7 @@ function AboutMe() {
     const [tpPopup, setTpPopup] = useState(false);
 
     return (
-        <motion.div className="scroll-snap overflow-x-hidden">
+        <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
             <motion.div
                 className="flex flex-col h-screen w-full justify-center items-center leading-tight -translate-y-5 "
             >

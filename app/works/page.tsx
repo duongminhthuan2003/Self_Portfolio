@@ -1,7 +1,9 @@
+import WorksCards from "@/app/ui/workscards";
+
 function Works() {
     return (
         <div>
-            Works
+            <WorksCards />
         </div>
     )
 }
