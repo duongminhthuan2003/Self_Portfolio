@@ -229,7 +229,7 @@ function OrbPNG() {
                 stiffness: 480,
                 damping: 28,
                 mass: 0.5,
-                layout: { duration: 0.15 }
+                layout: { duration: 0.2 }
             }}
             className="absolute top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full"
             onLayoutAnimationComplete={() => {

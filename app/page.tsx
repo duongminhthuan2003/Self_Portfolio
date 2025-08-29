@@ -51,7 +51,7 @@ export default function Home() {
 
                   <div className="text-[28px] text-center mx-6 -mb-4">
                       <SplitText
-                          text="I am an interface designer, a web builder, a software developr, and sometimes a photographer."
+                          text="I am an interface designer, a web builder, a software developer, and sometimes a photographer."
                           splitType="words"
                           highlightWords={['designer', 'builder', 'developer', 'photographer']}
                           delay={150}
