@@ -53,7 +53,7 @@ export default function Home() {
                       <SplitText
                           text="I am an interface designer, a web builder, a software developer, and sometimes a photographer."
                           splitType="words"
-                          highlightWords={['designer', 'builder', 'developer', 'photographer']}
+                          highlightWords={['designr', 'builder', 'developer', 'photographer']}
                           delay={150}
                           className="text-2xl"
                       />
