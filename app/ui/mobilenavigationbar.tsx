@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {useId, useMemo} from "react";
 import TransitionLink from "@/utils/transitionlink";
-import GlassSurface from "@/app/ui/glasssurface";
+import Image from "next/image";
+import OrbImage from "../../public/orb.png"
 
 export function HomeIcon() {
     return (
@@ -219,6 +219,41 @@ function Orb() {
     )
 }
 
+function OrbPNG() {
+    return(
+        <motion.div 
+            layoutId="active-orb"
+            initial={false}
+            transition={{
+                type: "spring",
+                stiffness: 480,
+                damping: 28,
+                mass: 0.5,
+                layout: { duration: 0.15 }
+            }}
+            className="absolute top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full"
+            onLayoutAnimationComplete={() => {
+                // Trigger re-render to ensure PNG displays correctly
+                const orbElement = document.querySelector('[data-orb-id]') as HTMLElement;
+                if (orbElement) {
+                    orbElement.style.transform += '';
+                }
+            }}
+            data-orb-id="main-orb"
+        >
+            <Image 
+                src={OrbImage} 
+                alt={"orb"}
+                style={{
+                    filter: "drop-shadow(0 5px 5px rgba(0, 0, 0, 0.25)) drop-shadow(0 40px 35px rgba(0, 0, 0, 0.25)) drop-shadow(0 13px 20px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25))",
+                    willChange: 'transform',
+                    backfaceVisibility: 'hidden',
+                    perspective: 1000
+                }}
+            />
+        </motion.div>
+    )
+}
 const NAV_ITEMS = [
     { href: "/", label: "Home", icon: HomeIcon },
     { href: "/aboutme", label: "About", icon: AboutIcon },
@@ -273,7 +308,7 @@ export default function MobileNavigationBar() {
                                 aria-label={item.label}
                             >
 
-                                {activeIndex === i && <Orb />}
+                                {activeIndex === i && <OrbPNG />}
 
                                 {/* Icon */}
                                 <div className="relative z-20 w-13">
