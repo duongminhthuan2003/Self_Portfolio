@@ -21,14 +21,27 @@ function TransitionLink({ children, href, className, ...props }: TransitionLinkP
 		e.preventDefault();
 
 		const container = document.querySelector(".page-transition-enabled");
+		
+		// Ensure clean state before transition
+		container?.classList.remove("page-transition");
+		
+		// Add transition class
 		container?.classList.add("page-transition");
-		await sleep(400);
+		await sleep(300); // Reduced timing
 
 		router.push(href);
 
-		await sleep(500);
-		container?.classList.remove("page-transition");
+		// Wait for navigation to complete, then clean up
+		await sleep(100);
+		
+		// Force cleanup
+		requestAnimationFrame(() => {
+			container?.classList.remove("page-transition");
+			// Force a repaint
+			(container as HTMLElement)?.offsetHeight;
+		});
 	}
+	
 	return <Link
 		onClick={handleTransiton}
 		href={href} className={className} {...props}>
