@@ -9,7 +9,7 @@ import GlassSurface from "@/app/ui/glasssurface";
 
 export function HomeIcon() {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 19" fill="none">
             <g filter="url(#filter0_i_664_523)">
                 <path d="M17.6 6.3C17.2 5.6 16.6 5.1 15.3 4L13.3 2.4C11.2 0.8 10.2 0 9 0C7.8 0 6.8 0.8 4.7 2.4L2.7 4C1.4 5 0.7 5.5 0.4 6.3C0.1 7.1 0 7.9 0 9.5V12C0 15.3 0 16.9 1 18C1.9 18.9 3.3 19 6 19V14C6 12.6 6 11.9 6.4 11.4C6.8 11 7.5 11 9 11C10.5 11 11.1 11 11.6 11.4C12 11.8 12 12.5 12 14V19C14.6 19 16.1 18.9 17 18C18 17 18 15.3 18 12V9.5C18 7.8 18 7 17.6 6.3Z" fill="#B4B4B4"/>
             </g>
@@ -31,7 +31,7 @@ export function HomeIcon() {
 
 export function AboutIcon() {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="21" viewBox="0 0 17 21" fill="none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="20" viewBox="0 0 17 21" fill="none">
             <g filter="url(#filter0_i_668_529)">
                 <path d="M14.3152 6.23681C14.3152 3.02484 11.7113 0.421021 8.49938 0.421021C5.28742 0.421021 2.68359 3.02484 2.68359 6.23681C2.68359 9.44875 5.28742 12.0526 8.49938 12.0526C11.7113 12.0526 14.3152 9.44875 14.3152 6.23681Z" fill="#B4B4B4"/>
                 <path d="M17 21C17 16.0585 13.1944 12.0526 8.5 12.0526C3.80558 12.0526 0 16.0585 0 21" fill="#B4B4B4"/>
