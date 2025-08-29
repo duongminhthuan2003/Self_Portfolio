@@ -171,11 +171,19 @@ export default function MobileNavigationBar() {
     const pathname = usePathname();
 
     const activeIndex = useMemo(() => {
-        const exact = NAV_ITEMS.findIndex((i) => i.href === pathname);
-        if (exact !== -1) return exact;
+        if (!pathname) return 0;
 
-        const byPrefix = NAV_ITEMS.findIndex((i) => pathname?.startsWith(i.href));
-        return Math.max(byPrefix, 0);
+        const exactIndex = NAV_ITEMS.findIndex((i) => i.href === pathname);
+        if (exactIndex !== -1) return exactIndex;
+
+        const matches = NAV_ITEMS
+            .map((item, index) => ({ index, href: item.href }))
+            .filter(({ href }) => href !== "/" && pathname.startsWith(href))
+            .sort((a, b) => b.href.length - a.href.length);
+
+        if (matches.length > 0) return matches[0].index;
+
+        return 0;
     }, [pathname]);
 
     return (
