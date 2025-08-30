@@ -24,7 +24,7 @@ export default function Home() {
               key="home-page"
           >
               <motion.div
-                  className={`${appleGaramond.className} flex flex-col items-center gap-6 h-full justify-center -translate-y-10`}
+                  className={`${appleGaramond.className} flex flex-col items-center gap-6 h-full justify-center -translate-y-6`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, ease: "easeInOut", delay: 0.1 }}
