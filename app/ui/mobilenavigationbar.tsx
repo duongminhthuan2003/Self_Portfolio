@@ -221,7 +221,7 @@ function Orb() {
 
 function OrbPNG() {
     return(
-        <motion.div 
+        <motion.div
             layoutId="active-orb"
             initial={false}
             transition={{
@@ -241,8 +241,8 @@ function OrbPNG() {
             }}
             data-orb-id="main-orb"
         >
-            <Image 
-                src={OrbImage} 
+            <Image
+                src={OrbImage}
                 alt={"orb"}
                 style={{
                     filter: "drop-shadow(0 5px 5px rgba(0, 0, 0, 0.25)) drop-shadow(0 40px 35px rgba(0, 0, 0, 0.25)) drop-shadow(0 13px 20px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25))",
@@ -281,7 +281,7 @@ export default function MobileNavigationBar() {
     }, [pathname]);
 
     return (
-        <nav className="fixed bottom-10 left-1/2 -translate-x-1/2 select-none">
+        <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 select-none">
             {/* Pill background */}
             <div
                 className="relative backgroundblur mx-auto h-[50px] w-fit rounded-full ring-1 ring-black/5"

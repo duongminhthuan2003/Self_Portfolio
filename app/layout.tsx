@@ -37,9 +37,11 @@ export default function RootLayout({
         <div className="page-transition-enabled">
             {children}
         </div>
-        <div className="absolute bottom-0">
+
+        <div className="absolute">
           <MobileNavigationBar />
         </div>
+
         <div className="fixed inset-0 -z-10 background">  {/* lớp nền toàn màn hình, nằm sau nội dung */}
         </div>
       </body>

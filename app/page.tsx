@@ -16,7 +16,7 @@ export default function Home() {
 
     return (
           <motion.div
-              className={`antialiased h-screen`}
+              className={`antialiased min-h-[100dvh] flex items-center justify-center w-full`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -24,7 +24,7 @@ export default function Home() {
               key="home-page"
           >
               <motion.div
-                  className={`${appleGaramond.className} flex flex-col items-center gap-6 h-full justify-center -translate-y-8`}
+                  className={`${appleGaramond.className} flex flex-col items-center gap-6 h-full justify-center -translate-y-10`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, ease: "easeInOut", delay: 0.1 }}
@@ -50,7 +50,7 @@ export default function Home() {
 
                   <div className="text-[28px] text-center mx-6 -mb-4">
                       <SplitText
-                          text="I am an interface designer, a eb builder, a software developer, and sometimes a photographer."
+                          text="I am an interface designer, a web builder, a software developer, and sometimes a photographer."
                           splitType="words"
                           highlightWords={['designer', 'builder', 'developer', 'photographer']}
                           delay={150}
