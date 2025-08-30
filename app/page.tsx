@@ -1,8 +1,7 @@
 "use client";
 
 import AppleGaramond from 'next/font/local';
-import AppleGaramondItalic from 'next/font/local';
-import {AnimatePresence, motion} from "motion/react"
+import { motion} from "motion/react"
 import Button from "@/app/ui/button";
 import Image from "next/image";
 import SplitText from "./splittext";
@@ -17,7 +16,7 @@ export default function Home() {
 
     return (
           <motion.div
-              className={`antialiased h-screen`}
+              className={`antialiased min-h-[100dvh]`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -51,7 +50,7 @@ export default function Home() {
 
                   <div className="text-[28px] text-center mx-6 -mb-4">
                       <SplitText
-                          text="I am an interface designer, a web builder, a software developer, and sometimes a photographer."
+                          text="I am an interface designer, web builder, a software developer, and sometimes a photographer."
                           splitType="words"
                           highlightWords={['designer', 'builder', 'developer', 'photographer']}
                           delay={150}
