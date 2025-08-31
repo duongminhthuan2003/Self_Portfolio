@@ -25,14 +25,14 @@ function Works() {
             <motion.p
                 className={`absolute ${appleGaramondItalic.className} text-5xl text-[#BA0000] top-1/12 left-1/2 -translate-x-1/2`}
             >
-                Works
+                Work
             </motion.p>
 
             <WorksCards
                 icon={MobileAppIcon}
                 title={"Mobile Software Engineer"}
                 className="absolute left-1/2 -translate-x-[180px] -translate-y-5"
-                flipClassName="absolute -translate-x-1/2 left-1/2"
+                flipClassName="absolute -translate-x-1/2 -translate-y-10  left-1/2"
                 rotate={4}
                 isDimmed={activeIdx !== null && activeIdx !== 0}
                 onToggle={() =>
@@ -48,7 +48,7 @@ function Works() {
                 icon={WebDevIcon}
                 title={"Front-end Web Developer"}
                 className="absolute left-1/2 -translate-x-[90px] -translate-y-12 z-10"
-                flipClassName="absolute -translate-x-1/2 left-1/2 z-30"
+                flipClassName="absolute -translate-x-1/2 -translate-y-10 left-1/2 z-30"
                 rotate={0}
                 isDimmed={activeIdx !== null && activeIdx !== 1}
                 onToggle={() =>
@@ -64,7 +64,7 @@ function Works() {
                 icon={MultimediaIcon}
                 title={"Multimedia Producer"}
                 className="absolute left-1/2 -translate-x-[10px]"
-                flipClassName="absolute -translate-x-1/2 left-1/2 z-20"
+                flipClassName="absolute -translate-x-1/2 -translate-y-10 left-1/2 z-20"
                 rotate={-10}
                 isDimmed={activeIdx !== null && activeIdx !== 2}
                 onToggle={() =>
