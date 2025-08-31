@@ -66,7 +66,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                 transition={{ duration: 0.3, type: "spring", delay: 0.1 }}
             >
                 <p className={`${sfProDisplayMedium.className} text-lg`}>Tan Phu High School</p>
-                <p className={`${sfProDisplayLight.className}`}>Aug &#39;18 - May &#39;21</p>
+                <p className={`${sfProDisplayLight.className}`}>Aug &#39;18 - May &#39;2</p>
                 <div className="flex-1"></div>
                 <p className={`${sfProDisplayLight.className}`}>GPA:8.5/10</p>
                 <Image src={TPsticker} alt={"TPSticker"} className="absolute w-36 -right-8 -top-4"/>
