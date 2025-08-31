@@ -12,16 +12,16 @@ const appleGaramondItalic = AppleGaramondItalic({
 
 function FrontendWebDev() {
     return (
-        <div className="flex flex-col overflow-x-hidden">
-            <div>
+        <div className="h-screen flex flex-col overflow-x-hidden">
+            <div className="flex-shrink-0">
                 <motion.p
-                    className={`absolute ${appleGaramondItalic.className} text-4xl text-[#BA0000] top-1/12 w-full text-center`}
+                    className={`${appleGaramondItalic.className} text-4xl text-[#BA0000] pt-16 pb-8 w-full text-center`}
                 >
                     Front-end Web Developer
                 </motion.p>
             </div>
 
-            <div className="mt-40">
+            <div className="my-auto -translate-y-10">
                 <SwiperCoverflow />
             </div>
         </div>
