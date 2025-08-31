@@ -59,7 +59,7 @@ export default function SwiperCoverflow() {
                 centeredSlides={true}
                 watchSlidesProgress={true}
                 spaceBetween={12}
-                style={{ height: "400px" }}
+                className="h-[300px] md:h-[400px]"
                 onInit={(swiper) => setActive(swiper.realIndex)}
                 onSlideChange={(swiper) => setActive(swiper.realIndex)}
             >

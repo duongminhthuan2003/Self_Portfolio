@@ -25,13 +25,13 @@ function Works() {
             <motion.p
                 className={`absolute ${appleGaramondItalic.className} text-5xl text-[#BA0000] top-1/12 left-1/2 -translate-x-1/2`}
             >
-                Skills
+                Works
             </motion.p>
 
             <WorksCards
                 icon={MobileAppIcon}
                 title={"Mobile Software Engineer"}
-                className="absolute left-1/2 -translate-x-[180px] translate-y-3"
+                className="absolute left-1/2 -translate-x-[180px] -translate-y-5"
                 flipClassName="absolute -translate-x-1/2 left-1/2"
                 rotate={4}
                 isDimmed={activeIdx !== null && activeIdx !== 0}
@@ -47,7 +47,7 @@ function Works() {
             <WorksCards
                 icon={WebDevIcon}
                 title={"Front-end Web Developer"}
-                className="absolute left-1/2 -translate-x-[90px] -translate-y-4 z-10"
+                className="absolute left-1/2 -translate-x-[90px] -translate-y-12 z-10"
                 flipClassName="absolute -translate-x-1/2 left-1/2 z-30"
                 rotate={0}
                 isDimmed={activeIdx !== null && activeIdx !== 1}
@@ -63,7 +63,7 @@ function Works() {
             <WorksCards
                 icon={MultimediaIcon}
                 title={"Multimedia Producer"}
-                className="absolute left-1/2 -translate-x-[10px] translate-y-8"
+                className="absolute left-1/2 -translate-x-[10px]"
                 flipClassName="absolute -translate-x-1/2 left-1/2 z-20"
                 rotate={-10}
                 isDimmed={activeIdx !== null && activeIdx !== 2}
