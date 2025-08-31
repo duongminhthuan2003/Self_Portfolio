@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
-import TP1 from "../../../public/images/education_TP/1.jpg"
-import TP2 from "../../../public/images/education_TP/2.jpg"
-import TP3 from "../../../public/images/education_TP/3.jpg"
-import TP4 from "../../../public/images/education_TP/4.jpg"
+import TP1 from "../../../public/images/education_TP/1.webp"
+import TP2 from "../../../public/images/education_TP/2.webp"
+import TP3 from "../../../public/images/education_TP/3.webp"
+import TP4 from "../../../public/images/education_TP/4.webp"
 import TPsticker from "../../../public/images/education_TP/tp_sticker.png"
 import Image from "next/image";
 import SFProDisplayLight from "next/font/local";
@@ -34,7 +34,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.5 }}
-                className="absolute w-4/12 aspect-square 8 left-8 top-8"
+                className="absolute w-5/12 aspect-square 8 left-8 top-8"
                 style={{
                     filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2))",
                 }}
@@ -47,13 +47,13 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.5 }}
-                className="absolute w-4/12 aspect-square left-36 top-24"
+                className="absolute w-5/12 aspect-square right-8 top-24"
                 style={{
                     filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2))",
                 }}
                 transition={{ duration: 0.3, type: "spring", delay: 0.05 }}
             >
-                <Image src={TP2} alt={"Image 1"} className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 top-1/2 -translate-1/2  border-3 border-gray-200"/>
+                <Image src={TP2} alt={"Image 1"} className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 top-1/2 -translate-1/2  ring-2 ring-gray-100"/>
             </motion.div>
 
             {/*content*/}
@@ -76,20 +76,20 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.5 }}
-                className="absolute w-3/12 aspect-square right-8 bottom-72"
+                className="absolute w-4/12 aspect-square right-8 bottom-72"
                 style={{
                     filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2))",
                 }}
                 transition={{ duration: 0.3, type: "spring", delay: 0.15 }}
             >
-                <Image src={TP3} alt={"Image 3"} className="absolute z-[80] rounded-2xl w-full aspect-square right-6 object-cover top-1/2 -translate-y-6 ring-3 ring-gray-100"/>
+                <Image src={TP3} alt={"Image 3"} className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 object-cover top-1/2 -translate-1/2  ring-3 ring-gray-100"/>
             </motion.div>
 
             <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.5 }}
-                className="absolute w-7/12 left-8 bottom-64"
+                className="absolute w-9/12 left-8 bottom-64"
                 style={{
                     filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2))",
                 }}
@@ -100,7 +100,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
 
             <motion.button
                 onClick={onClose}
-                className="absolute left-1/2 -translate-x-1/2 bottom-28 w-[50px] h-[50px] bg-white drop-shadow-xl flex items-center justify-center rounded-full ring-1 ring-gray-200 -translate-y-8"
+                className="absolute left-1/2 -translate-x-1/2 bottom-28 w-[50px] h-[50px] bg-white drop-shadow-xl flex items-center justify-center rounded-full ring-1 ring-gray-200"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <g filter="url(#filter0_i_612_1837)">
