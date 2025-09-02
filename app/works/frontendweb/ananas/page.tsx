@@ -69,7 +69,7 @@ export default function Ananas() {
 
             <div className="flex flex-1 flex-col gap-2">
                 <motion.div
-                    className="h-16 max-h-[300px] bg-white/30 rounded-xl border-gray-200 border-2"
+                    className="h-18 max-h-[300px] bg-white/30 rounded-xl border-gray-200 border-2"
                     style={{
                         boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
                         backdropFilter: "blur(4px)",
@@ -93,7 +93,7 @@ export default function Ananas() {
                     <Image src={ananas2} alt="Ananas 2" className="object-cover scale-80 mx-auto" />
                 </motion.div>
 
-                <div className="flex-1 flex flex-row gap-2">
+                <div className="h-fit flex flex-row gap-2">
                     <motion.div
                         className="flex-3 bg-white/30 rounded-xl border-gray-200 border-2 h-10/12"
                         style={{
@@ -123,7 +123,7 @@ export default function Ananas() {
                 </div>
 
                 <motion.div
-                    className="flex-1 bg-white/30 rounded-xl border-gray-200 border-2 px-4 h-full flex flex-col -mt-5"
+                    className="h-fit bg-white/30 rounded-xl border-gray-200 border-2 px-4 flex flex-col -mt-5"
                     style={{
                         boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
                         backdropFilter: "blur(4px)",
@@ -136,7 +136,6 @@ export default function Ananas() {
                         A React Native app connecting to an ESP32-based  smart watch, built for my Logic Design
                         Project course. I handled  the entire app development, from UI/UX design to coding.
                     </p>
-                    <div className="flex-1"></div>
                     <p className=" text-[13px] mb-3">
                         <span className={`${sfProDisplayMedium.className}`}>Tech stack: </span><span className={`${sfProDisplayLight.className}`}>React Native, Firebase, Figma</span>
                     </p>
