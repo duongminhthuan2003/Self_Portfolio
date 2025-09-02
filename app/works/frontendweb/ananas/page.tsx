@@ -59,7 +59,7 @@ export default function Ananas() {
 
                 <div className={`${sfProDisplayLight.className} flex text-sm flex-col items-end w-full`}>
                     <p>
-                        Mobil Software
+                        Mobile Software
                     </p>
                     <p className={`${appleGaramond.className} text-2xl -mt-2 text-[#BA0000]`}>
                         zeno
@@ -69,7 +69,7 @@ export default function Ananas() {
 
             <div className="flex flex-1 flex-col gap-2">
                 <motion.div
-                    className="flex-1 bg-white/30 rounded-xl border-gray-200 border-2"
+                    className="h-16 max-h-[300px] bg-white/30 rounded-xl border-gray-200 border-2"
                     style={{
                         boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
                         backdropFilter: "blur(4px)",
