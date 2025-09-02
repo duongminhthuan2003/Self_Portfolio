@@ -59,7 +59,7 @@ export default function Ananas() {
 
                 <div className={`${sfProDisplayLight.className} flex text-sm flex-col items-end w-full`}>
                     <p>
-                        Mobile Software
+                        Mobil Software
                     </p>
                     <p className={`${appleGaramond.className} text-2xl -mt-2 text-[#BA0000]`}>
                         zeno
@@ -77,11 +77,11 @@ export default function Ananas() {
                     initial={{opacity:0, y:20}}
                     animate={{opacity:1, y:0}}
                 >
-                    <Image src={ananas1} alt="Ananas 1" className="object-cover h-18 object-bottom w-10/12 mx-auto" />
+                    <Image src={ananas1} alt="Ananas 1" className="object-cover h-16 object-bottom w-10/12 mx-auto" />
                 </motion.div>
 
                 <motion.div
-                    className="bg-white/30 rounded-xl border-gray-200 border-2 h-[120px] flex"
+                    className="bg-white/30 rounded-xl border-gray-200 border-2 max-h-[300px] flex"
                     style={{
                         boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
                         backdropFilter: "blur(4px)",
