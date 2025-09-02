@@ -25,7 +25,7 @@ function Works() {
             <motion.p
                 className={`absolute ${appleGaramondItalic.className} text-5xl text-[#BA0000] top-1/12 left-1/2 -translate-x-1/2`}
             >
-                Work
+                Works
             </motion.p>
 
             <WorksCards

@@ -9,17 +9,20 @@ import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import SFProDisplayLight from "next/font/local";
 import SFProDisplayMedium from "next/font/local";
+import {useRouter} from "next/navigation";
 
 const slides = [
     {
-        img: "/images/projects/ananas/thumbnail.png",
+        img: "/images/projects/ananas/thumbnail.webp",
         title: "Ananas Project",
         desc: "A creative showcase of the Ananas sneaker line.",
+        navigate: "/works/frontendweb/ananas",
     },
     {
         img: "https://swiperjs.com/demos/images/nature-2.jpg",
         title: "Nature Escape",
         desc: "Explore breathtaking views from our outdoor collection.",
+        navigate: "/works/frontendweb/ananas",
     },
 ];
 
@@ -38,6 +41,8 @@ const sfProDisplayMedium = SFProDisplayMedium({
 
 
 export default function SwiperCoverflow() {
+    const myRouter = useRouter();
+
     const [active, setActive] = useState(0);
     return (
         <div>
@@ -72,6 +77,9 @@ export default function SwiperCoverflow() {
                             backgroundPosition: "center",
                             borderRadius: "5px"
                         }}
+                        onClick={
+                            () => {myRouter.push(s.navigate)}
+                        }
                     />
                 ))}
             </Swiper>
@@ -90,18 +98,18 @@ export default function SwiperCoverflow() {
                 >
                     <motion.p
                         className={`${sfProDisplayMedium.className} text-xl`}
-                        initial={{y: 20, opacity: 0}}
-                        animate={{y: 0, opacity: 1}}
-                        transition={{ duration: 0.25, type: "tween" }}
+                        initial={{y: 20}}
+                        animate={{y: 0}}
+                        transition={{ duration: 0.3, type: "tween" }}
                     >
                         {slides[active].title}
                     </motion.p>
 
                     <motion.p
                         className={`${sfProDisplayLight.className}`}
-                        initial={{y: 15, opacity: 0}}
-                        animate={{y: 0, opacity: 1}}
-                        transition={{ duration: 0.25, delay: 0.1, type: "tween"  }}
+                        initial={{y: 20}}
+                        animate={{y: 0}}
+                        transition={{ duration: 0.3, delay: 0.1, type: "tween"  }}
                     >
                         {slides[active].desc}
                     </motion.p>

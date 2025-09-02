@@ -2,12 +2,6 @@ import { motion } from "motion/react";
 import SFMono from 'next/font/local';
 import SFMonoSemibold from 'next/font/local';
 
-const sfMono = SFMono({
-    weight: "400",
-    src: "../../public/fonts/SFMono-Regular.otf",
-    variable: "--SFMono-Regular",
-});
-
 const sfMonoSemibold = SFMonoSemibold({
     weight: "600",
     src: "../../public/fonts/SFMono-Semibold.otf",
