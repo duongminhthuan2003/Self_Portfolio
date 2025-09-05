@@ -61,7 +61,7 @@ export default function Ananas() {
                     <p>
                         Mobile Software
                     </p>
-                    <p className={`${appleGaramond.className} text-2xl -mt-2 text-[#BA0000]`}>
+                    <p className={`${appleGaramond.className} text-3xl -mt-2 text-[#BA0000]`}>
                         zeno
                     </p>
                 </div>
@@ -69,7 +69,7 @@ export default function Ananas() {
 
             <div className="flex flex-1 flex-col gap-2">
                 <motion.div
-                    className="h-18 max-h-[300px] bg-white/30 rounded-xl border-gray-200 border-2"
+                    className="h-18 max-h-[300px] bg-white/30 rounded-xl border-gray-200 border-1"
                     style={{
                         boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
                         backdropFilter: "blur(4px)",
@@ -81,7 +81,7 @@ export default function Ananas() {
                 </motion.div>
 
                 <motion.div
-                    className="bg-white/30 rounded-xl border-gray-200 border-2 max-h-[300px] flex"
+                    className="bg-white/30 rounded-xl border-gray-200 border-1 max-h-[300px] flex"
                     style={{
                         boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
                         backdropFilter: "blur(4px)",
@@ -90,12 +90,12 @@ export default function Ananas() {
                     animate={{opacity:1, y:0}}
                     transition={{delay: 0.1}}
                 >
-                    <Image src={ananas2} alt="Ananas 2" className="object-cover scale-80 mx-auto" />
+                    <Image src={ananas2} alt="Ananas 2" className="object-cover scale-95 mx-auto" />
                 </motion.div>
 
                 <div className="h-fit flex flex-row gap-2">
                     <motion.div
-                        className="flex-3 bg-white/30 rounded-xl border-gray-200 border-2 h-10/12"
+                        className="flex-3 bg-white/30 rounded-xl border-gray-200 border-1 h-10/12"
                         style={{
                             boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
                             backdropFilter: "blur(4px)",
@@ -108,7 +108,7 @@ export default function Ananas() {
                     </motion.div>
 
                     <motion.div
-                        className="flex-2 bg-white/30 rounded-xl border-gray-200 border-2 h-10/12"
+                        className="flex-2 bg-white/30 rounded-xl border-gray-200 border-1 h-10/12"
                         style={{
                             boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
                             backdropFilter: "blur(4px)",
@@ -123,7 +123,7 @@ export default function Ananas() {
                 </div>
 
                 <motion.div
-                    className="h-fit bg-white/30 rounded-xl border-gray-200 border-2 px-4 flex flex-col -mt-5"
+                    className="h-fit bg-white/30 rounded-xl border-gray-200 border-1 px-4 flex flex-col -mt-5"
                     style={{
                         boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
                         backdropFilter: "blur(4px)",
@@ -132,11 +132,11 @@ export default function Ananas() {
                     animate={{opacity:1, y:0}}
                     transition={{delay: 0.4}}
                 >
-                    <p className={`${sfProDisplayLight.className} flex flex-col items-end w-full text-[13px] mt-3`}>
+                    <p className={`${sfProDisplayLight.className} flex flex-col items-end w-full text-sm mt-3`}>
                         A React Native app connecting to an ESP32-based  smart watch, built for my Logic Design
                         Project course. I handled  the entire app development, from UI/UX design to coding.
                     </p>
-                    <p className=" text-[13px] mb-3">
+                    <p className=" text-sm mb-3">
                         <span className={`${sfProDisplayMedium.className}`}>Tech stack: </span><span className={`${sfProDisplayLight.className}`}>React Native, Firebase, Figma</span>
                     </p>
                 </motion.div>

@@ -14,7 +14,7 @@ const DURATION = 0.25;
 function Button() {
     return (
         <motion.div
-            className={`${sfMonoSemibold.className} relative py-2 px-5 bg-black text-white rounded-full w-fit`}
+            className={`${sfMonoSemibold.className} relative py-3 px-6 bg-black text-white rounded-full w-fit`}
             initial="rest"
             whileHover="hover"
             whileTap="tap"
