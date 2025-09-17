@@ -1,8 +1,9 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import {useId, useMemo} from "react";
+import {useId, useMemo, useEffect} from "react";
+import { usePathname, useRouter } from "next/navigation";
+
 import TransitionLink from "@/utils/transitionlink";
 import Image from "next/image";
 import OrbImage from "../../public/orb.png"
@@ -267,6 +268,11 @@ const NAV_ITEMS = [
 
 export default function MobileNavigationBar() {
     const pathname = usePathname();
+    const router = useRouter();
+    useEffect(() => {
+    // Warm the heavy pages so the orb animation isn’t blocked on hydration
+        ["/aboutme", "/works", "/contact"].forEach((route) => router.prefetch(route));
+    }, [router]);
 
     const activeIndex = useMemo(() => {
         if (!pathname) return 0;
