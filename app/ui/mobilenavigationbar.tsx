@@ -226,29 +226,33 @@ function OrbPNG() {
             initial={false}
             transition={{
                 type: "spring",
-                stiffness: 480,
-                damping: 28,
-                mass: 0.5,
-                layout: { duration: 0.2 }
-            }}
-            className="absolute top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full"
-            onLayoutAnimationComplete={() => {
-                // Trigger re-render to ensure PNG displays correctly
-                const orbElement = document.querySelector('[data-orb-id]') as HTMLElement;
-                if (orbElement) {
-                    orbElement.style.transform += '';
+                stiffness: 600, // Increased for snappier animation
+                damping: 35,    // Increased damping for less oscillation
+                mass: 0.4,      // Reduced mass for faster response
+                layout: { 
+                    duration: 0.15, // Reduced duration for faster animation
+                    ease: "easeOut" // Better easing for performance
                 }
             }}
+            className="absolute top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full"
+            style={{
+                // Add GPU acceleration hints
+                willChange: 'transform',
+                backfaceVisibility: 'hidden',
+                transform: 'translateZ(0)', // Force hardware acceleration
+            }}
+            // Remove the expensive onLayoutAnimationComplete callback
             data-orb-id="main-orb"
         >
             <Image
                 src={OrbImage}
                 alt={"orb"}
+                priority // Ensure orb image loads fast
                 style={{
                     filter: "drop-shadow(0 5px 5px rgba(0, 0, 0, 0.25)) drop-shadow(0 40px 35px rgba(0, 0, 0, 0.25)) drop-shadow(0 13px 20px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25))",
                     willChange: 'transform',
                     backfaceVisibility: 'hidden',
-                    perspective: 1000
+                    transform: 'translateZ(0)', // Force hardware acceleration
                 }}
             />
         </motion.div>
