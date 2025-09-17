@@ -1,4 +1,10 @@
 import { motion } from "framer-motion";
+
+import TP1 from "../../../public/images/education_TP/1.webp"
+import TP2 from "../../../public/images/education_TP/2.webp"
+import TP3 from "../../../public/images/education_TP/3.webp"
+import TP4 from "../../../public/images/education_TP/4.webp"
+import TPsticker from "../../../public/images/education_TP/tp_sticker.png"
 import Image from "next/image";
 import SFProDisplayLight from "next/font/local";
 import SFProDisplayMedium from "next/font/local";
@@ -18,124 +24,14 @@ const sfProDisplayMedium = SFProDisplayMedium({
 function TPPopup({ onClose }: { onClose: () => void }) {
     return(
         <motion.div
-            className="fixed inset-0 z-[70] bg-white/20 backdrop-blur-sm overflow-x-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            className="absolute top-0 left-0 w-full h-full bg-white/50 z-[70] backdrop-blur-lg"
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{ease: "easeInOut", duration: 0.2}}
         >
-            <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                className="absolute w-5/12 aspect-square left-8 top-8"
-                style={{
-                    filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2))",
-                }}
-                transition={{ duration: 0.3, type: "spring" }}
-            >
-                <Image 
-                    src="/images/education_TP/1.jpg" 
-                    alt="Tan Phu High School Image 1" 
-                    width={500}
-                    height={500}
-                    className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ring-3 ring-gray-100 object-cover"
-                    priority
-                />
-            </motion.div>
-
-            <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                className="absolute w-5/12 aspect-square right-8 top-24"
-                style={{
-                    filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2))",
-                }}
-                transition={{ duration: 0.3, type: "spring", delay: 0.05 }}
-            >
-                <Image 
-                    src="/images/education_TP/2.jpg" 
-                    alt="Tan Phu High School Image 2" 
-                    width={500}
-                    height={500}
-                    className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ring-2 ring-gray-100 object-cover"
-                    priority
-                />
-            </motion.div>
-
-            {/*content*/}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                className="absolute left-1/2 -translate-x-1/2 top-1/3 w-10/12 h-32 bg-white rounded-2xl ring-3 ring-gray-100 p-5 flex flex-col"
-                style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.2))" }}
-                transition={{ duration: 0.3, type: "spring", delay: 0.1 }}
-            >
-                <p className={`${sfProDisplayMedium.className} text-lg`}>Tan Phu High School</p>
-                <p className={`${sfProDisplayLight.className}`}>Aug &#39;18 - May &#39;2</p>
-                <div className="flex-1"></div>
-                <p className={`${sfProDisplayLight.className}`}>GPA:8.5/10</p>
-                <Image 
-                    src="/images/education_TP/tp_sticker.png" 
-                    alt="TP Sticker" 
-                    width={144}
-                    height={144}
-                    className="absolute w-36 -right-8 -top-4"
-                />
-            </motion.div>
-
-            <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                className="absolute w-4/12 aspect-square right-8 bottom-72"
-                style={{
-                    filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2))",
-                }}
-                transition={{ duration: 0.3, type: "spring", delay: 0.15 }}
-            >
-                <Image 
-                    src="/images/education_TP/3.jpg" 
-                    alt="Tan Phu High School Image 3" 
-                    width={500}
-                    height={500}
-                    className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 object-cover top-1/2 -translate-x-1/2 -translate-y-1/2 ring-3 ring-gray-100"
-                />
-            </motion.div>
-
-            <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                className="absolute w-9/12 left-8 bottom-64"
-                style={{
-                    filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2))",
-                }}
-                transition={{ duration: 0.3, type: "spring", delay: 0.2 }}
-            >
-                <Image 
-                    src="/images/education_TP/4.jpg" 
-                    alt="Tan Phu High School Image 4" 
-                    width={800}
-                    height={450}
-                    className="absolute z-[80] rounded-2xl w-full aspect-video left-1/2 object-cover top-1/2 -translate-x-1/2 -translate-y-1/2 ring-3 ring-gray-100"
-                />
-            </motion.div>
-
-            <motion.button
-                onClick={onClose}
-                className="absolute left-1/2 -translate-x-1/2 bottom-28 w-[50px] h-[50px] bg-white drop-shadow-xl flex items-center justify-center rounded-full ring-1 ring-gray-200"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <g filter="url(#filter0_i_612_1837)">
-                        <path d="M15 1L1.00095 14.9991M14.9991 15L1 1.00099" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </g>
-                </svg>
-            </motion.button>
+            test
+            <button onClick={onClose}>close</button>
         </motion.div>
     )
 }
