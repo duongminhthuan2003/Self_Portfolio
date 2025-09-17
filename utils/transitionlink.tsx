@@ -1,8 +1,9 @@
 "use client"
 
-import React from "react";
+import React, {startTransition} from "react";
 import Link, {LinkProps} from "next/link";
 import {useRouter} from "next/navigation";
+import { start } from "repl";
 
 interface TransitionLinkProps extends LinkProps {
 	children: React.ReactNode;
@@ -29,7 +30,9 @@ function TransitionLink({ children, href, className, ...props }: TransitionLinkP
 		container?.classList.add("page-transition");
 		await sleep(300); // Reduced timing
 
-		router.push(href);
+		startTransition(() => {
+			router.push(href);
+		});
 
 		// Wait for navigation to complete, then clean up
 		await sleep(100);
