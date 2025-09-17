@@ -21,25 +21,78 @@ import {AnimatePresence} from "motion/react";
 import AboutMeTimeLine from "@/app/ui/aboutmetimeline";
 
 const sfProDisplayLight = SFProDisplayLight({
-    weight:"200",
     src: "../../public/fonts/SFProDisplay-Light.otf",
     variable: "--SFProDisplayLight",
-    display: 'swap', // Add font display swap for better performance
 })
 
 const appleGaramondItalic = AppleGaramondItalic({
-    weight:"400",
     src: "../../public/fonts/AppleGaramond-Italic.ttf",
     variable: "--AppleGaramondItalic",
-    display: 'swap', // Add font display swap for better performance
 })
 
 function AboutMe() {
     const [tpPopup, setTpPopup] = useState(false);
 
     return (
-        <motion.div>
-            test
+        <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
+            <div className="h-screen w-full">
+                <p>test</p>
+            </div>
+
+            <div className="h-screen w-full">
+                <p className="mt-5">Education</p>
+                <AboutMeFolder
+                    images={[
+                        {src: "edu-tp-1", alt: "test"},
+                        {src: "edu-tp-2", alt: "test"},
+                        {src: "edu-tp-3", alt: "test"}
+                    ]}
+                    title={"Tan Phu High School"}
+                />
+
+                <AboutMeFolder
+                    images={[
+                        {src: "edu-tp-1", alt: "test"},
+                        {src: "edu-tp-2", alt: "test"},
+                        {src: "edu-tp-3", alt: "test"}
+                    ]}
+                    title={"Tan Phu High School"}
+                />
+            </div>
+
+            <div className="h-screen w-full">
+                <p className="mt-5">Skills</p>
+                <AboutMeFolder
+                    images={[
+                        {src: "edu-tp-1", alt: "test"},
+                        {src: "edu-tp-2", alt: "test"},
+                        {src: "edu-tp-3", alt: "test"}
+                    ]}
+                    title={"Tan Phu High School"}
+                />
+
+                <AboutMeFolder
+                    images={[
+                        {src: "edu-tp-1", alt: "test"},
+                        {src: "edu-tp-2", alt: "test"},
+                        {src: "edu-tp-3", alt: "test"}
+                    ]}
+                    title={"Tan Phu High School"}
+                />
+
+                <AboutMeFolder
+                    images={[
+                        {src: "edu-tp-1", alt: "test"},
+                        {src: "edu-tp-2", alt: "test"},
+                        {src: "edu-tp-3", alt: "test"}
+                    ]}
+                    title={"Tan Phu High School"}
+                />
+            </div>
+
+            <div className="h-screen w-full">
+                <AboutMeTimeLine />
+            </div>
         </motion.div>
     )
 }
