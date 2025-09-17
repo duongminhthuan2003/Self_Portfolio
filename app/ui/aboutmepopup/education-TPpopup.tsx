@@ -1,10 +1,4 @@
 import { motion } from "framer-motion";
-
-import TP1 from "../../../public/images/education_TP/1.webp"
-import TP2 from "../../../public/images/education_TP/2.webp"
-import TP3 from "../../../public/images/education_TP/3.webp"
-import TP4 from "../../../public/images/education_TP/4.webp"
-import TPsticker from "../../../public/images/education_TP/tp_sticker.png"
 import Image from "next/image";
 import SFProDisplayLight from "next/font/local";
 import SFProDisplayMedium from "next/font/local";
@@ -34,13 +28,20 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.5 }}
-                className="absolute w-5/12 aspect-square 8 left-8 top-8"
+                className="absolute w-5/12 aspect-square left-8 top-8"
                 style={{
                     filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2))",
                 }}
                 transition={{ duration: 0.3, type: "spring" }}
             >
-                <Image src={TP1} alt={"Image 1"} className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 top-1/2 -translate-1/2 ring-3 ring-gray-100"/>
+                <Image 
+                    src="/images/education_TP/1.jpg" 
+                    alt="Tan Phu High School Image 1" 
+                    width={500}
+                    height={500}
+                    className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ring-3 ring-gray-100 object-cover"
+                    priority
+                />
             </motion.div>
 
             <motion.div
@@ -53,7 +54,14 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                 }}
                 transition={{ duration: 0.3, type: "spring", delay: 0.05 }}
             >
-                <Image src={TP2} alt={"Image 1"} className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 top-1/2 -translate-1/2  ring-2 ring-gray-100"/>
+                <Image 
+                    src="/images/education_TP/2.jpg" 
+                    alt="Tan Phu High School Image 2" 
+                    width={500}
+                    height={500}
+                    className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ring-2 ring-gray-100 object-cover"
+                    priority
+                />
             </motion.div>
 
             {/*content*/}
@@ -69,7 +77,13 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                 <p className={`${sfProDisplayLight.className}`}>Aug &#39;18 - May &#39;2</p>
                 <div className="flex-1"></div>
                 <p className={`${sfProDisplayLight.className}`}>GPA:8.5/10</p>
-                <Image src={TPsticker} alt={"TPSticker"} className="absolute w-36 -right-8 -top-4"/>
+                <Image 
+                    src="/images/education_TP/tp_sticker.png" 
+                    alt="TP Sticker" 
+                    width={144}
+                    height={144}
+                    className="absolute w-36 -right-8 -top-4"
+                />
             </motion.div>
 
             <motion.div
@@ -82,7 +96,13 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                 }}
                 transition={{ duration: 0.3, type: "spring", delay: 0.15 }}
             >
-                <Image src={TP3} alt={"Image 3"} className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 object-cover top-1/2 -translate-1/2  ring-3 ring-gray-100"/>
+                <Image 
+                    src="/images/education_TP/3.jpg" 
+                    alt="Tan Phu High School Image 3" 
+                    width={500}
+                    height={500}
+                    className="absolute z-[80] rounded-2xl w-full aspect-square left-1/2 object-cover top-1/2 -translate-x-1/2 -translate-y-1/2 ring-3 ring-gray-100"
+                />
             </motion.div>
 
             <motion.div
@@ -95,12 +115,20 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                 }}
                 transition={{ duration: 0.3, type: "spring", delay: 0.2 }}
             >
-                <Image src={TP4} alt={"Image 4"} className="absolute z-[80] rounded-2xl w-full aspect-video left-1/2 object-cover top-1/2 -translate-1/2  ring-3 ring-gray-100"/>
+                <Image 
+                    src="/images/education_TP/4.jpg" 
+                    alt="Tan Phu High School Image 4" 
+                    width={800}
+                    height={450}
+                    className="absolute z-[80] rounded-2xl w-full aspect-video left-1/2 object-cover top-1/2 -translate-x-1/2 -translate-y-1/2 ring-3 ring-gray-100"
+                />
             </motion.div>
 
             <motion.button
                 onClick={onClose}
                 className="absolute left-1/2 -translate-x-1/2 bottom-28 w-[50px] h-[50px] bg-white drop-shadow-xl flex items-center justify-center rounded-full ring-1 ring-gray-200"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <g filter="url(#filter0_i_612_1837)">

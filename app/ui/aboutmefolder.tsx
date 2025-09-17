@@ -103,9 +103,9 @@ function AboutMeFolder({
                         variants={{ rest: { translateX: 0, translateY: 0 }, hover: { translateX: 2, translateY: -12 }, tap: { translateX: 2, translateY: -12 } }}
                         transition={{ type: "tween", ease: EASE, duration: DURATION }}
                     >
-                        <Image src={img2} alt={alt2 ?? "Image 2"} className="absolute w-[52px] z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"/>
+                        <Image src={img2} alt={alt2 ?? "Image 2"} className="absolute w-[52px] z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"/>
                         <div
-                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"
+                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                         />
                     </motion.div>
 
@@ -113,9 +113,9 @@ function AboutMeFolder({
                         className="relative top-11 left-8 z-0 rotate-[15deg]"
                         variants={{ rest: { translateX: 0, translateY: 0 }, hover: { translateX: 5, translateY: -10 }, tap: { translateX: 5, translateY: -10 } }}
                     >
-                        <Image src={img1} alt={alt1 ?? "Image 1"} className="absolute w-[52px] z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"/>
+                        <Image src={img1} alt={alt1 ?? "Image 1"} className="absolute w-[52px] z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"/>
                         <div
-                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"
+                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                         />
                     </motion.div>
 
@@ -123,9 +123,9 @@ function AboutMeFolder({
                         className="relative top-11 right-7 -z-10 rotate-[-17deg]"
                         variants={{ rest: { translateX: 0, translateY: 0 }, hover: { translateX: -5, translateY: -10 }, tap: { translateX: -5, translateY: -10 } }}
                     >
-                        <Image src={img3} alt={alt3 ?? "Image 3"} className="absolute w-[52px] z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"/>
+                        <Image src={img3} alt={alt3 ?? "Image 3"} className="absolute w-[52px] z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"/>
                         <div
-                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"
+                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                         />
                     </motion.div>
                 </div>
