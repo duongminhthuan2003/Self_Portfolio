@@ -50,44 +50,16 @@ function AboutMe() {
                     title={"Tan Phu High School"}
                 />
 
-                <AboutMeFolder
-                    images={[
-                        {src: "edu-tp-1", alt: "test"},
-                        {src: "edu-tp-2", alt: "test"},
-                        {src: "edu-tp-3", alt: "test"}
-                    ]}
-                    title={"Tan Phu High School"}
-                />
+
             </div>
 
             <div className="h-screen w-full">
                 <p className="mt-5">Skills</p>
-                <AboutMeFolder
-                    images={[
-                        {src: "edu-tp-1", alt: "test"},
-                        {src: "edu-tp-2", alt: "test"},
-                        {src: "edu-tp-3", alt: "test"}
-                    ]}
-                    title={"Tan Phu High School"}
-                />
 
-                <AboutMeFolder
-                    images={[
-                        {src: "edu-tp-1", alt: "test"},
-                        {src: "edu-tp-2", alt: "test"},
-                        {src: "edu-tp-3", alt: "test"}
-                    ]}
-                    title={"Tan Phu High School"}
-                />
+            </div>
 
-                <AboutMeFolder
-                    images={[
-                        {src: "edu-tp-1", alt: "test"},
-                        {src: "edu-tp-2", alt: "test"},
-                        {src: "edu-tp-3", alt: "test"}
-                    ]}
-                    title={"Tan Phu High School"}
-                />
+            <div className="h-screen w-full">
+                <AboutMeTimeLine />
             </div>
         </motion.div>
     )
