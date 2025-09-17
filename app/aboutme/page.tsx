@@ -89,10 +89,6 @@ function AboutMe() {
                     title={"Tan Phu High School"}
                 />
             </div>
-
-            <div className="h-screen w-full">
-                <AboutMeTimeLine />
-            </div>
         </motion.div>
     )
 }
