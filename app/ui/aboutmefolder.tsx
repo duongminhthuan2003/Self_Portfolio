@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, {StaticImageData} from "next/image";
 import SFProDisplayMedium from 'next/font/local';
 import SFProDisplayLight from "next/font/local";
 import {motion} from "motion/react";
@@ -59,7 +59,7 @@ function AboutMeFolder({
 
     return (
         <motion.div
-            className={`relative z-[50] flex flex-col items-center ${className ?? ""}`}
+            className={`flex flex-col items-center ${className ?? ""}`}
             initial="rest"
             whileHover="hover"
             whileTap="tap"
@@ -73,7 +73,6 @@ function AboutMeFolder({
                 ease: EASE,
                 duration: DURATION,
             }}
-            style={{ willChange: "transform", transformOrigin: "center" }}
             onClick={onClick}
         >
             {stickers?.map((s, i) => {
