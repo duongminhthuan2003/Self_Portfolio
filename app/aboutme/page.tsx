@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import SFProDisplayLight from 'next/font/local';
 import AppleGaramondItalic from "next/font/local";
 import AboutMeFolder from "@/app/ui/aboutmefolder";

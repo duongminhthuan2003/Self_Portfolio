@@ -2,7 +2,7 @@
 
 import SwiperCoverflow from "@/app/ui/frontend-coverflow";
 import AppleGaramondItalic from "next/font/local";
-import {motion} from "framer-motion";
+import {motion} from "motion/react";
 import SFMono from "next/font/local";
 import {useRouter} from "next/navigation";
 

@@ -12,7 +12,7 @@ import ananas3 from "@/public/images/projects/ananas/overview3.webp";
 import ananas4 from "@/public/images/projects/ananas/overview4.png";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const sfMono = SFMono({
     weight: "400",

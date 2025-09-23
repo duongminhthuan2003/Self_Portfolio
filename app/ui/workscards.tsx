@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import SFProDisplayMedium from "next/font/local";
 import {JSX, useEffect, useRef, useState} from "react";
 import SFMono from "next/font/local";

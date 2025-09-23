@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {useId, useMemo, useEffect} from "react";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -230,7 +230,7 @@ function OrbPNG() {
                 stiffness: 600, // Increased for snappier animation
                 damping: 35,    // Increased damping for less oscillation
                 mass: 0.4,      // Reduced mass for faster response
-                layout: { 
+                layout: {
                     duration: 0.15, // Reduced duration for faster animation
                     ease: "easeOut" // Better easing for performance
                 }

@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useMemo, useState, useCallback, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 

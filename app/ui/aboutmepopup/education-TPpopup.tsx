@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import TP1 from "../../../public/images/education_TP/1.webp"
 import TP2 from "../../../public/images/education_TP/2.webp"

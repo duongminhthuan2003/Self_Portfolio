@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import "swiper/css";
 import "swiper/css/navigation";

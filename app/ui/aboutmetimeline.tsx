@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import SFProDisplayLight from "next/font/local";
 import SFProDisplayMedium from "next/font/local";
-import { motion, AnimatePresence, MotionConfig } from "framer-motion";
+import { motion, AnimatePresence, MotionConfig } from "motion/react";
 
 const sfProDisplayLight = SFProDisplayLight({
     weight:"200",

@@ -1,7 +1,7 @@
 "use client";
 
 import {useCallback, useEffect, useMemo, useState} from "react";
-import {AnimatePresence, motion} from "framer-motion";
+import {AnimatePresence, motion} from "motion/react";
 import Image from "next/image";
 import AppleGaramondItalic from "next/font/local";
 import ananasThumb from "../../../public/images/projects/ananas/thumbnail2.png";

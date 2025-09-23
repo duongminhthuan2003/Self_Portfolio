@@ -3,7 +3,7 @@
 import WorksCards from "@/app/ui/workscards";
 import AppleGaramondItalic from "next/font/local";
 
-import {motion} from "framer-motion";
+import {motion} from "motion/react";
 import {useState} from "react";
 import {useRouter} from "next/navigation";
 import MobileAppIcon from "@/app/ui/icon/mobileappicon";
