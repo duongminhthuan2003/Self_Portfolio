@@ -61,6 +61,38 @@ function AboutMe() {
             <div className="h-screen w-full">
                 <p className="mt-5">Skills</p>
 
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }}>
+                    <AboutMeFolder
+                        images={[
+                            {src: "edu-tp-1", alt: "test"},
+                            {src: "edu-tp-2", alt: "test"},
+                            {src: "edu-tp-3", alt: "test"}
+                        ]}
+                        title={"Tan Phu High School"}
+                    />
+                </div>
+
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }}>
+                    <AboutMeFolder
+                        images={[
+                            {src: "edu-tp-1", alt: "test"},
+                            {src: "edu-tp-2", alt: "test"},
+                            {src: "edu-tp-3", alt: "test"}
+                        ]}
+                        title={"Tan Phu High School"}
+                    />
+                </div>
+
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }}>
+                    <AboutMeFolder
+                        images={[
+                            {src: "edu-tp-1", alt: "test"},
+                            {src: "edu-tp-2", alt: "test"},
+                            {src: "edu-tp-3", alt: "test"}
+                        ]}
+                        title={"Tan Phu High School"}
+                    />
+                </div>
             </div>
 
             <div className="h-screen w-full">
