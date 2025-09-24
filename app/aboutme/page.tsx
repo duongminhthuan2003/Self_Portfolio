@@ -43,6 +43,7 @@ function AboutMe() {
                             {src: "edu-tp-3", alt: "test"}
                         ]}
                         title={"Tan Phu High School"}
+                        onClick={() => setTpPopup(true)}
                     />
                 </div>
 
