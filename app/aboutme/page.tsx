@@ -35,7 +35,7 @@ function AboutMe() {
 
             <div className="h-screen w-full">
                 <p className="mt-5">Education</p>
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }}>
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
                     <AboutMeFolder
                         images={[
                             {src: "edu-tp-1", alt: "test"},
@@ -46,7 +46,7 @@ function AboutMe() {
                     />
                 </div>
 
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }}>
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
                     <AboutMeFolder
                         images={[
                             {src: "edu-tp-1", alt: "test"},
@@ -61,7 +61,7 @@ function AboutMe() {
             <div className="h-screen w-full">
                 <p className="mt-5">Skills</p>
 
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }}>
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8" >
                     <AboutMeFolder
                         images={[
                             {src: "edu-tp-1", alt: "test"},
@@ -72,7 +72,7 @@ function AboutMe() {
                     />
                 </div>
 
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }}>
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
                     <AboutMeFolder
                         images={[
                             {src: "edu-tp-1", alt: "test"},
@@ -83,7 +83,7 @@ function AboutMe() {
                     />
                 </div>
 
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }}>
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
                     <AboutMeFolder
                         images={[
                             {src: "edu-tp-1", alt: "test"},

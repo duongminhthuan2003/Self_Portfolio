@@ -59,7 +59,7 @@ function AboutMeFolder({
 
     return (
         <motion.div
-            className={`flex flex-col items-center ${className ?? ""}`}
+            className={`flex flex-col w-fit mx-auto items-center ${className ?? ""}`}
             initial="rest"
             whileHover="hover"
             whileTap="tap"
