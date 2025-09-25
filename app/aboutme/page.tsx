@@ -8,6 +8,7 @@ import Image from "next/image";
 import {useState, Suspense} from "react";
 import AboutMeTimeLine from "@/app/ui/aboutmetimeline";
 import dynamic from "next/dynamic";
+import TPPopup from "@/app/ui/aboutmepopup/education-TPpopup";
 
 const sfProDisplayLight = SFProDisplayLight({
     src: "../../public/fonts/SFProDisplay-Light.otf",
@@ -19,13 +20,16 @@ const appleGaramondItalic = AppleGaramondItalic({
     variable: "--AppleGaramondItalic",
 })
 
+const AboutMeFolderDynamic = dynamic(() => import("@/app/ui/aboutmefolder"), {
+    ssr: false,
+
+    loading: () => (
+        <div className="h-[129px] w-[155px] rounded-xl bg-neutral-200/50 animate-pulse mx-auto" />
+    ),
+});
+
 function AboutMe() {
     const [tpPopup, setTpPopup] = useState(false);
-
-    const AboutMeFolder = dynamic(() => import("@/app/ui/aboutmefolder"), {
-        ssr: false,
-        loading: () => <div className="h-[129px] w-[155px] rounded-xl bg-neutral-200/50 animate-pulse" />
-    });
 
     return (
         <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
@@ -36,7 +40,7 @@ function AboutMe() {
             <div className="h-screen w-full">
                 <p className="mt-5">Education</p>
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
-                    <AboutMeFolder
+                    <AboutMeFolderDynamic
                         images={[
                             {src: "edu-tp-1", alt: "test"},
                             {src: "edu-tp-2", alt: "test"},
@@ -46,9 +50,13 @@ function AboutMe() {
                         onClick={() => setTpPopup(true)}
                     />
                 </div>
-
+                {
+                    tpPopup && (
+                        <TPPopup onClose={() => setTpPopup(false)} />
+                    )
+                }
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
-                    <AboutMeFolder
+                    <AboutMeFolderDynamic
                         images={[
                             {src: "edu-tp-1", alt: "test"},
                             {src: "edu-tp-2", alt: "test"},

@@ -1,13 +1,8 @@
 import { motion } from "motion/react";
 
-import TP1 from "../../../public/images/education_TP/1.webp"
-import TP2 from "../../../public/images/education_TP/2.webp"
-import TP3 from "../../../public/images/education_TP/3.webp"
-import TP4 from "../../../public/images/education_TP/4.webp"
-import TPsticker from "../../../public/images/education_TP/tp_sticker.png"
-import Image from "next/image";
 import SFProDisplayLight from "next/font/local";
 import SFProDisplayMedium from "next/font/local";
+import {CldImage} from "next-cloudinary";
 
 const sfProDisplayLight = SFProDisplayLight({
     weight:"200",
@@ -31,7 +26,14 @@ function TPPopup({ onClose }: { onClose: () => void }) {
 
             transition={{ease: "easeInOut", duration: 0.2}}
         >
-            test
+            <motion.div
+                initial={{ scale: 0.95 }}
+                animate={{ scale: 1 }}
+                className="w-full mx-auto"
+            >
+                test
+            </motion.div>
+            <div className="absolute top-0 left-0 w-full h-full -z-10" onClick={onClose}/>
             <button onClick={onClose}>close</button>
         </motion.div>
     )
