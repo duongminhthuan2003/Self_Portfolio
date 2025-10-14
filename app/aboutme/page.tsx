@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import SFProDisplayLight from 'next/font/local';
 import AppleGaramondItalic from "next/font/local";
 import AboutMeFolder from "@/app/ui/aboutmefolder";
@@ -50,11 +50,14 @@ function AboutMe() {
                         onClick={() => setTpPopup(true)}
                     />
                 </div>
+                <AnimatePresence>
                 {
                     tpPopup && (
                         <TPPopup onClose={() => setTpPopup(false)} />
                     )
                 }
+                </AnimatePresence>
+
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
                     <AboutMeFolderDynamic
                         images={[

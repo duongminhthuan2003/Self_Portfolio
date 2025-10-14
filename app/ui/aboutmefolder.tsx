@@ -216,7 +216,6 @@ function AboutMeFolder({
 
             {showDate && !!dateText && (
                 <p className={`${sfProDisplayMedium.className} px-3 text-[13px] py-1 bg-[#D9D9D9] text-[#888888] rounded-full mt-2`}>
-                    {/*Aug &#39;18 - May &#39;21*/}
                     {dateText}
                 </p> )
             }
