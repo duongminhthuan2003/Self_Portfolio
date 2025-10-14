@@ -84,7 +84,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                     animate={{scale: 1, opacity: 1}}
                     exit={{scale: 0.9, opacity: 0}}
                     transition={{ease: "easeInOut", duration: 0.2, delay: 0.3}}
-                    className="absolute bottom-26 left-0"
+                    className="absolute bottom-30 left-0"
                 >
                     <CldImage src="edu-tp-3" height={100} width={175} alt={"Tan Phu 3"} className="rounded-lg"/>
                 </motion.div>
@@ -94,14 +94,14 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                     animate={{scale: 1, opacity: 1}}
                     exit={{scale: 0.9, opacity: 0}}
                     transition={{ease: "easeInOut", duration: 0.2, delay: 0.4}}
-                    className="absolute bottom-40 right-0 w-fit h-fit"
+                    className="absolute bottom-45 right-0 w-fit h-fit"
                 >
                     <CldImage src="edu-tp-4" height={100} width={175} alt={"Tan Phu 4"} className="rounded-lg"/>
                 </motion.div>
 
                 <button 
                     onClick={onClose} 
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-red-500 p-3 rounded-full z-10 border-1 border-[#DBDBDB]"
+                    className="absolute bottom-12 left-1/2 transform -translate-x-1/2 bg-red-500 p-3 rounded-full z-10 border-1 border-[#DBDBDB]"
                     style={{
                         background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.80) 8%, rgba(231, 230, 230, 0.8) 50%, rgba(233, 233, 233, 0.8) 70%, rgba(255, 255, 255, 0.80) 98.08%)',
                         backdropFilter: 'blur(10px)',
