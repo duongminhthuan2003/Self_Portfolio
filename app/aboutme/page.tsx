@@ -33,11 +33,11 @@ function AboutMe() {
 
     return (
         <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
-            <div className="h-screen w-full">
+            <div className="h-screen w-full overflow-hidden">
                 <p>test</p>
             </div>
 
-            <div className="h-screen w-full">
+            <div className="h-screen w-full overflow-hidden">
                 <p className="mt-5">Education</p>
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
                     <AboutMeFolderDynamic
@@ -70,7 +70,7 @@ function AboutMe() {
                 </div>
             </div>
 
-            <div className="h-screen w-full">
+            <div className="h-screen w-full overflow-hidden">
                 <p className="mt-5">Skills</p>
 
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8" >
@@ -107,7 +107,7 @@ function AboutMe() {
                 </div>
             </div>
 
-            <div className="h-screen w-full">
+            <div className="h-screen w-full overflow-hidden">
                 <AboutMeTimeLine />
             </div>
         </motion.div>
