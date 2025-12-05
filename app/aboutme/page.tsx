@@ -32,7 +32,7 @@ function AboutMe() {
     const [tpPopup, setTpPopup] = useState(false);
 
     return (
-        <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
+        <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide bg-white">
             <div className="h-screen w-full overflow-hidden">
                 <p>test</p>
             </div>
