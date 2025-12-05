@@ -1,21 +1,10 @@
 import { motion } from "motion/react";
-
+import {useEffect} from "react";
 import SFProDisplayLight from "next/font/local";
 import SFProDisplayMedium from "next/font/local";
 import {CldImage} from "next-cloudinary";
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Cancel01Icon } from '@hugeicons/core-free-icons';
-
-function App() {
-  return (
-    <HugeiconsIcon
-      icon={Cancel01Icon}
-      size={24}
-      color="#000000"
-      strokeWidth={1.5}
-    />
-  );
-}
 
 const sfProDisplayLight = SFProDisplayLight({
     weight:"200",
@@ -30,6 +19,12 @@ const sfProDisplayMedium = SFProDisplayMedium({
 })
 
 function TPPopup({ onClose }: { onClose: () => void }) {
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "auto";
+        }
+    },[])
     return(
         <motion.div
             className="fixed inset-0 w-full h-screen bg-white/50 z-[70] backdrop-blur-lg overflow-hidden"
@@ -101,7 +96,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                         onClick={onClose} 
                         className="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 bg-red-500 p-3 rounded-full z-10 border-1 border-[#DBDBDB] shadow-xl"
                         style={{
-                            background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.80) 8%, rgba(231, 230, 230, 0.8) 50%, rgba(233, 233, 233, 0.8) 70%, rgba(255, 255, 255, 0.80) 98.08%)',
+                            background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.80) 15%, rgba(235, 235, 235, 0.8) 50%, rgba(235, 235, 235, 0.8) 65%, rgba(255, 255, 255, 0.80) 98.08%)',
                             backdropFilter: 'blur(10px)',
                             opacity: 0.8,
                         }}
