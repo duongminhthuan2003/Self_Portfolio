@@ -15,7 +15,7 @@ const appleGaramond = AppleGaramond({
 export default function Home() {
 
     return (
-        <div className='overflow-hidden scrollbar-hide min-h-[100dvh]'>
+        <div className='overflow-hidden scrollbar-hide h-screen'>
             <motion.div
                 className={`antialiased min-h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden scrollbar-hide`}
                 initial={{ opacity: 0 }}
