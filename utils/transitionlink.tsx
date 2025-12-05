@@ -35,7 +35,7 @@ function TransitionLink({ children, href, className, ...props }: TransitionLinkP
 		});
 
 		// Wait for navigation to complete, then clean up
-		await sleep(100);
+		await sleep(300);
 		
 		// Force cleanup
 		requestAnimationFrame(() => {

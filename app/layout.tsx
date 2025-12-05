@@ -42,11 +42,20 @@ export default function RootLayout({
           <MobileNavigationBar />
         </div>
 
-        {/* Gradient overlay để fade out pattern ở dưới navbar */}
-        <div className="fixed bottom-0 left-0 right-0 h-32 pointer-events-none -z-10 bg-gradient-to-t from-white via-white/60 to-transparent" />
+        {/* Background pattern - z-index thấp nhất */}
+        <div className="fixed inset-0 -z-20 bg-white" 
+          style={{
+            backgroundImage: 'conic-gradient(from 90deg at 12px 12px, rgba(0,0,0,0.05) 90deg, transparent 90deg)',
+            backgroundSize: '16px 16px'
+          }}
+        />
 
-        <div className="fixed inset-0 -z-10 background">
-        </div>
+        {/* Gradient overlay để fade out pattern ở dưới navbar - z-index cao hơn pattern */}
+        <div className="fixed bottom-0 left-0 right-0 h-24 pointer-events-none -z-10"
+          style={{
+            background: 'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, transparent 100%)'
+          }}
+        />
       </body>
     </html>
   );
