@@ -49,7 +49,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                         transition={{ease: "easeInOut", duration: 0.2}}
                         className="absolute top-[2%]"
                     >
-                        <CldImage src="edu-tp-1" height={120} width={120} alt={"Tan Phu 1"} className={`rounded-lg`}/>
+                        <CldImage src="edu-tp-1" height={150} width={150} alt={"Tan Phu 1"} className={`rounded-lg shadow-lg`}/>
                     </motion.div>
 
                     <motion.div
@@ -59,7 +59,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                         transition={{ease: "easeInOut", duration: 0.2, delay: 0.1}}
                         className="absolute top-[8%] right-0"
                     >
-                        <CldImage src="edu-tp-2" height={150} width={150} alt={"Tan Phu 2"} className="rounded-lg"/>
+                        <CldImage src="edu-tp-2" height={160} width={160} alt={"Tan Phu 2"} className="rounded-lg shadow-lg"/>
                     </motion.div>
 
                     <motion.div
@@ -67,10 +67,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                         animate={{scale: 1, opacity: 1}}
                         exit={{scale: 0.9, opacity: 0}}
                         transition={{ease: "easeInOut", duration: 0.2, delay: 0.2}}
-                        className={`flex absolute top-[45%] items-center left-0 transform -translate-y-1/2 bg-white px-5 py-4 rounded-xl w-full`}
-                        style={{
-                            boxShadow: '0 2px 10px 0 rgba(0, 0, 0, 0.15)'
-                        }}
+                        className={`flex absolute top-[45%] items-center left-0 transform -translate-y-1/2 bg-white px-5 py-5 rounded-xl w-full shadow-2xl`}
                     >
                         <div>
                             <p className={`${sfProDisplayMedium.className} text-sm`}>Tan Phu Highschool</p>
@@ -87,7 +84,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                         transition={{ease: "easeInOut", duration: 0.2, delay: 0.3}}
                         className="absolute bottom-[16%] left-0"
                     >
-                        <CldImage src="edu-tp-3" height={90} width={150} alt={"Tan Phu 3"} className="rounded-lg"/>
+                        <CldImage src="edu-tp-3" height={100} width={170} alt={"Tan Phu 3"} className="rounded-lg shadow-lg"/>
                     </motion.div>
 
                     <motion.div
@@ -95,9 +92,9 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                         animate={{scale: 1, opacity: 1}}
                         exit={{scale: 0.9, opacity: 0}}
                         transition={{ease: "easeInOut", duration: 0.2, delay: 0.4}}
-                        className="absolute bottom-[21%] right-0 w-fit h-fit"
+                        className="absolute bottom-[25%] right-0 w-fit h-fit"
                     >
-                        <CldImage src="edu-tp-4" height={90} width={150} alt={"Tan Phu 4"} className="rounded-lg"/>
+                        <CldImage src="edu-tp-4" height={90} width={150} alt={"Tan Phu 4"} className="rounded-lg shadow-lg"/>
                     </motion.div>
 
                     <button 
