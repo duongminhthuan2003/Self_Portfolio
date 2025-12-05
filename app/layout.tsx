@@ -42,6 +42,9 @@ export default function RootLayout({
           <MobileNavigationBar />
         </div>
 
+        {/* Gradient overlay để fade out pattern ở dưới navbar */}
+        <div className="fixed bottom-0 left-0 right-0 h-32 pointer-events-none -z-10 bg-gradient-to-t from-white via-white/60 to-transparent" />
+
         <div className="fixed inset-0 -z-10 background">
         </div>
       </body>
