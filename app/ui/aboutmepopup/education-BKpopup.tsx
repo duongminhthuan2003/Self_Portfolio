@@ -18,7 +18,7 @@ const sfProDisplayMedium = SFProDisplayMedium({
     variable: "--SFProDisplayMedium",
 })
 
-function TPPopup({ onClose }: { onClose: () => void }) {
+function BKPopup({ onClose }: { onClose: () => void }) {
     useEffect(() => {
         document.body.style.overflow = "hidden";
         return () => {
@@ -44,7 +44,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                         transition={{ease: "easeInOut", duration: 0.2}}
                         className="absolute"
                     >
-                        <CldImage src="edu-tp-1" height={150} width={150} alt={"Tan Phu 1"} className={`rounded-lg shadow-lg`}/>
+                        <CldImage src="edu-bk-1" height={150} width={150} alt={"Tan Phu 1"} className={`rounded-lg shadow-lg`}/>
                     </motion.div>
 
                     <motion.div
@@ -54,7 +54,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                         transition={{ease: "easeInOut", duration: 0.2, delay: 0.1}}
                         className="absolute top-[3%] right-0"
                     >
-                        <CldImage src="edu-tp-2" height={160} width={160} alt={"Tan Phu 2"} className="rounded-lg shadow-lg"/>
+                        <CldImage src="edu-bk-2" height={160} width={160} alt={"Bach Khoa 2"} className="rounded-lg shadow-lg"/>
                     </motion.div>
 
                     <motion.div
@@ -65,11 +65,11 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                         className={`flex absolute top-[41%] items-center left-0 transform -translate-y-1/2 bg-white px-5 py-5 rounded-xl w-full shadow-2xl`}
                     >
                         <div>
-                            <p className={`${sfProDisplayMedium.className} text-sm`}>Tan Phu Highschool</p>
-                            <p className={`${sfProDisplayLight.className} text-sm`}>GPA: 8.5/10</p>
-                            <p className={`${sfProDisplayLight.className} text-sm`}>2018 - 2021</p>
+                            <p className={`${sfProDisplayMedium.className} text-sm`}>HCMC University of Technology</p>
+                            <p className={`${sfProDisplayLight.className} text-sm`}>GPA: 7.3/10</p>
+                            <p className={`${sfProDisplayLight.className} text-sm`}>2021 - present (expected 2026)</p>
                         </div>
-                       <CldImage src="tp_sticker" height={100} width={100} alt={"Tan Phu Stickers"} className="absolute top-[45%] -translate-y-1/2 right-0"/>
+                       <CldImage src="edu-bk-sticker" height={100} width={100} alt={"Bach Khoa Stickers"} className="absolute top-[50%] -translate-y-1/2 right-0 rotate-12"/>
                     </motion.div>
 
                     <motion.div
@@ -115,4 +115,4 @@ function TPPopup({ onClose }: { onClose: () => void }) {
     )
 }
 
-export default TPPopup;
+export default BKPopup;

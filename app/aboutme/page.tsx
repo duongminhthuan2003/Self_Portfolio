@@ -9,6 +9,7 @@ import {useState, Suspense} from "react";
 import AboutMeTimeLine from "@/app/ui/aboutmetimeline";
 import dynamic from "next/dynamic";
 import TPPopup from "@/app/ui/aboutmepopup/education-TPpopup";
+import BKPopup from "@/app/ui/aboutmepopup/education-BKpopup";
 
 const sfProDisplayLight = SFProDisplayLight({
     src: "../../public/fonts/SFProDisplay-Light.otf",
@@ -30,6 +31,7 @@ const AboutMeFolderDynamic = dynamic(() => import("@/app/ui/aboutmefolder"), {
 
 function AboutMe() {
     const [tpPopup, setTpPopup] = useState(false);
+    const [bkPopup, setBkPopup] = useState(false);
 
     return (
         <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
@@ -61,11 +63,12 @@ function AboutMe() {
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
                     <AboutMeFolderDynamic
                         images={[
-                            {src: "edu-tp-1", alt: "test"},
-                            {src: "edu-tp-2", alt: "test"},
-                            {src: "edu-tp-3", alt: "test"}
+                            {src: "edu-bk-1", alt: "test"},
+                            {src: "edu-bk-2", alt: "test"},
+                            {src: "edu-bk-3", alt: "test"}
                         ]}
-                        title={"Tan Phu High School"}
+                        title={"Bach Khoa University"}
+                        onClick={() => setBkPopup(true)}
                     />
                 </div>
             </div>
@@ -94,6 +97,13 @@ function AboutMe() {
                         title={"Tan Phu High School"}
                     />
                 </div>
+                <AnimatePresence>
+                {
+                    bkPopup && (
+                        <BKPopup onClose={() => setBkPopup(false)} />
+                    )
+                }
+                </AnimatePresence>
 
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
                     <AboutMeFolder
