@@ -35,13 +35,13 @@ function AboutMe() {
 
     return (
         <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
-            <div className={`h-screen flex justify-center -mt-24 items-center text-5xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
+            <div className={`h-screen flex justify-center -mt-36 items-center text-5xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
                 <p className="color-word">About Me</p>
             </div>
 
-            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-32">
+            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[35%]">
                 <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Education</p>
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-10">
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
                     <AboutMeFolderDynamic
                         images={[
                             {src: "edu-tp-1", alt: "test"},
@@ -83,7 +83,7 @@ function AboutMe() {
                 </AnimatePresence>
             </div>
 
-            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-32">
+            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[35%]">
                 <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Skills</p>
 
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative top-0 -left-16" >
@@ -126,7 +126,7 @@ function AboutMe() {
                 </div>
             </div>
 
-            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-32">
+            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[35%]">
                 <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Experience</p>
                 <AboutMeTimeLine />
             </div>

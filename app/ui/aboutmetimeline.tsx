@@ -127,7 +127,7 @@ function AboutMeTimeLine() {
             {/* Reserved space*/}
             <div
                 className="transition-all duration-500 ease-in-out overflow-hidden"
-                style={{ height: active ? '280px' : '0px' }}
+                style={{ height: active ? '320px' : '0px' }}
             >
                 {/* Content sections with smooth animations */}
                 <AnimatePresence>
@@ -289,11 +289,11 @@ function AboutMeTimeLine() {
                                             className="absolute top-4 right-4 hover:bg-gray-200 hover:bg-opacity-30 rounded-full p-1 transition-colors duration-200"
                                         >
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
-                                                <path d="M15 1L1.00095 14.9991M14.9991 15L1 1.00099" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                                <path d="M15 1L1.00095 14.9991M14.9991 15L1 1.00099" stroke="#444444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                             </svg>
                                         </button>
-                                        <p>Section 1</p>
-                                        <p>Section 2</p>
+                                        <p className={`${sfProDisplayLight.className}`}>- Produced and edited videos and promo content <br/> for a leading Vietnam E-sports team.</p>
+                                        <p className={`${sfProDisplayLight.className} mt-2`}>- Collaborated with designers, players, and managers to deliver engaging media under tight deadlines.</p>
                                     </motion.div>
                                 </div>
                             )}
