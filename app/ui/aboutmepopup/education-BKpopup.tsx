@@ -77,9 +77,9 @@ function BKPopup({ onClose }: { onClose: () => void }) {
                         animate={{scale: 1, opacity: 1}}
                         exit={{scale: 0.9, opacity: 0}}
                         transition={{ease: "easeInOut", duration: 0.2, delay: 0.3}}
-                        className="absolute bottom-[23%] left-0"
+                        className="absolute bottom-[17%] left-0"
                     >
-                        <CldImage src="edu-tp-3" height={100} width={170} alt={"Tan Phu 3"} className="rounded-lg shadow-lg"/>
+                        <CldImage src="edu-bk-3" height={160} width={160} alt={"Tan Phu 3"} className="rounded-lg shadow-lg"/>
                     </motion.div>
 
                     <motion.div

@@ -35,13 +35,13 @@ function AboutMe() {
 
     return (
         <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
-            <div className="h-screen w-full overflow-hidden">
-                <p>test</p>
+            <div className={`h-screen flex justify-center items-center text-4xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
+                <p>About Me</p>
             </div>
 
-            <div className="h-screen w-full overflow-hidden">
-                <p className="mt-5">Education</p>
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
+            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center">
+                <p className={`mt-5 ${appleGaramondItalic.className} text-3xl text-center mb-5`}>Education</p>
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-10">
                     <AboutMeFolderDynamic
                         images={[
                             {src: "edu-tp-1", alt: "test"},
@@ -71,32 +71,7 @@ function AboutMe() {
                         onClick={() => setBkPopup(true)}
                     />
                 </div>
-            </div>
 
-            <div className="h-screen w-full overflow-hidden">
-                <p className="mt-5">Skills</p>
-
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8" >
-                    <AboutMeFolder
-                        images={[
-                            {src: "edu-tp-1", alt: "test"},
-                            {src: "edu-tp-2", alt: "test"},
-                            {src: "edu-tp-3", alt: "test"}
-                        ]}
-                        title={"Tan Phu High School"}
-                    />
-                </div>
-
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
-                    <AboutMeFolder
-                        images={[
-                            {src: "edu-tp-1", alt: "test"},
-                            {src: "edu-tp-2", alt: "test"},
-                            {src: "edu-tp-3", alt: "test"}
-                        ]}
-                        title={"Tan Phu High School"}
-                    />
-                </div>
                 <AnimatePresence>
                 {
                     bkPopup && (
@@ -104,15 +79,44 @@ function AboutMe() {
                     )
                 }
                 </AnimatePresence>
+            </div>
 
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
-                    <AboutMeFolder
+            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center">
+                <p className={`mt-5 ${appleGaramondItalic.className} text-3xl text-center mb-5`}>Skills</p>
+
+                <div className="p-8">
+                    <AboutMeFolderDynamic
+                        images={[
+                            {src: "edu-bk-1", alt: "test"},
+                            {src: "edu-bk-2", alt: "test"},
+                            {src: "edu-bk-3", alt: "test"}
+                        ]}
+                        title={"Bach Khoa University"}
+                        onClick={() => setBkPopup(true)}
+                    />
+                </div>
+
+                <div className="p-8">
+                    <AboutMeFolderDynamic
                         images={[
                             {src: "edu-tp-1", alt: "test"},
                             {src: "edu-tp-2", alt: "test"},
                             {src: "edu-tp-3", alt: "test"}
                         ]}
                         title={"Tan Phu High School"}
+                        onClick={() => setBkPopup(true)}
+                    />
+                </div>
+
+                <div className="p-8">
+                    <AboutMeFolderDynamic
+                        images={[
+                            {src: "edu-tp-1", alt: "test"},
+                            {src: "edu-tp-2", alt: "test"},
+                            {src: "edu-tp-3", alt: "test"}
+                        ]}
+                        title={"Tan Phu High School"}
+                        onClick={() => setBkPopup(true)}
                     />
                 </div>
             </div>
