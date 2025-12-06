@@ -4,7 +4,7 @@ import WorksCards from "@/app/ui/workscards";
 import AppleGaramondItalic from "next/font/local";
 
 import {motion} from "motion/react";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {useRouter} from "next/navigation";
 import MobileAppIcon from "@/app/ui/icon/mobileappicon";
 import WebDevIcon from "@/app/ui/icon/webdevicon";
@@ -19,9 +19,19 @@ function Works() {
     const [activeIdx, setActiveIdx] = useState<number | null>(null);
     const myRouter = useRouter();
 
+    // Khóa cuộn khi component mount, mở lại khi unmount
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        
+        return () => {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        };
+    }, []);
 
     return (
-        <div className="w-screen h-screen flex flex-col overflow-hidden scrollbar-hide">
+        <div className="w-screen h-dvh flex flex-col overflow-hidden scrollbar-hide overscroll-none">
             <motion.p
                 className={`absolute ${appleGaramondItalic.className} text-5xl text-[#BA0000] top-1/12 left-1/2 -translate-x-1/2`}
             >
