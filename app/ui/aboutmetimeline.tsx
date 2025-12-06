@@ -127,7 +127,7 @@ function AboutMeTimeLine() {
             {/* Reserved space*/}
             <div
                 className="transition-all duration-500 ease-in-out overflow-hidden"
-                style={{ height: active ? '220px' : '0px' }}
+                style={{ height: active ? '280px' : '0px' }}
             >
                 {/* Content sections with smooth animations */}
                 <AnimatePresence>

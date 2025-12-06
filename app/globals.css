@@ -13,6 +13,10 @@
   /* Add any other styles you want */
 }
 
+.color-word {
+  color: #BA0000;
+}
+
 body {
   background-color: white;
   /* Xóa hoặc comment 2 dòng này */

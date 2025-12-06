@@ -22,7 +22,7 @@ const appleGaramondItalic = AppleGaramondItalic({
 })
 
 const AboutMeFolderDynamic = dynamic(() => import("@/app/ui/aboutmefolder"), {
-    ssr: false,
+    ssr: true,
 
     loading: () => (
         <div className="h-[129px] w-[155px] rounded-xl bg-neutral-200/50 animate-pulse mx-auto" />
@@ -35,12 +35,12 @@ function AboutMe() {
 
     return (
         <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
-            <div className={`h-screen flex justify-center items-center text-4xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
-                <p>About Me</p>
+            <div className={`h-screen flex justify-center -mt-24 items-center text-5xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
+                <p className="color-word">About Me</p>
             </div>
 
-            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center">
-                <p className={`mt-5 ${appleGaramondItalic.className} text-3xl text-center mb-5`}>Education</p>
+            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-32">
+                <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Education</p>
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-10">
                     <AboutMeFolderDynamic
                         images={[
@@ -49,6 +49,7 @@ function AboutMe() {
                             {src: "edu-tp-3", alt: "test"}
                         ]}
                         title={"Tan Phu High School"}
+                        dateText="Aug ‘18 - May ‘21"
                         onClick={() => setTpPopup(true)}
                     />
                 </div>
@@ -68,6 +69,7 @@ function AboutMe() {
                             {src: "edu-bk-3", alt: "test"}
                         ]}
                         title={"Bach Khoa University"}
+                        dateText="Sep '21 - present"
                         onClick={() => setBkPopup(true)}
                     />
                 </div>
@@ -81,47 +83,51 @@ function AboutMe() {
                 </AnimatePresence>
             </div>
 
-            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center">
-                <p className={`mt-5 ${appleGaramondItalic.className} text-3xl text-center mb-5`}>Skills</p>
+            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-32">
+                <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Skills</p>
 
-                <div className="p-8">
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative top-0 -left-16" >
                     <AboutMeFolderDynamic
                         images={[
                             {src: "edu-bk-1", alt: "test"},
                             {src: "edu-bk-2", alt: "test"},
                             {src: "edu-bk-3", alt: "test"}
                         ]}
-                        title={"Bach Khoa University"}
+                        title={"Front-end Engineer"}
+                        descriptionText="(Web & Mobile)"
                         onClick={() => setBkPopup(true)}
                     />
                 </div>
 
-                <div className="p-8">
-                    <AboutMeFolderDynamic
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative -top-6 left-16">
+                    <AboutMeFolder
                         images={[
                             {src: "edu-tp-1", alt: "test"},
                             {src: "edu-tp-2", alt: "test"},
                             {src: "edu-tp-3", alt: "test"}
                         ]}
-                        title={"Tan Phu High School"}
+                        title={"Multimedia Producer"}
+                        descriptionText="(Photo & Video)"
                         onClick={() => setBkPopup(true)}
                     />
                 </div>
 
-                <div className="p-8">
-                    <AboutMeFolderDynamic
+
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative -top-8 right-12">
+                    <AboutMeFolder
                         images={[
                             {src: "edu-tp-1", alt: "test"},
                             {src: "edu-tp-2", alt: "test"},
                             {src: "edu-tp-3", alt: "test"}
                         ]}
-                        title={"Tan Phu High School"}
+                        title={"UI/UX Design"}
                         onClick={() => setBkPopup(true)}
                     />
                 </div>
             </div>
 
-            <div className="h-screen w-full overflow-hidden">
+            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-32">
+                <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Experience</p>
                 <AboutMeTimeLine />
             </div>
         </motion.div>
