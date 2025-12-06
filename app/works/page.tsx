@@ -31,7 +31,7 @@ function Works() {
     }, []);
 
     return (
-        <div className="w-screen h-dvh flex flex-col overflow-y-auto scrollbar-hidee">
+        <div className="w-screen h-dvh flex flex-col overflow-hidden scrollbar-hide overscroll-none">
             <motion.p
                 className={`absolute ${appleGaramondItalic.className} text-5xl text-[#BA0000] top-1/12 left-1/2 -translate-x-1/2`}
             >
@@ -84,8 +84,7 @@ function Works() {
                 flipZ={30}
                 flipDurationMs={500}
             />
-
-            <div className="h-[1px] w-full flex-shrink-0" aria-hidden="true" />
+            
         </div>
     );
 }
