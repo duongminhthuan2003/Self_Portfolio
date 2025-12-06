@@ -21,7 +21,7 @@ function Works() {
 
 
     return (
-        <div className="w-screen h-screen flex flex-col overflow-hidden scrollbar-hide overscroll-none fixed inset-0">
+        <div className="w-screen h-screen flex flex-col overflow-hidden scrollbar-hide fixed inset-0">
             <motion.p
                 className={`absolute ${appleGaramondItalic.className} text-5xl text-[#BA0000] top-1/12 left-1/2 -translate-x-1/2`}
             >
