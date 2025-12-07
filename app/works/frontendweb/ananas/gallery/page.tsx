@@ -1,71 +1,100 @@
 "use client"
 
-import React, { useMemo, useState, useCallback, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
+import React from "react";
+import Masonry from "@/app/ui/mansory";
+import SFMono from "next/font/local";
+import {useRouter} from "next/navigation";
+import AppleGaramond from "next/font/local";
+import SFProDisplayLight from "next/font/local";
+import SFProDisplayMedium from "next/font/local";
 
-/**
- * ZenoStepGallery
- * - Ảnh ở giữa: lớn nhất, màu đầy đủ, opacity 100%
- * - Ảnh càng ra xa: thu nhỏ theo CHIỀU CAO, trắng đen, opacity 30%
- * - Hai mũi tên điều hướng + tiêu đề & mô tả ở dưới
- * - Hỗ trợ phím ← → và click từng ảnh để chọn
- *
- * Yêu cầu: Tailwind CSS, framer-motion, lucide-react
- */
-
-const demoImages = [
+const items = [
     {
-        src: "/../../../../../public/images/projects/ananas/overview1.png",
-        title: "Dãy núi lúc bình minh",
-        desc: "Những đỉnh núi đón ánh nắng đầu ngày.",
+      id: "1",
+      img: "https://res.cloudinary.com/dhquqou4h/image/upload/v1758104892/samples/cup-on-a-table.jpg",
+      url: "https://example.com/one",
+      height: 400,
     },
     {
-        src: "/../../../../../public/images/projects/ananas/overview1.png",
-        title: "Đồi cát",
-        desc: "Đường cong mềm mại của sa mạc.",
+      id: "2",
+      img: "https://picsum.photos/id/1011/600/750?grayscale",
+      url: "https://example.com/two",
+      height: 250,
     },
     {
-        src: "/../../../../../images/projects/ananas/overview1.png",
-        title: "Thành phố về đêm",
-        desc: "Nhịp sống hiện đại và ánh đèn.",
-    },
-    {
-        src: "/../../../../../public/images/projects/ananas/overview1.png",
-        title: "Cầu gỗ",
-        desc: "Lối nhỏ băng qua khu rừng ẩm ướt.",
-    },
-    {
-        src: "/../../../../../images/projects/ananas/overview1.png",
-        title: "Cánh rừng mù sương",
-        desc: "Không khí lạnh và tĩnh lặng.",
-    },
-    {
-        src: "/../../../../../public/images/projects/ananas/overview1.png",
-        title: "Mặt hồ yên ả",
-        desc: "Phản chiếu bầu trời trong xanh.",
+      id: "3",
+      img: "https://picsum.photos/id/1020/600/800?grayscale",
+      url: "https://example.com/three",
+      height: 600,
     },
 ];
 
-function clamp(n:number, min:number, max:number) {
-    return Math.max(min, Math.min(n, max));
-}
 
-function mod(n: number, m: number) {
-    return ((n % m) + m) % m;
-}
+const sfMono = SFMono({
+    weight: "400",
+    src: "../../../../../public/fonts/SFMono-Regular.otf",
+    variable: "--SFMono-Regular",
+});
+
+const appleGaramond = AppleGaramond({
+    weight:"400",
+    src: "../../../../../public/fonts/AppleGaramond.ttf",
+    variable: "--AppleGaramond",
+})
+
+const sfProDisplayLight = SFProDisplayLight({
+    weight:"200",
+    src: "../../../../../public/fonts/SFProDisplay-Light.otf",
+    variable: "--SFProDisplayLight",
+})
+
+
+const sfProDisplayMedium = SFProDisplayMedium({
+    weight:"600",
+    src: "../../../../../public/fonts/SFProDisplay-Medium.otf",
+    variable: "--SFProDisplayMedium",
+})
 
 export default function ZenoGallery(){
+    const myRouter = useRouter();
+
     return (
-        <div className="flex flex-col">
-            {
-                demoImages.map((image, i) => {
-                    return (
-                        <Image src={image.src} alt={image.title} key={i} width={300} height={300} />
-                    )
-                })
-            }
+        <div className="flex flex-col p-4">
+                        <div className="flex flex-row w-full justify-center items-center">
+                <div
+                    className={`${sfMono.className} flex justify-center items-center gap-4 cursor-pointer text-sm`}
+                    onClick={() => {
+                        myRouter.back();
+                    }}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="29" height="12" viewBox="0 0 29 12" fill="none">
+                        <path d="M28 6L1 6M1 6L6.14412 11M1 6L6.14412 1" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <p>BACK</p>
+                </div>
+
+                <div className={`${sfProDisplayLight.className} flex text-sm flex-col items-end w-full`}>
+                    <p>
+                        Mobile Software
+                    </p>
+                    <p className={`${appleGaramond.className} text-3xl -mt-2 text-[#BA0000]`}>
+                        zeno
+                    </p>
+                </div>
+            </div>
+            <div className="mt-4">
+                <Masonry
+                    items={items}
+                    ease="power3.out"
+                    duration={0.6}
+                    stagger={0.05}
+                    animateFrom="bottom"
+                    scaleOnHover={true}
+                    hoverScale={0.95}
+                    blurToFocus={true}
+                    colorShiftOnHover={false}
+                />
+            </div>
         </div>
     )
 }

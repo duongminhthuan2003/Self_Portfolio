@@ -1,6 +1,6 @@
 "use client";
 
-import SwiperCoverflow from "@/app/ui/frontend-coverflow";
+import FrontendSwiperCoverflow from "@/app/ui/frontend-coverflow";
 import AppleGaramondItalic from "next/font/local";
 import {motion} from "motion/react";
 import SFMono from "next/font/local";
@@ -50,7 +50,7 @@ function FrontendWebDev() {
                 animate={{opacity: 1}}
                 transition={{duration: 0.5}}
             >
-                <SwiperCoverflow />
+                <FrontendSwiperCoverflow />
             </motion.div>
         </div>
     )

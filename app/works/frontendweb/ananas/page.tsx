@@ -147,7 +147,9 @@ export default function Ananas() {
                     animate={{opacity:1, y:0}}
                     transition={{delay: 0.5}}
                 >
-                    <div>
+                    <div onClick={() => {
+                        myRouter.push("/works/frontendweb/ananas/gallery");
+                    }}>
                         <Button />
                     </div>
                 </motion.div>
