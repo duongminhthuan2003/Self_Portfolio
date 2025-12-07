@@ -22,7 +22,7 @@ const appleGaramondItalic = AppleGaramondItalic({
 })
 
 const AboutMeFolderDynamic = dynamic(() => import("@/app/ui/aboutmefolder"), {
-    ssr: true,
+    ssr: false,
 
     loading: () => (
         <div className="h-[129px] w-[155px] rounded-xl bg-neutral-200/50 animate-pulse mx-auto" />
@@ -35,11 +35,11 @@ function AboutMe() {
 
     return (
         <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
-            <div className={`h-screen flex justify-center -mt-36 items-center text-5xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
+            <div className={`h-screen flex justify-center -mt-28 items-center text-5xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
                 <p className="color-word">About Me</p>
             </div>
 
-            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[35%]">
+            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[28%]">
                 <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Education</p>
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
                     <AboutMeFolderDynamic
@@ -83,7 +83,7 @@ function AboutMe() {
                 </AnimatePresence>
             </div>
 
-            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[35%]">
+            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[25%]">
                 <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Skills</p>
 
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative top-0 -left-16" >
@@ -99,7 +99,7 @@ function AboutMe() {
                     />
                 </div>
 
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative -top-6 left-16">
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative -top-10 left-16">
                     <AboutMeFolder
                         images={[
                             {src: "edu-tp-1", alt: "test"},
@@ -113,7 +113,7 @@ function AboutMe() {
                 </div>
 
 
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative -top-8 right-12">
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative -top-20 right-12">
                     <AboutMeFolder
                         images={[
                             {src: "edu-tp-1", alt: "test"},
@@ -126,7 +126,7 @@ function AboutMe() {
                 </div>
             </div>
 
-            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[35%]">
+            <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[30%]">
                 <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Experience</p>
                 <AboutMeTimeLine />
             </div>

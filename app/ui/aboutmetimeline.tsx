@@ -292,8 +292,8 @@ function AboutMeTimeLine() {
                                                 <path d="M15 1L1.00095 14.9991M14.9991 15L1 1.00099" stroke="#444444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                             </svg>
                                         </button>
-                                        <p className={`${sfProDisplayLight.className}`}>- Produced and edited videos and promo content <br/> for a leading Vietnam E-sports team.</p>
-                                        <p className={`${sfProDisplayLight.className} mt-2`}>- Collaborated with designers, players, and managers to deliver engaging media under tight deadlines.</p>
+                                        <p className={`${sfProDisplayLight.className} text-sm`}>- Produced and edited videos and promo content for a leading Vietnam E-sports team.</p>
+                                        <p className={`${sfProDisplayLight.className} mt-2 text-sm`}>- Collaborated with designers, players, and managers to deliver results under tight deadlines.</p>
                                     </motion.div>
                                 </div>
                             )}
