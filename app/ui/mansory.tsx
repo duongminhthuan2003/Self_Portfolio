@@ -2,15 +2,18 @@ import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 're
 import { gsap } from 'gsap';
 
 const useMedia = (queries: string[], values: number[], defaultValue: number): number => {
-  const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
-
-  const [value, setValue] = useState<number>(get);
+  // Khởi tạo với defaultValue trước (an toàn cho SSR)
+  const [value, setValue] = useState<number>(defaultValue);
 
   useEffect(() => {
-    const handler = () => setValue(get);
+    // Chỉ gọi matchMedia sau khi mount (client-side)
+    const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
+    setValue(get());
+    
+    const handler = () => setValue(get());
     queries.forEach(q => matchMedia(q).addEventListener('change', handler));
     return () => queries.forEach(q => matchMedia(q).removeEventListener('change', handler));
-  }, [queries]);
+  }, [queries, values, defaultValue]);
 
   return value;
 };
