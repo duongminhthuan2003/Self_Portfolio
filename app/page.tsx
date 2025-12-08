@@ -5,6 +5,7 @@ import { motion} from "motion/react"
 import Button from "@/app/ui/button";
 import Image from "next/image";
 import SplitText from "./splittext";
+import { useEffect } from "react";
 
 const appleGaramond = AppleGaramond({
   weight:"400",
@@ -13,6 +14,16 @@ const appleGaramond = AppleGaramond({
 })
 
 export default function Home() {
+    // Khóa cuộn khi component mount, mở lại khi unmount
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        
+        return () => {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        };
+    }, []);
 
     return (
         <div className="w-screen h-screen flex flex-col overflow-hidden scrollbar-hide overscroll-none">
