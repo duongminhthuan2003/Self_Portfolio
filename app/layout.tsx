@@ -38,7 +38,7 @@ export default function RootLayout({
             {children}
         </div>
 
-        <div className="absolute z-10">
+        <div className="absolute">
           <MobileNavigationBar />
         </div>
 
@@ -51,7 +51,7 @@ export default function RootLayout({
         />
 
         {/* Gradient overlay để fade out pattern ở dưới navbar - z-index cao hơn pattern */}
-        <div className="fixed bottom-0 left-0 right-0 h-28 pointer-events-none z-0"
+        <div className="fixed bottom-0 left-0 right-0 h-28 pointer-events-none -z-5"
           style={{
             background: 'linear-gradient(to top, rgba(255,255,255,1.0) 0%, rgba(255,255,255,0.7) 30%, transparent 100%)'
           }}
