@@ -17,7 +17,7 @@ export default function Home() {
     return (
         <div className="w-screen h-screen flex flex-col overflow-hidden scrollbar-hide overscroll-none">
             <motion.div
-                className={`antialiased min-h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden scrollbar-hide`}
+                className={`antialiased h-screen w-full flex flex-col items-center justify-center overflow-hidden scrollbar-hide`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
