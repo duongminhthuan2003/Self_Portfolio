@@ -5,7 +5,7 @@ import SFProDisplayLight from 'next/font/local';
 import AppleGaramondItalic from "next/font/local";
 import AboutMeFolder from "@/app/ui/aboutmefolder";
 import Image from "next/image";
-import {useState, Suspense, useEffect, useRef} from "react";
+import {useState, Suspense} from "react";
 import AboutMeTimeLine from "@/app/ui/aboutmetimeline";
 import dynamic from "next/dynamic";
 import TPPopup from "@/app/ui/aboutmepopup/education-TPpopup";
@@ -32,29 +32,15 @@ const AboutMeFolderDynamic = dynamic(() => import("@/app/ui/aboutmefolder"), {
 function AboutMe() {
     const [tpPopup, setTpPopup] = useState(false);
     const [bkPopup, setBkPopup] = useState(false);
-    const scrollRef = useRef<HTMLDivElement>(null);
-
-    // Scroll về đầu trang khi component mount để fix vấn đề hiển thị
-    useEffect(() => {
-        // Scroll container về đầu
-        if (scrollRef.current) {
-            scrollRef.current.scrollTop = 0;
-        }
-        // Scroll window về đầu
-        window.scrollTo(0, 0);
-    }, []);
 
     return (
-        <motion.div ref={scrollRef} className="scroll-snap overflow-x-hidden scrollbar-hide">
-            {/* Section About Me với background che phần dưới */}
-            <div className={`h-screen flex justify-center -mt-28 items-center text-5xl w-full overflow-hidden relative ${appleGaramondItalic.className}`}>
-                <p className="color-word relative z-10">About Me</p>
-                {/* Overlay trắng ở dưới cùng để che phần Education khi chưa scroll */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white to-transparent z-[5]" />
+        <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
+            <div className={`h-screen flex justify-center -mt-28 items-center text-5xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
+                <p className="color-word">About Me</p>
             </div>
 
             <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[28%]">
-                <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Education</p>
+                <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word -z-15`}>Education</p>
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
                     <AboutMeFolderDynamic
                         images={[
