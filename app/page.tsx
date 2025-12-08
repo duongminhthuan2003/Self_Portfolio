@@ -15,7 +15,7 @@ const appleGaramond = AppleGaramond({
 export default function Home() {
 
     return (
-        <div className="w-screen h-[95vh] flex flex-col overflow-hidden scrollbar-hide overscroll-none">
+        <div className="w-screen h-screen flex flex-col overflow-hidden scrollbar-hide overscroll-none">
             <motion.div
                 className={`antialiased min-h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden scrollbar-hide`}
                 initial={{ opacity: 0 }}
