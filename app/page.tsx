@@ -69,10 +69,6 @@ export default function Home() {
                     </motion.div>
                 </motion.div>
             </motion.div>
-
-            <div className="h-screen w-full overflow-hidden">
-                <p className='mt-12'>test</p>
-            </div>
         </div>
   );
 }
