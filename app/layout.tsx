@@ -51,9 +51,9 @@ export default function RootLayout({
         />
 
         {/* Gradient overlay để fade out pattern ở dưới navbar - z-index cao hơn pattern */}
-        <div className="fixed bottom-0 left-0 right-0 h-24 pointer-events-none -z-10"
+        <div className="fixed bottom-0 left-0 right-0 h-28 pointer-events-none -z-10"
           style={{
-            background: 'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, transparent 100%)'
+            background: 'linear-gradient(to top, rgba(255,255,255,1.0) 0%, rgba(255,255,255,0.7) 30%, transparent 100%)'
           }}
         />
       </body>
