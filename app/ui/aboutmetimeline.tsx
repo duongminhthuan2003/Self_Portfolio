@@ -252,7 +252,7 @@ function AboutMeTimeLine() {
                                         exit={{ opacity: 0, scale: 0.95 }}
 
                                         transition={{ duration: 0.3, delay: 0.1 }}
-                                        className="mx-6 mt-5 mb-3 p-5 rounded-xl flex flex-row justify-center items-center"
+                                        className="mx-6 mt-5 mb-3 p-4 rounded-xl flex flex-row justify-center items-center"
                                         style={{
                                             border: '1px solid #F1F1F1',
                                             background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(221, 221, 221, 0.30) 31.73%, rgba(221, 221, 221, 0.30) 65.38%, rgba(255, 255, 255, 0.30) 100%)',
@@ -262,12 +262,20 @@ function AboutMeTimeLine() {
                                     >
                                         <div>
                                             <p className={`${sfProDisplayMedium.className}`}>GAM Esports</p>
-                                            <p className={`${sfProDisplayLight.className}`}>Organizer</p>
+                                            <p className={`${sfProDisplayLight.className}`}>Video Editor</p>
                                         </div>
                                         <div className="flex-1"></div>
-                                        <div className={`${sfProDisplayLight.className} bg-gray-300 px-2 py-1 rounded-full text-sm`}>
+                                        <div className={`${sfProDisplayLight.className} bg-gray-300 px-2 py-1 mr-4 rounded-full text-sm`}>
                                             Oct &#39;22 - July &#39;23
                                         </div>
+                                        <button
+                                            onClick={() => {setActive(null)}}
+                                            className="hover:bg-gray-200 hover:bg-opacity-30 rounded-full transition-colors duration-200"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                                <path d="M15 1L1.00095 14.9991M14.9991 15L1 1.00099" stroke="#444444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
+                                        </button>
                                     </motion.div>
 
                                     <motion.div
@@ -284,15 +292,7 @@ function AboutMeTimeLine() {
                                             backdropFilter: 'blur(2px)',
                                         }}
                                     >
-                                        <button
-                                            onClick={() => {setActive(null)}}
-                                            className="absolute top-4 right-4 hover:bg-gray-200 hover:bg-opacity-30 rounded-full p-1 transition-colors duration-200"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
-                                                <path d="M15 1L1.00095 14.9991M14.9991 15L1 1.00099" stroke="#444444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                            </svg>
-                                        </button>
-                                        <p className={`${sfProDisplayLight.className} text-sm`}>- Produced and edited videos and promo content for a leading Vietnam E-sports team.</p>
+                                        <p className={`${sfProDisplayLight.className} text-sm`}>- Produced and edited videos and promo content for one of the top Vietnam E-sports teams.</p>
                                         <p className={`${sfProDisplayLight.className} mt-2 text-sm`}>- Collaborated with designers, players, and managers to deliver results under tight deadlines.</p>
                                     </motion.div>
                                 </div>

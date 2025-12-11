@@ -84,7 +84,6 @@ function Works() {
                 flipZ={30}
                 flipDurationMs={500}
             />
-            
         </div>
     );
 }
