@@ -68,7 +68,7 @@ function AboutMeTimeLine() {
 
                     {/* Pills */}
                     <div
-                        className={`absolute top-8 left-6 h-10 w-64 rounded-full ${(active === null || active === "org") ? "opacity-100" : "opacity-30"} transition-all duration-300 cursor-pointer`}
+                        className={`absolute top-8 left-6 h-10 w-64 flex items-center pl-4 rounded-full ${(active === null || active === "org") ? "opacity-100" : "opacity-30"} transition-all duration-300 cursor-pointer`}
                         style={{
                             border: '1px solid #F1F1F1',
                             background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(221, 221, 221, 0.30) 31.73%, rgba(221, 221, 221, 0.30) 65.38%, rgba(255, 255, 255, 0.30) 100%)',
@@ -78,10 +78,14 @@ function AboutMeTimeLine() {
                         onClick={() => {
                             setActive("org");
                         }}
-                    />
+                    >
+                        <p className={`${sfProDisplayMedium.className} text-sm text-[#888888]`}>GDSC HCMUT - Organizer</p>
+                    </div>
+
                     <div className="flex-1"></div>
+                    
                     <div
-                        className={`absolute top-1/2 -translate-y-1/2 left-[100vw] -translate-x-1/2 h-10 w-64 rounded-full ${(active === null || active === "head") ? "opacity-100" : "opacity-30"} transition-all duration-300 cursor-pointer`}
+                        className={`absolute top-1/2 -translate-y-1/2 left-[100vw] flex pl-4 items-center -translate-x-1/2 h-10 w-64 rounded-full ${(active === null || active === "head") ? "opacity-100" : "opacity-30"} transition-all duration-300 cursor-pointer`}
                         style={{
                             border: '1px solid #F1F1F1',
                             background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(221, 221, 221, 0.30) 31.73%, rgba(221, 221, 221, 0.30) 65.38%, rgba(255, 255, 255, 0.30) 100%)',
@@ -91,10 +95,14 @@ function AboutMeTimeLine() {
                         onClick={() => {
                             setActive("head");
                         }}
-                    />
+                    >
+                        <p className={`${sfProDisplayMedium.className} text-sm text-[#888888]`}>GDSC HCMUT - Head of Marketing</p>
+                    </div>
+                    
                     <div className="flex-1"></div>
+                    
                     <div
-                        className={`absolute bottom-8 right-6 h-10 w-64 rounded-full ${(active === null || active === "gam") ? "opacity-100" : "opacity-30"} transition-all duration-300 cursor-pointer`}
+                        className={`absolute bottom-8 right-6 h-10 w-64 flex pl-4 items-center rounded-full ${(active === null || active === "gam") ? "opacity-100" : "opacity-30"} transition-all duration-300 cursor-pointer`}
                         style={{
                             border: '1px solid #F1F1F1',
                             background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(221, 221, 221, 0.30) 31.73%, rgba(221, 221, 221, 0.30) 65.38%, rgba(255, 255, 255, 0.30) 100%)',
@@ -104,7 +112,9 @@ function AboutMeTimeLine() {
                         onClick={() => {
                             setActive("gam");
                         }}
-                    />
+                    >
+                        <p className={`${sfProDisplayMedium.className} text-sm text-[#888888]`}>GAM Esports - Video Editor</p>
+                    </div>
                 </div>
             </div>
 
@@ -158,9 +168,17 @@ function AboutMeTimeLine() {
                                             <p className={`${sfProDisplayLight.className}`}>Organizer</p>
                                         </div>
                                         <div className="flex-1"></div>
-                                        <div className={`${sfProDisplayLight.className} bg-gray-300 px-2 py-1 rounded-full text-sm text-[#888888]`}>
-                                            Oct &#39;22 - July &#39;23
+                                        <div className={`${sfProDisplayLight.className} bg-gray-300 px-2 py-1 mr-4 rounded-full text-sm`}>
+                                            Oct &#39;22 - Jun &#39;23
                                         </div>
+                                        <button
+                                            onClick={() => {setActive(null)}}
+                                            className="hover:bg-gray-200 hover:bg-opacity-30 rounded-full transition-colors duration-200"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                                <path d="M15 1L1.00095 14.9991M14.9991 15L1 1.00099" stroke="#444444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
+                                        </button>
                                     </motion.div>
 
                                     <motion.div
@@ -176,16 +194,8 @@ function AboutMeTimeLine() {
                                             backdropFilter: 'blur(2px)',
                                         }}
                                     >
-                                        <button
-                                            onClick={() => {setActive(null)}}
-                                            className="absolute top-4 right-4 hover:bg-gray-200 hover:bg-opacity-30 rounded-full p-1 transition-colors duration-200"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
-                                                <path d="M15 1L1.00095 14.9991M14.9991 15L1 1.00099" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                            </svg>
-                                        </button>
-                                        <p className={`${sfProDisplayLight.className}`}>Section 1</p>
-                                        <p className={`${sfProDisplayLight.className}`}>Section 2</p>
+                                        <p className={`${sfProDisplayLight.className} text-sm`}>- Created visual marketing elements including social media posts, banners, standees, and event photography.</p>
+                                        <p className={`${sfProDisplayLight.className} text-sm mt-2`}>- Worked cross-functionally with members from Development, External Relations, and Event teams.</p>
                                     </motion.div>
                                 </div>
                             )}
@@ -211,9 +221,17 @@ function AboutMeTimeLine() {
                                             <p className={`${sfProDisplayLight.className}`}>Head of Marketing</p>
                                         </div>
                                         <div className="flex-1"></div>
-                                        <div className={`${sfProDisplayLight.className} bg-gray-300 px-2 py-1 rounded-full text-sm`}>
-                                            Oct &#39;22 - July &#39;23
+                                        <div className={`${sfProDisplayLight.className} bg-gray-300 px-2 py-1 mr-4 rounded-full text-sm`}>
+                                            Jul &#39;23 - Jun &#39;24
                                         </div>
+                                        <button
+                                            onClick={() => {setActive(null)}}
+                                            className="hover:bg-gray-200 hover:bg-opacity-30 rounded-full transition-colors duration-200"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                                <path d="M15 1L1.00095 14.9991M14.9991 15L1 1.00099" stroke="#444444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
+                                        </button>
                                     </motion.div>
 
                                     <motion.div
@@ -230,16 +248,9 @@ function AboutMeTimeLine() {
                                             backdropFilter: 'blur(2px)',
                                         }}
                                     >
-                                        <button
-                                            onClick={() => {setActive(null)}}
-                                            className="absolute top-4 right-4 hover:bg-gray-200 hover:bg-opacity-30 rounded-full p-1 transition-colors duration-200"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
-                                                <path d="M15 1L1.00095 14.9991M14.9991 15L1 1.00099" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                            </svg>
-                                        </button>
-                                        <p>Section 1</p>
-                                        <p>Section 2</p>
+                                        <p className={`${sfProDisplayLight.className} text-sm`}>- Led a team of 4 to plan and execute 3 major campaigns, including "Info Seminar 2024" (largest event of the year).</p>
+                                        <p className={`${sfProDisplayLight.className} text-sm mt-2`}>- Developed marketing plans to increase student engagement and supported the team in media-related activities.
+                                        </p>
                                     </motion.div>
                                 </div>
                             )}
@@ -266,7 +277,7 @@ function AboutMeTimeLine() {
                                         </div>
                                         <div className="flex-1"></div>
                                         <div className={`${sfProDisplayLight.className} bg-gray-300 px-2 py-1 mr-4 rounded-full text-sm`}>
-                                            Oct &#39;22 - July &#39;23
+                                            Jan &#39;24 - Sep &#39;24
                                         </div>
                                         <button
                                             onClick={() => {setActive(null)}}

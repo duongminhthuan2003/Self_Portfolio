@@ -69,7 +69,7 @@ function BKPopup({ onClose }: { onClose: () => void }) {
                             <p className={`${sfProDisplayLight.className} text-sm`}>GPA: 7.3/10</p>
                             <p className={`${sfProDisplayLight.className} text-sm`}>2021 - present (expected 2026)</p>
                         </div>
-                       <CldImage src="edu-bk-sticker" height={100} width={100} alt={"Bach Khoa Stickers"} className="absolute top-[50%] -translate-y-1/2 right-0 rotate-12"/>
+                       <CldImage src="edu-bk-sticker" height={100} width={100} alt={"Bach Khoa Stickers"} className="absolute top-[50%] -translate-y-1/2 right-0 rotate-12 drop-shadow-lg"/>
                     </motion.div>
 
                     <motion.div
@@ -77,7 +77,7 @@ function BKPopup({ onClose }: { onClose: () => void }) {
                         animate={{scale: 1, opacity: 1}}
                         exit={{scale: 0.9, opacity: 0}}
                         transition={{ease: "easeInOut", duration: 0.2, delay: 0.3}}
-                        className="absolute bottom-[17%] left-0"
+                        className="absolute bottom-[15%] left-0"
                     >
                         <CldImage src="edu-bk-3" height={160} width={160} alt={"Tan Phu 3"} className="rounded-lg shadow-lg"/>
                     </motion.div>
@@ -87,14 +87,14 @@ function BKPopup({ onClose }: { onClose: () => void }) {
                         animate={{scale: 1, opacity: 1}}
                         exit={{scale: 0.9, opacity: 0}}
                         transition={{ease: "easeInOut", duration: 0.2, delay: 0.4}}
-                        className="absolute bottom-[30%] right-0 w-fit h-fit"
+                        className="absolute bottom-[22%] right-0 w-fit h-fit"
                     >
-                        <CldImage src="edu-tp-4" height={90} width={150} alt={"Tan Phu 4"} className="rounded-lg shadow-lg"/>
+                        <CldImage src="edu-bk-4" height={150} width={150} alt={"Tan Phu 4"} className="rounded-lg shadow-lg"/>
                     </motion.div>
 
                     <button 
                         onClick={onClose} 
-                        className="absolute bottom-[7%] left-1/2 transform -translate-x-1/2 bg-red-500 p-3 rounded-full z-10 border-1 border-[#DBDBDB] shadow-xl"
+                        className="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 bg-red-500 p-3 rounded-full z-10 border-1 border-[#DBDBDB] shadow-xl"
                         style={{
                             background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.80) 15%, rgba(235, 235, 235, 0.8) 50%, rgba(235, 235, 235, 0.8) 65%, rgba(255, 255, 255, 0.80) 98.08%)',
                             backdropFilter: 'blur(10px)',
@@ -110,7 +110,7 @@ function BKPopup({ onClose }: { onClose: () => void }) {
                     </button>
                 </div>
             </div>
-            <div className="absolute top-0 left-0 w-full h-full -z-10" onClick={onClose}/>
+            <div className="absolute top-0 left-0 w-full h-full -z-10 backdrop-blur-lg" onClick={onClose}/>
         </motion.div>
     )
 }

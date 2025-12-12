@@ -69,7 +69,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                             <p className={`${sfProDisplayLight.className} text-sm`}>GPA: 8.5/10</p>
                             <p className={`${sfProDisplayLight.className} text-sm`}>2018 - 2021</p>
                         </div>
-                       <CldImage src="tp_sticker" height={100} width={100} alt={"Tan Phu Stickers"} className="absolute top-[45%] -translate-y-1/2 right-0"/>
+                       <CldImage src="tp_sticker" height={100} width={100} alt={"Tan Phu Stickers"} className="absolute top-[45%] -translate-y-1/2 right-0 drop-shadow-lg"/>
                     </motion.div>
 
                     <motion.div
@@ -94,7 +94,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
 
                     <button 
                         onClick={onClose} 
-                        className="absolute bottom-[7%] left-1/2 transform -translate-x-1/2 bg-red-500 p-3 rounded-full z-10 border-1 border-[#DBDBDB] shadow-xl"
+                        className="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 bg-red-500 p-3 rounded-full z-10 border-1 border-[#DBDBDB] shadow-xl"
                         style={{
                             background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.80) 15%, rgba(235, 235, 235, 0.8) 50%, rgba(235, 235, 235, 0.8) 65%, rgba(255, 255, 255, 0.80) 98.08%)',
                             backdropFilter: 'blur(10px)',
@@ -110,7 +110,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
                     </button>
                 </div>
             </div>
-            <div className="absolute top-0 left-0 w-full h-full -z-10" onClick={onClose}/>
+            <div className="absolute top-0 left-0 w-full h-full -z-10 backdrop-blur-lg" onClick={onClose}/>
         </motion.div>
     )
 }
