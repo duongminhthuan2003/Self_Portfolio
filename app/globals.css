@@ -11,10 +11,10 @@
   color: #BA0000;
   font-family: AppleGaramondItalic, serif;
   display: inline-block;
-  padding-left: 2px;
-  margin-left: -2px;
-  padding-right: 2px;
-  margin-right: -2px;
+  padding-left: 4px;
+  margin-left: -4px;
+  padding-right: 4px;
+  margin-right: -4px;
   /* Add any other styles you want */
 }
 
