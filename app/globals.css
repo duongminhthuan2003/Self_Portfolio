@@ -10,6 +10,8 @@
 .highlight-word {
   color: #BA0000;
   font-family: AppleGaramondItalic, serif;
+  padding-left: 0px;
+  z-index: 10;
   /* Add any other styles you want */
 }
 
