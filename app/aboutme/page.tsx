@@ -162,9 +162,9 @@ function AboutMe() {
                     <motion.div
                         className="flex gap-1 fixed left-1/2 -translate-x-1/2 bottom-24 z-[60] pointer-events-none justify-center items-center"
                         aria-hidden="true"
-                        initial={{ y: 20, opacity: 0 }}
+                        initial={{ y: 0, opacity: 0 }}
                         animate={{ y: 6, opacity: 1 }}
-                        exit={{ y: 20, opacity: 0 }}
+                        exit={{ y: 0, opacity: 0 }}
                         transition={{ duration: 0.2, ease: "easeInOut" }}
                     >   
                         <p className={`${sfProDisplayLight.className} text-sm text-[#888888]`}>Scroll down for more!</p>

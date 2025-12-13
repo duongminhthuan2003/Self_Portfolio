@@ -58,7 +58,7 @@ function Contact() {
     return (
         <motion.div
             ref={scrollRef}
-            className="scroll-snap overflow-x-hidden scrollbar-hide"
+            className="scroll-snap overflow-x-hidden scrollbar-hide overscroll-none"
         >
             <div
                 className="h-screen w-full overflow-hidden scrollbar-hide overscroll-none"
@@ -195,11 +195,28 @@ function Contact() {
 
                 <div className="flex-1"/>
             
-                <div className={`${sfProDisplayLight.className} mb-20 text-[#888888] mx-6`}>
+                <div className={`${sfProDisplayLight.className} mb-30 text-[#888888] mx-6`}>
                     <p className="text-sm">Brought to you by Duong Minh Thuan aka Toonie</p>
                     <p className="text-sm">Last updated: 13/12/2025</p>
                 </div>
             </div>
+            <AnimatePresence>
+                {showScrollHint && (
+                    <motion.div
+                        className="flex gap-1 fixed left-1/2 -translate-x-1/2 bottom-24 z-[60] pointer-events-none justify-center items-center"
+                        aria-hidden="true"
+                        initial={{ opacity: 0 }}
+                        animate={{ y: 6, opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1, ease: "easeInOut" }}
+                    >   
+                        <p className={`${sfProDisplayLight.className} text-sm`}>Scroll down for more!</p>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </motion.div>
     )
 }
