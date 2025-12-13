@@ -46,24 +46,14 @@ body {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* ADD: dynamic viewport height (fix iOS keyboard pushing layout) */
-:root {
-  --app-height: 100vh; /* fallback */
-}
-
-/* UPDATE: use dynamic height for snap container */
 .scroll-snap {
   scroll-snap-type: y mandatory;
-  height: var(--app-height);
+  height: 100vh;
   overflow-y: auto;
 }
 
-/* ADD: override Tailwind h-screen/min-h-screen to use dynamic height */
-.h-screen {
-  height: var(--app-height) !important;
-}
-.min-h-screen {
-  min-height: var(--app-height) !important;
+.scroll-snap > * {
+  scroll-snap-align: start;
 }
 
 /* Hide scrollbar for snap scrolling */

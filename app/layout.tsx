@@ -5,7 +5,6 @@ import App from "next/app";
 import MobileNavigationBar from "@/app/ui/mobilenavigationbar";
 import Image from "next/image";
 import { AnimatePresence } from "motion/react";
-import ViewportHeightFix from "@/app/ui/ViewportHeightFix";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +34,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative">
-        <ViewportHeightFix />
         <div className="page-transition-enabled">
             {children}
         </div>
