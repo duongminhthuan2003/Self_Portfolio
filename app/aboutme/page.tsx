@@ -5,7 +5,7 @@ import SFProDisplayLight from 'next/font/local';
 import AppleGaramondItalic from "next/font/local";
 import AboutMeFolder from "@/app/ui/aboutmefolder";
 import Image from "next/image";
-import {useState, Suspense} from "react";
+import {useState, Suspense, useEffect, useRef} from "react";
 import AboutMeTimeLine from "@/app/ui/aboutmetimeline";
 import dynamic from "next/dynamic";
 import TPPopup from "@/app/ui/aboutmepopup/education-TPpopup";
@@ -33,8 +33,34 @@ function AboutMe() {
     const [tpPopup, setTpPopup] = useState(false);
     const [bkPopup, setBkPopup] = useState(false);
 
+    // --- ADD: scroll hint state ---
+    const scrollRef = useRef<HTMLDivElement | null>(null);
+    const [showScrollHint, setShowScrollHint] = useState(true);
+
+    useEffect(() => {
+        const el = scrollRef.current;
+        if (!el) return;
+
+        const update = () => {
+            const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+            setShowScrollHint(!atBottom);
+        };
+
+        update();
+        el.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+
+        return () => {
+            el.removeEventListener("scroll", update);
+            window.removeEventListener("resize", update);
+        };
+    }, []);
+
     return (
-        <motion.div className="scroll-snap overflow-x-hidden scrollbar-hide">
+        <motion.div
+            ref={scrollRef}
+            className="scroll-snap overflow-x-hidden scrollbar-hide"
+        >
             <div className={`h-screen flex justify-center -mt-28 items-center text-5xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
                 <p className="color-word">About Me</p>
             </div>
@@ -130,6 +156,24 @@ function AboutMe() {
                 <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Experience</p>
                 <AboutMeTimeLine />
             </div>
+
+            <AnimatePresence>
+                {showScrollHint && (
+                    <motion.div
+                        className="flex gap-1 fixed left-1/2 -translate-x-1/2 bottom-24 z-[60] pointer-events-none justify-center items-center"
+                        aria-hidden="true"
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 6, opacity: 1 }}
+                        exit={{ y: 20, opacity: 0 }}
+                        transition={{ duration: 0.2, ease: "easeInOut" }}
+                    >   
+                        <p className={`${sfProDisplayLight.className} text-sm text-[#888888]`}>Scroll down for more!</p>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </motion.div>
     )
 }
