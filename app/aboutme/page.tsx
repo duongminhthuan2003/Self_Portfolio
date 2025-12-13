@@ -37,6 +37,17 @@ function AboutMe() {
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const [showScrollHint, setShowScrollHint] = useState(true);
 
+    // ADD: lock body scroll (prevents page pull / scroll chaining)
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
+
+        return () => {
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
+        };
+    }, []);
+
     useEffect(() => {
         const el = scrollRef.current;
         if (!el) return;

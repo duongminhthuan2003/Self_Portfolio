@@ -36,6 +36,17 @@ function Contact() {
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const [showScrollHint, setShowScrollHint] = useState(true);
 
+    // ADD: lock body scroll (prevents page pull / scroll chaining)
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
+
+        return () => {
+            document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
+        };
+    }, []);
+
     useEffect(() => {
         const el = scrollRef.current;
         if (!el) return;
@@ -208,11 +219,11 @@ function Contact() {
                         initial={{ opacity: 0 }}
                         animate={{ y: 6, opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
+                        transition={{ duration: 0.2, ease: "easeInOut" }}
                     >   
-                        <p className={`${sfProDisplayLight.className} text-sm`}>Scroll down for more!</p>
+                        <p className={`${sfProDisplayLight.className} text-sm text-[#888888]`}>Scroll down for more!</p>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M6 9l6 6 6-6" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M6 9l6 6 6-6" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </motion.div>
                 )}

@@ -291,7 +291,11 @@ export default function MobileNavigationBar() {
     }, [pathname]);
 
     return (
-        <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 select-none">
+        <nav
+            className="fixed bottom-4 left-1/2 -translate-x-1/2 select-none"
+            style={{ touchAction: "none" }}
+            onTouchMove={(e) => e.preventDefault()}
+        >
             {/* Pill background */}
             <div
                 className="relative backgroundblur mx-auto h-[50px] w-fit rounded-full ring-1 ring-black/5"
