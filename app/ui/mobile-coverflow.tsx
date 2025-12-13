@@ -21,7 +21,7 @@ const slides = [
     {
         img: "https://res.cloudinary.com/dhquqou4h/image/upload/v1765103482/bkdocs_vrhmmp.webp",
         title: "BKDocs (Ongoing)",
-        desc: "A mobile app made for HCMUT students to manage their learning materials.",
+        desc: "A mobile app made for HCMUT students to manage their learning materials. Built with React Native.",
         navigate: "/works/frontendweb/ananas",
     },
 ];
@@ -45,7 +45,7 @@ export default function MobileSwiperCoverflow() {
 
     const [active, setActive] = useState(0);
     return (
-        <div>
+        <div className="mb-6">
             <Swiper
                 modules={[Navigation, Pagination, EffectCoverflow]}
                 navigation={true}
@@ -64,7 +64,7 @@ export default function MobileSwiperCoverflow() {
                 centeredSlides={true}
                 watchSlidesProgress={true}
                 spaceBetween={12}
-                className="h-[300px] md:h-[400px]"
+                className="h-[330px] md:h-[400px]"
                 onInit={(swiper) => setActive(swiper.realIndex)}
                 onSlideChange={(swiper) => setActive(swiper.realIndex)}
             >
@@ -75,7 +75,7 @@ export default function MobileSwiperCoverflow() {
                             backgroundImage: `url(${s.img})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            borderRadius: "5px"
+                            borderRadius: "5px",
                         }}
                         onClick={
                             () => {myRouter.push(s.navigate)}
@@ -107,8 +107,9 @@ export default function MobileSwiperCoverflow() {
 
                     <motion.p
                         className={`${sfProDisplayLight.className}`}
-                        initial={{y: 20}}
-                        animate={{y: 0}}
+                        initial={{y: 30, opacity: 0}}
+                        animate={{y: 0, opacity: 1}}
+                        exit={{opacity: 0}}
                         transition={{ duration: 0.3, delay: 0.1, type: "tween"  }}
                     >
                         {slides[active].desc}
@@ -123,6 +124,7 @@ export default function MobileSwiperCoverflow() {
                         padding-bottom: 35px;
                         padding-left: 40px;
                         padding-right: 40px;
+                        padding-top: 20px;
                     }
                     
                     /* Responsive padding for smaller screens */
@@ -148,7 +150,7 @@ export default function MobileSwiperCoverflow() {
                       border-radius: 50%;     /* thành hình tròn */
                       border: 1px solid #F1F1F1;
                       background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(221, 221, 221, 0.30) 31.73%, rgba(221, 221, 221, 0.30) 65.38%, rgba(255, 255, 255, 0.30) 100%);
-                      box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.25), 0 3px 7px 0 rgba(0, 0, 0, 0.25);
+                      box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.15), 0 3px 7px 0 rgba(0, 0, 0, 0.15);
                       backdrop-filter: blur(2px);
                       display: flex;
                       align-items: center;
@@ -212,7 +214,7 @@ export default function MobileSwiperCoverflow() {
                         opacity: 1;
                     }
                     .swiper-slide {
-                        box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.15), 0 3px 15px 0 rgba(0, 0, 0, 0.25);
+                        box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.1), 0 3px 15px 0 rgba(0, 0, 0, 0.05);
                       }
                       .swiper-slide-active { opacity: 1; }
                     `}
