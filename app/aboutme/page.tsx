@@ -167,24 +167,6 @@ function AboutMe() {
                 <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Experience</p>
                 <AboutMeTimeLine />
             </div>
-
-            <AnimatePresence>
-                {showScrollHint && (
-                    <motion.div
-                        className="flex gap-1 fixed left-1/2 -translate-x-1/2 bottom-24 z-[60] pointer-events-none justify-center items-center"
-                        aria-hidden="true"
-                        initial={{ y: 0, opacity: 0 }}
-                        animate={{ y: 6, opacity: 1 }}
-                        exit={{ y: 0, opacity: 0 }}
-                        transition={{ duration: 0.2, ease: "easeInOut" }}
-                    >   
-                        <p className={`${sfProDisplayLight.className} text-sm text-[#888888]`}>Scroll down for more!</p>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M6 9l6 6 6-6" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </motion.div>
     )
 }

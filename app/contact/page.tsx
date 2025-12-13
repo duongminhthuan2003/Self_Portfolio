@@ -211,7 +211,7 @@ function Contact() {
                     <p className="text-sm">Last updated: 13/12/2025</p>
                 </div>
             </div>
-            <AnimatePresence>
+            {/* <AnimatePresence>
                 {showScrollHint && (
                     <motion.div
                         className="flex gap-1 fixed left-1/2 -translate-x-1/2 bottom-24 z-[60] pointer-events-none justify-center items-center"
@@ -227,7 +227,7 @@ function Contact() {
                         </svg>
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence> */}
         </motion.div>
     )
 }
