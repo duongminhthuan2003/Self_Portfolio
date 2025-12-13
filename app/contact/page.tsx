@@ -41,6 +41,7 @@ function Contact() {
                     setActive(null);
                     }
                 }}
+                className="h-screen w-full overflow-hidden"
             >
                 <p className={`mt-10 ${appleGaramondItalic.className} text-5xl text-center mb-5 color-word`}>Contact</p>
 
