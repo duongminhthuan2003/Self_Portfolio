@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import AppleGaramondItalic from "next/font/local";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Button from "@/app/ui/sendbutton";
 import SFProDisplayLight from "next/font/local";
 import SFProDisplayMedium from "next/font/local";
@@ -32,11 +32,14 @@ function Contact() {
     const [message, setMessage] = useState("");
     const [active, setActive] = useState<null | 'name' | 'email' | 'messageTitle' | 'message'>(null);
 
-    // --- ADD: scroll hint state ---
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const [showScrollHint, setShowScrollHint] = useState(true);
+    
+    // NEW: Track if input is focused and lock scroll position
+    const isInputFocused = useRef(false);
+    const lockedScrollTop = useRef(0);
 
-    // ADD: lock body scroll (prevents page pull / scroll chaining)
+    // ADD: lock body scroll
     useEffect(() => {
         document.body.style.overflow = "hidden";
         document.documentElement.style.overflow = "hidden";
@@ -45,6 +48,34 @@ function Contact() {
             document.body.style.overflow = "";
             document.documentElement.style.overflow = "";
         };
+    }, []);
+
+    // NEW: Lock scroll position while input is focused
+    useEffect(() => {
+        const el = scrollRef.current;
+        if (!el) return;
+
+        const handleScroll = () => {
+            if (isInputFocused.current) {
+                // Force scroll back to locked position
+                el.scrollTop = lockedScrollTop.current;
+            }
+        };
+
+        el.addEventListener("scroll", handleScroll, { passive: false });
+        return () => el.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // NEW: Also listen to window scroll (iOS sometimes scrolls window)
+    useEffect(() => {
+        const handleWindowScroll = () => {
+            if (isInputFocused.current) {
+                window.scrollTo(0, 0);
+            }
+        };
+
+        window.addEventListener("scroll", handleWindowScroll, { passive: false });
+        return () => window.removeEventListener("scroll", handleWindowScroll);
     }, []);
 
     useEffect(() => {
@@ -66,22 +97,40 @@ function Contact() {
         };
     }, []);
 
-    // ADD: Force snap to nearest section (fix iOS keyboard dismiss issue)
-    const snapToNearest = () => {
+    // NEW: Handle input focus - lock current scroll position
+    const handleInputFocus = useCallback((inputType: 'name' | 'email' | 'messageTitle' | 'message') => {
+        setActive(inputType);
+        
         const el = scrollRef.current;
-        if (!el) return;
+        if (el) {
+            // Lock to section 2 (form section) - which is 1 * viewport height
+            lockedScrollTop.current = el.clientHeight;
+            isInputFocused.current = true;
+            
+            // Immediately force scroll to locked position
+            el.scrollTop = lockedScrollTop.current;
+            window.scrollTo(0, 0);
+        }
+    }, []);
 
-        const pageH = el.clientHeight || window.innerHeight;
-        const target = Math.round(el.scrollTop / pageH) * pageH;
-        el.scrollTo({ top: target, behavior: "smooth" });
-    };
-
-    // ADD: Handle input blur - snap back after keyboard dismisses
-    const handleInputBlur = () => {
-        // iOS needs a small delay for viewport to resize after keyboard hides
-        setTimeout(snapToNearest, 100);
-        setTimeout(snapToNearest, 300); // backup snap in case first one was too early
-    };
+    // NEW: Handle input blur - unlock and snap
+    const handleInputBlur = useCallback(() => {
+        isInputFocused.current = false;
+        
+        const el = scrollRef.current;
+        if (el) {
+            // Snap to section 2 (form section)
+            setTimeout(() => {
+                el.scrollTo({ top: el.clientHeight, behavior: "smooth" });
+                window.scrollTo(0, 0);
+            }, 50);
+            
+            setTimeout(() => {
+                el.scrollTo({ top: el.clientHeight, behavior: "instant" });
+                window.scrollTo(0, 0);
+            }, 350);
+        }
+    }, []);
 
     return (
         <motion.div
@@ -116,28 +165,28 @@ function Contact() {
                     <p className={`mt-10 ${appleGaramondItalic.className} text-3xl text-left mb-3 color-word`}>Find me online</p>
                     <a href="https://www.linkedin.com/in/duongminhthuan2003/" target="_blank" className="flex items-center gap-2">
                         <p className={`${sfProDisplayLight.className}`}>LinkedIn</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M10.0017 3C7.05534 3.03208 5.41096 3.21929 4.31838 4.31188C2.99988 5.63037 2.99988 7.75248 2.99988 11.9966C2.99988 16.2409 2.99988 18.363 4.31838 19.6815C5.63688 21 7.75899 21 12.0032 21C16.2474 21 18.3695 21 19.688 19.6815C20.7808 18.5887 20.9678 16.9438 20.9999 13.9963" />
                             <path d="M14 3H18C19.4142 3 20.1213 3 20.5607 3.43934C21 3.87868 21 4.58579 21 6V10M20 4L11 13" />
                         </svg>
                     </a>
                     <a href="https://github.com/duongminhthuan2003" target="_blank" className="flex items-center gap-2">
                         <p className={`${sfProDisplayLight.className}`}>GitHub</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M10.0017 3C7.05534 3.03208 5.41096 3.21929 4.31838 4.31188C2.99988 5.63037 2.99988 7.75248 2.99988 11.9966C2.99988 16.2409 2.99988 18.363 4.31838 19.6815C5.63688 21 7.75899 21 12.0032 21C16.2474 21 18.3695 21 19.688 19.6815C20.7808 18.5887 20.9678 16.9438 20.9999 13.9963" />
                             <path d="M14 3H18C19.4142 3 20.1213 3 20.5607 3.43934C21 3.87868 21 4.58579 21 6V10M20 4L11 13" />
                         </svg>
                     </a>
                     <a href="https://www.facebook.com/duongminhthuan.2003/" target="_blank" className="flex items-center gap-2">
                         <p className={`${sfProDisplayLight.className}`}>Facebook</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M10.0017 3C7.05534 3.03208 5.41096 3.21929 4.31838 4.31188C2.99988 5.63037 2.99988 7.75248 2.99988 11.9966C2.99988 16.2409 2.99988 18.363 4.31838 19.6815C5.63688 21 7.75899 21 12.0032 21C16.2474 21 18.3695 21 19.688 19.6815C20.7808 18.5887 20.9678 16.9438 20.9999 13.9963" />
                             <path d="M14 3H18C19.4142 3 20.1213 3 20.5607 3.43934C21 3.87868 21 4.58579 21 6V10M20 4L11 13" />
                         </svg>
                     </a>
                     <a href="https://www.instagram.com/duongminhthuan2003/" target="_blank" className="flex items-center gap-2">
                         <p className={`${sfProDisplayLight.className}`}>Instagram</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none" stroke="#141B34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M10.0017 3C7.05534 3.03208 5.41096 3.21929 4.31838 4.31188C2.99988 5.63037 2.99988 7.75248 2.99988 11.9966C2.99988 16.2409 2.99988 18.363 4.31838 19.6815C5.63688 21 7.75899 21 12.0032 21C16.2474 21 18.3695 21 19.688 19.6815C20.7808 18.5887 20.9678 16.9438 20.9999 13.9963" />
                             <path d="M14 3H18C19.4142 3 20.1213 3 20.5607 3.43934C21 3.87868 21 4.58579 21 6V10M20 4L11 13" />
                         </svg>
@@ -147,15 +196,13 @@ function Contact() {
 
             <div 
                 className="h-screen w-full overflow-hidden scrollbar-hide overscroll-none flex flex-col"
-                
                 tabIndex={-1}
                 onBlurCapture={(e) => {
                     if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-                    setActive(null);
-                    handleInputBlur(); // ADD: snap back when focus leaves form
+                        setActive(null);
                     }
                 }}
-                >
+            >
                 <p className={`mt-10 ${appleGaramondItalic.className} text-3xl mx-6 text-left mb-5 color-word`}>Feel free to <br/>leave me a message!</p>
 
                 <form 
@@ -175,8 +222,8 @@ function Contact() {
                             boxShadow: '0 8px 15px rgba(0, 0, 0, 0.2)',
                             backdropFilter: 'blur(2px)',
                         }}
-                        onFocus={() => setActive('name')}
-                        onBlur={handleInputBlur}  // ADD
+                        onFocus={() => handleInputFocus('name')}
+                        onBlur={handleInputBlur}
                     />
                     <input
                         type="email"
@@ -190,8 +237,8 @@ function Contact() {
                             boxShadow: '0 8px 15px rgba(0, 0, 0, 0.2)',
                             backdropFilter: 'blur(2px)',
                         }}
-                        onFocus={() => {setActive('email')}}
-                        onBlur={handleInputBlur}  // ADD
+                        onFocus={() => handleInputFocus('email')}
+                        onBlur={handleInputBlur}
                     />
                     <input
                         type="text"
@@ -205,8 +252,8 @@ function Contact() {
                             boxShadow: '0 8px 15px rgba(0, 0, 0, 0.2)',
                             backdropFilter: 'blur(2px)',
                         }}
-                        onFocus={() => {setActive('messageTitle')}}
-                        onBlur={handleInputBlur}  // ADD
+                        onFocus={() => handleInputFocus('messageTitle')}
+                        onBlur={handleInputBlur}
                     />
                     <textarea 
                         value={message}
@@ -220,8 +267,8 @@ function Contact() {
                             backdropFilter: 'blur(2px)',
                             resize: 'none'
                         }}
-                        onFocus={() => {setActive('message')}}
-                        onBlur={handleInputBlur}  // ADD
+                        onFocus={() => handleInputFocus('message')}
+                        onBlur={handleInputBlur}
                     />
                     <Button />
                 </form>
