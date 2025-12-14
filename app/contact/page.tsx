@@ -317,9 +317,9 @@ function Contact() {
 
                 <div className="flex-1"/>
             
-                <div className={`${sfProDisplayLight.className} mb-30 text-[#888888] mx-6`}>
+                <div className={`${sfProDisplayLight.className} mb-[14vh] text-[#888888] mx-6`}>
                     <p className="text-sm">Brought to you by Duong Minh Thuan aka Toonie</p>
-                    <p className="text-sm">Last updated: 13/12/2025</p>
+                    <p className="text-sm">Last updated: 14/12/2025</p>
                 </div>
             </div>
             {/* <AnimatePresence>
