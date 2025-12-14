@@ -57,25 +57,6 @@ function Contact() {
         el.scrollTo({ top: target, behavior: "smooth" });
     };
 
-    useEffect(() => {
-        const el = scrollRef.current;
-        if (!el) return;
-
-        const update = () => {
-            const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
-            setShowScrollHint(!atBottom);
-        };
-
-        update();
-        el.addEventListener("scroll", update, { passive: true });
-        window.addEventListener("resize", update);
-
-        return () => {
-            el.removeEventListener("scroll", update);
-            window.removeEventListener("resize", update);
-        };
-    }, []);
-
     return (
         <motion.div
             ref={scrollRef}
