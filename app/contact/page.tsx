@@ -47,23 +47,6 @@ function Contact() {
         };
     }, []);
 
-    // ADD: keep app height in sync with iOS visual viewport (keyboard on/off)
-    useEffect(() => {
-        const setAppHeight = () => {
-            const h = window.visualViewport?.height ?? window.innerHeight;
-            document.documentElement.style.setProperty("--app-height", `${h}px`);
-        };
-
-        setAppHeight();
-        window.visualViewport?.addEventListener("resize", setAppHeight);
-        window.addEventListener("resize", setAppHeight);
-
-        return () => {
-            window.visualViewport?.removeEventListener("resize", setAppHeight);
-            window.removeEventListener("resize", setAppHeight);
-        };
-    }, []);
-
     // ADD: force snap back to the nearest section (fix "page lifted" after keyboard hides)
     const snapToNearest = () => {
         const el = scrollRef.current;
