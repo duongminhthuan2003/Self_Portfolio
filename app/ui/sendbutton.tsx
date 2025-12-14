@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import SFMono from 'next/font/local';
 import SFMonoSemibold from 'next/font/local';
 
@@ -11,13 +11,24 @@ const sfMonoSemibold = SFMonoSemibold({
 const EASE = "easeInOut";
 const DURATION = 0.25;
 
-function Button() {
+function SendButton({state = "idle"}: {state: "idle" | "sending" | "sent" | "error"}) {
+
+    const label =
+    state === "sending" ? "SENDING..." :
+    state === "sent" ? "SENT" :
+    state === "error" ? "ERROR" :
+    "SEND";
+    
+
     return (
-        <motion.div
-            className={`${sfMonoSemibold.className} relative py-3 px-6 bg-black text-white rounded-full w-fit`}
+        <motion.button
+            className={`${sfMonoSemibold.className} relative py-3 px-6 bg-black text-white rounded-full w-[140px]`}
             initial="rest"
             whileHover="hover"
             whileTap="tap"
+            type="submit"
+            disabled={state === "sending"}
+            aria-busy={state === "sending"}
             variants={{
                 rest:  { scale: 1 },
                 hover: { scale: 1.06 },
@@ -56,28 +67,84 @@ function Button() {
                 transition={{ type: "tween", ease: EASE, duration: DURATION }}
             />
 
-            <span className="font-SFMono-Semibold relative z-10 text-[13px] flex flex-row items-center gap-4 select-none">
-                <p className="text-[#888888]">
-                    SEND
-                </p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
-                    <g filter="url(#filter0_i_875_546)">
-                        <path d="M3.33203 10H17.7765" stroke="#747474" strokeWidth="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M3.17522 9.52566L1.11157 3.33471C0.693826 2.08148 1.98286 0.93925 3.17672 1.50476L18.2493 8.64439C19.3931 9.18621 19.3931 10.8138 18.2493 11.3556L3.17673 18.4952C1.98286 19.0607 0.693826 17.9185 1.11157 16.6653L3.17522 10.4743C3.27785 10.1664 3.27785 9.83356 3.17522 9.52566Z" stroke="#747474" strokeWidth="1.5"/>
-                    </g>
-                    <defs>
-                        <filter id="filter0_i_875_546" x="0.279297" y="0.603912" width="19.5781" height="19.7922" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                        <feOffset dy="1"/>
-                        <feGaussianBlur stdDeviation="0.5"/>
-                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
-                        <feBlend mode="normal" in2="shape" result="effect1_innerShadow_875_546"/>
-                        </filter>
-                    </defs>
-                </svg>
+            <span className="font-SFMono-Semibold relative z-10 text-[13px] flex flex-row items-center justify-center gap-3 select-none">
+                <AnimatePresence mode="wait" initial={false}>
+                    <motion.div 
+                        key={state}
+                        className="text-[#888888] flex flex-row items-center justify-center gap-3 select-none"
+                        initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
+                        transition={{ 
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 25,
+                            mass: 0.5,
+                        }}
+                    >
+                        <p>{label}</p>
+                                            
+                        {
+                            state === "sent" && (
+                                <motion.svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="18" 
+                                    height="18" 
+                                    viewBox="0 0 22 22" 
+                                    fill="none"
+                                    initial={{ scale: 0, rotate: -180 }}
+                                    animate={{ scale: 1, rotate: 0 }}
+                                    transition={{ 
+                                        type: "spring",
+                                        stiffness: 200,
+                                        damping: 15,
+                                        delay: 0.1
+                                    }}
+                                >
+                                    <g filter="url(#filter0_i_878_515)">
+                                        <path d="M15.75 2.08782C14.2791 1.23697 12.5714 0.75 10.75 0.75C5.22715 0.75 0.75 5.22715 0.75 10.75C0.75 16.2728 5.22715 20.75 10.75 20.75C16.2728 20.75 20.75 16.2728 20.75 10.75C20.75 10.0651 20.6811 9.3962 20.55 8.75" stroke="#747474" strokeWidth="1.5" strokeLinecap="round"/>
+                                        <path d="M6.75 11.25C6.75 11.25 8.25 11.25 10.25 14.75C10.25 14.75 15.8088 5.58333 20.75 3.75" stroke="#747474" strokeWidth="1.5" strokeLinecap="round"/>
+                                    </g>
+                                    <defs>
+                                        <filter id="filter0_i_878_515" x="0" y="0" width="21.5" height="22.5" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                            <feOffset dy="1"/>
+                                            <feGaussianBlur stdDeviation="0.5"/>
+                                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_878_515"/>
+                                        </filter>
+                                    </defs>
+                                </motion.svg>
+                            )
+                        }
+
+                        {
+                            state === "idle" && (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 22 20" fill="none">
+                                    <g filter="url(#filter0_i_875_546)">
+                                        <path d="M3.33203 10H17.7765" stroke="#747474" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M3.17522 9.52566L1.11157 3.33471C0.693826 2.08148 1.98286 0.93925 3.17672 1.50476L18.2493 8.64439C19.3931 9.18621 19.3931 10.8138 18.2493 11.3556L3.17673 18.4952C1.98286 19.0607 0.693826 17.9185 1.11157 16.6653L3.17522 10.4743C3.27785 10.1664 3.27785 9.83356 3.17522 9.52566Z" stroke="#747474" strokeWidth="1.5"/>
+                                    </g>
+                                    <defs>
+                                        <filter id="filter0_i_875_546" x="0.279297" y="0.603912" width="19.5781" height="19.7922" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                            <feOffset dy="1"/>
+                                            <feGaussianBlur stdDeviation="0.5"/>
+                                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+                                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_875_546"/>
+                                        </filter>
+                                    </defs>
+                                </svg>
+                            )
+                        }
+                    </motion.div>                                    
+                </AnimatePresence>
               </span>
 
             {/* Phản sáng trên cùng */}
@@ -127,8 +194,8 @@ function Button() {
                 </defs>
                 <rect x="0" y="0" width="100%" height="100%" rx="20" ry="50%" fill="currentColor" mask="url(#ellipseMask)" />
             </svg>
-        </motion.div>
+        </motion.button>
     );
 }
 
-export default Button;
+export default SendButton;

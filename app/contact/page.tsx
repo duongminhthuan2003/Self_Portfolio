@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import AppleGaramondItalic from "next/font/local";
 import { useState, useEffect, useRef, useCallback } from "react";
-import Button from "@/app/ui/sendbutton";
+import SendButton from "@/app/ui/sendbutton";
 import SFProDisplayLight from "next/font/local";
 import SFProDisplayMedium from "next/font/local";
 
@@ -31,6 +31,7 @@ function Contact() {
     const [messageTitle, setMessageTitle] = useState("");
     const [message, setMessage] = useState("");
     const [active, setActive] = useState<null | 'name' | 'email' | 'messageTitle' | 'message'>(null);
+    const [sendState, setSendState] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const [showScrollHint, setShowScrollHint] = useState(true);
@@ -132,6 +133,35 @@ function Contact() {
         }
     }, []);
 
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (sendState === "sending") return;
+        
+        setSendState("sending");
+        try {
+            const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, messageTitle, message }),
+            });
+        
+            if (!res.ok) throw new Error(await res.text());
+        
+            // reset form
+            setName("");
+            setEmail("");
+            setMessageTitle("");
+            setMessage("");
+            setActive(null);
+        
+            setSendState("sent");
+            setTimeout(() => setSendState("idle"), 2000);
+        } catch {
+            setSendState("error");
+            setTimeout(() => setSendState("idle"), 2000);
+        }
+    };
+
     return (
         <motion.div
             ref={scrollRef}
@@ -197,6 +227,17 @@ function Contact() {
             <div 
                 className="h-screen w-full overflow-hidden scrollbar-hide overscroll-none flex flex-col"
                 tabIndex={-1}
+                onClick={(e) => {
+                    // Nếu click không phải vào form, set active = null
+                    const form = e.currentTarget.querySelector('form');
+                    if (form && !form.contains(e.target as Node)) {
+                        setActive(null);
+                        // Blur input đang active (nếu có)
+                        if (document.activeElement instanceof HTMLElement) {
+                            document.activeElement.blur();
+                        }
+                    }
+                }}
                 onBlurCapture={(e) => {
                     if (!e.currentTarget.contains(e.relatedTarget as Node)) {
                         setActive(null);
@@ -207,6 +248,7 @@ function Contact() {
 
                 <form 
                     className="mx-6 flex flex-col gap-4"
+                    onSubmit={handleSubmit}
                     onMouseDown={(e) => e.stopPropagation()}
                     onTouchStart={(e) => e.stopPropagation()}
                 >
@@ -270,7 +312,7 @@ function Contact() {
                         onFocus={() => handleInputFocus('message')}
                         onBlur={handleInputBlur}
                     />
-                    <Button />
+                    <SendButton state={sendState} />
                 </form>
 
                 <div className="flex-1"/>
