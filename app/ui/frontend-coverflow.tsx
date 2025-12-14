@@ -14,14 +14,14 @@ import {useRouter} from "next/navigation";
 const slides = [
     {
         img: "/images/projects/ananas/thumbnail.webp",
-        title: "Ananas Project",
-        desc: "A creative showcase of the Ananas sneaker line.",
+        title: "Ananas",
+        desc: "Redeveloped the Ananas website with a modern design. A Web Programming subject's project. Built with React and Tailwind CSS.",
         navigate: "/works/frontendweb/ananas",
     },
     {
-        img: "https://swiperjs.com/demos/images/nature-2.jpg",
-        title: "Nature Escape",
-        desc: "Explore breathtaking views from our outdoor collection.",
+        img: "https://res.cloudinary.com/dhquqou4h/image/upload/v1765721122/talksign_thumb.webp",
+        title: "TalkSign",
+        desc: "A web application that translates sign language into text. Built for Naver AI Hackathon 2025 Final round. Built with React and Naver Cloud Platform.",
         navigate: "/works/frontendweb/ananas",
     },
 ];
@@ -45,7 +45,7 @@ export default function FrontendSwiperCoverflow() {
 
     const [active, setActive] = useState(0);
     return (
-        <div>
+        <div className="mb-4">
             <Swiper
                 modules={[Navigation, Pagination, EffectCoverflow]}
                 navigation={true}
@@ -86,7 +86,7 @@ export default function FrontendSwiperCoverflow() {
 
             <div
                 style={{
-                    marginTop: 12,
+                    marginTop: 8,
                     textAlign: "center",
                     padding: "0 16px",
                     minHeight: 72,
@@ -97,18 +97,20 @@ export default function FrontendSwiperCoverflow() {
                     key={active}
                 >
                     <motion.p
-                        className={`${sfProDisplayMedium.className} text-xl`}
-                        initial={{y: 20}}
-                        animate={{y: 0}}
+                        className={`${sfProDisplayMedium.className} text-lg`}
+                        initial={{y: 20, opacity: 0}}
+                        animate={{y: 0, opacity: 1}}
+                        exit={{opacity: 0}}
                         transition={{ duration: 0.3, type: "tween" }}
                     >
                         {slides[active].title}
                     </motion.p>
 
                     <motion.p
-                        className={`${sfProDisplayLight.className}`}
-                        initial={{y: 20}}
-                        animate={{y: 0}}
+                        className={`${sfProDisplayLight.className} text-base`}
+                        initial={{y: 30, opacity: 0}}
+                        animate={{y: 0, opacity: 1}}
+                        exit={{opacity: 0}}
                         transition={{ duration: 0.3, delay: 0.1, type: "tween"  }}
                     >
                         {slides[active].desc}
@@ -123,6 +125,7 @@ export default function FrontendSwiperCoverflow() {
                         padding-bottom: 35px;
                         padding-left: 40px;
                         padding-right: 40px;
+                        padding-top: 20px;
                     }
                     
                     /* Responsive padding for smaller screens */
@@ -148,7 +151,7 @@ export default function FrontendSwiperCoverflow() {
                       border-radius: 50%;     /* thành hình tròn */
                       border: 1px solid #F1F1F1;
                       background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(221, 221, 221, 0.30) 31.73%, rgba(221, 221, 221, 0.30) 65.38%, rgba(255, 255, 255, 0.30) 100%);
-                      box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.25), 0 3px 7px 0 rgba(0, 0, 0, 0.25);
+                      box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.15), 0 3px 7px 0 rgba(0, 0, 0, 0.15);
                       backdrop-filter: blur(2px);
                       display: flex;
                       align-items: center;
@@ -212,7 +215,7 @@ export default function FrontendSwiperCoverflow() {
                         opacity: 1;
                     }
                     .swiper-slide {
-                        box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.15), 0 3px 15px 0 rgba(0, 0, 0, 0.25);
+                        box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.1), 0 3px 15px 0 rgba(0, 0, 0, 0.05);
                       }
                       .swiper-slide-active { opacity: 1; }
                     `}

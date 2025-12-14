@@ -86,20 +86,12 @@ function SendButton({state = "idle"}: {state: "idle" | "sending" | "sent" | "err
                                             
                         {
                             state === "sent" && (
-                                <motion.svg 
+                                <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
                                     width="18" 
                                     height="18" 
                                     viewBox="0 0 22 22" 
                                     fill="none"
-                                    initial={{ scale: 0, rotate: -180 }}
-                                    animate={{ scale: 1, rotate: 0 }}
-                                    transition={{ 
-                                        type: "spring",
-                                        stiffness: 200,
-                                        damping: 15,
-                                        delay: 0.1
-                                    }}
                                 >
                                     <g filter="url(#filter0_i_878_515)">
                                         <path d="M15.75 2.08782C14.2791 1.23697 12.5714 0.75 10.75 0.75C5.22715 0.75 0.75 5.22715 0.75 10.75C0.75 16.2728 5.22715 20.75 10.75 20.75C16.2728 20.75 20.75 16.2728 20.75 10.75C20.75 10.0651 20.6811 9.3962 20.55 8.75" stroke="#747474" strokeWidth="1.5" strokeLinecap="round"/>
@@ -117,7 +109,7 @@ function SendButton({state = "idle"}: {state: "idle" | "sending" | "sent" | "err
                                             <feBlend mode="normal" in2="shape" result="effect1_innerShadow_878_515"/>
                                         </filter>
                                     </defs>
-                                </motion.svg>
+                                </svg>
                             )
                         }
 

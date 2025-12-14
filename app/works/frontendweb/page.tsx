@@ -25,7 +25,7 @@ function FrontendWebDev() {
         <div className="h-screen flex flex-col overflow-x-hidden">
             <div>
                 <motion.p
-                    className={`${appleGaramondItalic.className} text-4xl text-[#BA0000] mt-16 w-full text-center`}
+                    className={`${appleGaramondItalic.className} text-4xl text-[#BA0000] mt-12 w-full text-center`}
                 >
                     Front-end Web Developer
                 </motion.p>

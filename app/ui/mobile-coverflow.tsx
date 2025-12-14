@@ -45,7 +45,7 @@ export default function MobileSwiperCoverflow() {
 
     const [active, setActive] = useState(0);
     return (
-        <div className="mb-6">
+        <div className="mb-4">
             <Swiper
                 modules={[Navigation, Pagination, EffectCoverflow]}
                 navigation={true}
@@ -86,7 +86,7 @@ export default function MobileSwiperCoverflow() {
 
             <div
                 style={{
-                    marginTop: 12,
+                    marginTop: 8,
                     textAlign: "center",
                     padding: "0 16px",
                     minHeight: 72,
@@ -98,8 +98,9 @@ export default function MobileSwiperCoverflow() {
                 >
                     <motion.p
                         className={`${sfProDisplayMedium.className} text-xl`}
-                        initial={{y: 20}}
-                        animate={{y: 0}}
+                        initial={{y: 20, opacity: 0}}
+                        animate={{y: 0, opacity: 1}}
+                        exit={{opacity: 0}}
                         transition={{ duration: 0.3, type: "tween" }}
                     >
                         {slides[active].title}

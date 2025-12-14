@@ -194,7 +194,7 @@ function AboutMeTimeLine() {
                                             backdropFilter: 'blur(2px)',
                                         }}
                                     >
-                                        <p className={`${sfProDisplayLight.className} text-sm`}>- Created visual marketing elements including social media posts, banners, standees, and event photography.</p>
+                                        <p className={`${sfProDisplayLight.className} text-sm`}>- Created visual marketing elements including social media posts, banners, event photography, etc.</p>
                                         <p className={`${sfProDisplayLight.className} text-sm mt-2`}>- Worked cross-functionally with members from Development, External Relations, and Event teams.</p>
                                     </motion.div>
                                 </div>
@@ -248,9 +248,8 @@ function AboutMeTimeLine() {
                                             backdropFilter: 'blur(2px)',
                                         }}
                                     >
-                                        <p className={`${sfProDisplayLight.className} text-sm`}>- Led a team of 4 to plan and execute 3 major campaigns, including "Info Seminar 2024" (largest event of the year).</p>
-                                        <p className={`${sfProDisplayLight.className} text-sm mt-2`}>- Developed marketing plans to increase student engagement and supported the team in media-related activities.
-                                        </p>
+                                        <p className={`${sfProDisplayLight.className} text-sm`}>- Led a 4-member team to deliver 3 major campaigns, including Info Seminar 2024 (largest annual event).</p>
+                                        <p className={`${sfProDisplayLight.className} text-sm mt-2`}>- Developed marketing plans to boost student engagement and support media-related activities.</p>
                                     </motion.div>
                                 </div>
                             )}
