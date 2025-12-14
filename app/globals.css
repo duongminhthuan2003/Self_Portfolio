@@ -46,24 +46,14 @@ body {
   background: rgba(255, 255, 255, 0.3);
 }
 
-:root {
-  --app-height: 100vh; /* fallback */
-}
-
 .scroll-snap {
   scroll-snap-type: y mandatory;
-  height: var(--app-height);
+  height: 100vh;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .scroll-snap > * {
   scroll-snap-align: start;
-}
-
-/* IMPORTANT: override Tailwind's 100vh on iOS */
-.h-screen {
-  height: var(--app-height) !important;
 }
 
 /* Hide scrollbar for snap scrolling */

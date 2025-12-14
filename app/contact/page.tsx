@@ -47,7 +47,26 @@ function Contact() {
         };
     }, []);
 
-    // ADD: force snap back to the nearest section (fix "page lifted" after keyboard hides)
+    useEffect(() => {
+        const el = scrollRef.current;
+        if (!el) return;
+
+        const update = () => {
+            const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+            setShowScrollHint(!atBottom);
+        };
+
+        update();
+        el.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+
+        return () => {
+            el.removeEventListener("scroll", update);
+            window.removeEventListener("resize", update);
+        };
+    }, []);
+
+    // ADD: Force snap to nearest section (fix iOS keyboard dismiss issue)
     const snapToNearest = () => {
         const el = scrollRef.current;
         if (!el) return;
@@ -55,6 +74,13 @@ function Contact() {
         const pageH = el.clientHeight || window.innerHeight;
         const target = Math.round(el.scrollTop / pageH) * pageH;
         el.scrollTo({ top: target, behavior: "smooth" });
+    };
+
+    // ADD: Handle input blur - snap back after keyboard dismisses
+    const handleInputBlur = () => {
+        // iOS needs a small delay for viewport to resize after keyboard hides
+        setTimeout(snapToNearest, 100);
+        setTimeout(snapToNearest, 300); // backup snap in case first one was too early
     };
 
     return (
@@ -126,10 +152,7 @@ function Contact() {
                 onBlurCapture={(e) => {
                     if (!e.currentTarget.contains(e.relatedTarget as Node)) {
                     setActive(null);
-
-                    // iOS: viewport resize happens slightly after blur -> snap twice
-                    requestAnimationFrame(snapToNearest);
-                    setTimeout(snapToNearest, 350);
+                    handleInputBlur(); // ADD: snap back when focus leaves form
                     }
                 }}
                 >
@@ -153,6 +176,7 @@ function Contact() {
                             backdropFilter: 'blur(2px)',
                         }}
                         onFocus={() => setActive('name')}
+                        onBlur={handleInputBlur}  // ADD
                     />
                     <input
                         type="email"
@@ -167,6 +191,7 @@ function Contact() {
                             backdropFilter: 'blur(2px)',
                         }}
                         onFocus={() => {setActive('email')}}
+                        onBlur={handleInputBlur}  // ADD
                     />
                     <input
                         type="text"
@@ -181,6 +206,7 @@ function Contact() {
                             backdropFilter: 'blur(2px)',
                         }}
                         onFocus={() => {setActive('messageTitle')}}
+                        onBlur={handleInputBlur}  // ADD
                     />
                     <textarea 
                         value={message}
@@ -195,6 +221,7 @@ function Contact() {
                             resize: 'none'
                         }}
                         onFocus={() => {setActive('message')}}
+                        onBlur={handleInputBlur}  // ADD
                     />
                     <Button />
                 </form>
