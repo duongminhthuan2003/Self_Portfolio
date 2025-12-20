@@ -1,9 +1,10 @@
 "use client"
 
-import { motion } from "motion/react";
+import { motion, useMotionValue } from "motion/react";
 import SFProDisplayMedium from "next/font/local";
 import {JSX, useEffect, useRef, useState} from "react";
 import SFMono from "next/font/local";
+import SFProDisplayLight from "next/font/local";
 
 const sfProDisplayMedium = SFProDisplayMedium({
     weight:"600",
@@ -16,6 +17,12 @@ const sfMono = SFMono({
     src: "../../public/fonts/SFMono-Regular.otf",
     variable: "--SFMono-Regular",
 });
+
+const sfProDisplayLight = SFProDisplayLight({
+    weight:"200",
+    src: "../../public/fonts/SFProDisplay-Light.otf",
+    variable: "--SFProDisplayLight",
+})
 
 type CardsProps = {
     icon: () => JSX.Element;
@@ -36,6 +43,12 @@ function WorksCards({ icon: Icon, title, className, flipClassName, isDimmed, onT
     const [zIndex, setZIndex] = useState<number>(z);
     const timerRef = useRef<number | null>(null);
 
+    const x = useMotionValue(0);
+    const isDraggingRef = useRef(false);
+
+    const SWIPE_THRESHOLD = 80; // px
+    const SWIPE_VELOCITY = 600; // px/s
+
     const handleClick = () => {
         // clear timer cũ nếu có
         if (timerRef.current) {
@@ -43,6 +56,8 @@ function WorksCards({ icon: Icon, title, className, flipClassName, isDimmed, onT
             timerRef.current = null;
         }
 
+        if (isDraggingRef.current) return;
+        
         const next = !flipped;
 
         if (next) {
@@ -69,7 +84,7 @@ function WorksCards({ icon: Icon, title, className, flipClassName, isDimmed, onT
 
     return (
         <div
-            className={`absolute aspect-[55/85] top-4/12 select-none w-44 ${flipped ? flipClassName : className} transition-all duration-500`}
+            className={`absolute aspect-[55/85] top-4/12 select-none w-44 overflow-visible ${flipped ? flipClassName : className} transition-all duration-500`}
             style={{
                 perspective: "1000px",
                 zIndex: zIndex,
@@ -77,21 +92,46 @@ function WorksCards({ icon: Icon, title, className, flipClassName, isDimmed, onT
             onClick={handleClick}
         >
             <motion.div
-                className="relative h-full w-full rounded-xl border border-[#DBDBDB]"
-                style={{
-                    transformStyle: "preserve-3d",
-                    transformOrigin: "50% 51%",
-                    background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, rgba(233, 233, 233, 0.50) 36.54%, rgba(233, 233, 233, 0.50) 66.83%, rgba(255, 255, 255, 0.60) 98.08%)',
-                    boxShadow: '0px 4px 10px rgba(30, 30, 30, 0.1)', // replaced filter: drop-shadow
-                }}
-                animate={{
-                    y: isDimmed ? 80 : 0,
-                    opacity: isDimmed ? 0 : 1,
-                    rotateY: flipped ? 180 : 0,
-                    rotate: flipped ? 0 : rotate,
-                    scale: flipped ? 1.5 : 1,
-                }}
-                transition={{ type: "tween", stiffness: 300, damping: 24, ease: "easeInOut", duration: 0.5 }}
+            className="relative h-full w-full rounded-xl border border-[#DBDBDB]"
+            style={{
+                transformStyle: "preserve-3d",
+                transformOrigin: "50% 51%",
+                background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, rgba(233, 233, 233, 0.50) 36.54%, rgba(233, 233, 233, 0.50) 66.83%, rgba(255, 255, 255, 0.60) 98.08%)',
+                boxShadow: '0px 4px 10px rgba(30, 30, 30, 0.1)',
+                x, // <-- thêm
+            }}
+            drag="x"
+            dragDirectionLock
+            dragElastic={0.12}
+            dragConstraints={{ left: 0, right: 0 }}
+            onDragStart={() => {
+                isDraggingRef.current = true;
+            }}
+            onDragEnd={(_, info) => {
+                const shouldNav =
+                info.offset.x > SWIPE_THRESHOLD || info.velocity.x > SWIPE_VELOCITY;
+
+                if (shouldNav) {
+                onClick?.();
+                return;
+                }
+
+                // snap back nếu chưa đủ ngưỡng
+                x.set(0);
+
+                // thả 1 tick rồi mới cho click hoạt động lại
+                window.setTimeout(() => {
+                isDraggingRef.current = false;
+                }, 0);
+            }}
+            animate={{
+                y: isDimmed ? 80 : 0,
+                opacity: isDimmed ? 0 : 1,
+                rotateY: flipped ? 180 : 0,
+                rotate: flipped ? 0 : rotate,
+                scale: flipped ? 1.5 : 1,
+            }}
+            transition={{ type: "tween", stiffness: 300, damping: 24, ease: "easeInOut", duration: 0.5 }}
             >
 
                 {/* FRONT */}
@@ -137,12 +177,22 @@ function WorksCards({ icon: Icon, title, className, flipClassName, isDimmed, onT
                         initial={{ opacity: 0 }}
                         animate={{ opacity: flipped ? 1 : 0 }}
                         transition={{ duration: 0.2, delay: flipped ? 0.2 : 0.12 }}
-                        onClick={(e) => { e.stopPropagation(); onClick?.(); }} // chặn lật ngược khi nhấn
+                        onClick={(e) => {}} // chặn lật ngược khi nhấn
                     >
-                        TAP HERE TO EXPLORE {">>>"}
+                        SWIPE RIGHT TO EXPLORE {">>>"}    
                     </motion.div>
                 </motion.div>
             </motion.div>
+
+            <motion.p
+            className={`absolute -bottom-26 left-1/2 w-max -translate-x-1/2 whitespace-nowrap max-w-none text-[15px] ${sfProDisplayMedium.className} text-[#AAAAAA]`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: flipped ? 1 : 0 }}
+            transition={{ duration: 0.2, delay: flipped ? 0.5 : 0 }}
+            >
+                Or tap the card again to minimize
+            </motion.p>
+
         </div>
     )
 }

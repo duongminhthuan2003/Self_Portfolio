@@ -59,8 +59,8 @@ export default function ZenoGallery(){
     const myRouter = useRouter();
 
     return (
-        <div className="flex flex-col p-4">
-                        <div className="flex flex-row w-full justify-center items-center">
+        <div className="h-screen flex flex-col overflow-x-hidden p-4">
+            <div className="flex flex-row w-full justify-center items-center">
                 <div
                     className={`${sfMono.className} flex justify-center items-center gap-4 cursor-pointer text-sm`}
                     onClick={() => {

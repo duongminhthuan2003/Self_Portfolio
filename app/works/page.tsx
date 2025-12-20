@@ -80,6 +80,7 @@ function Works() {
                 onToggle={() =>
                     setActiveIdx((cur) => (cur === 2 ? null : 2))
                 }
+                onClick={() => myRouter.push("/works/multimediaprod")}
                 z={0}
                 flipZ={30}
                 flipDurationMs={500}
