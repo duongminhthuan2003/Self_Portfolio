@@ -10,6 +10,7 @@ import AboutMeTimeLine from "@/app/ui/aboutmetimeline";
 import dynamic from "next/dynamic";
 import TPPopup from "@/app/ui/aboutmepopup/education-TPpopup";
 import BKPopup from "@/app/ui/aboutmepopup/education-BKpopup";
+import EngineerPopup from "@/app/ui/aboutmepopup/skill-engineer";
 
 const sfProDisplayLight = SFProDisplayLight({
     src: "../../public/fonts/SFProDisplay-Light.otf",
@@ -32,6 +33,9 @@ const AboutMeFolderDynamic = dynamic(() => import("@/app/ui/aboutmefolder"), {
 function AboutMe() {
     const [tpPopup, setTpPopup] = useState(false);
     const [bkPopup, setBkPopup] = useState(false);
+    const [engineerPopup, setEngineerPopup] = useState(false);
+    const [multimediaPopup, setMultimediaPopup] = useState(false);
+    const [designPopup, setDesignPopup] = useState(false);
 
     // --- ADD: scroll hint state ---
     const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -72,8 +76,9 @@ function AboutMe() {
             ref={scrollRef}
             className="scroll-snap overflow-x-hidden scrollbar-hide"
         >
-            <div className={`h-screen flex justify-center -mt-28 items-center text-5xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
+            <div className={`h-screen flex flex-col justify-center -mt-28 items-center text-5xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
                 <p className="color-word">About Me</p>
+                <p className={`${sfProDisplayLight.className} mx-6 text-lg text-center mt-5`}>I’m Dương Minh Thuận. Here’s a quick look at my background, skills, and the experiences behind my work.</p>
             </div>
 
             <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[15%]">
@@ -132,9 +137,17 @@ function AboutMe() {
                         ]}
                         title={"Front-end Engineer"}
                         descriptionText="(Web & Mobile)"
-                        onClick={() => setBkPopup(true)}
+                        onClick={() => setEngineerPopup(true)}
                     />
                 </div>
+
+                <AnimatePresence>
+                    {
+                        engineerPopup && (
+                            <EngineerPopup onClose={() => setEngineerPopup(false)} />
+                        )
+                    }
+                </AnimatePresence>
 
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative -top-10 left-16">
                     <AboutMeFolder
@@ -145,7 +158,7 @@ function AboutMe() {
                         ]}
                         title={"Multimedia Producer"}
                         descriptionText="(Photo & Video)"
-                        onClick={() => setBkPopup(true)}
+                        onClick={() => setMultimediaPopup(true)}
                     />
                 </div>
 
@@ -158,7 +171,7 @@ function AboutMe() {
                             {src: "edu-tp-3", alt: "test"}
                         ]}
                         title={"UI/UX Design"}
-                        onClick={() => setBkPopup(true)}
+                        onClick={() => setDesignPopup(true)}
                     />
                 </div>
             </div>
