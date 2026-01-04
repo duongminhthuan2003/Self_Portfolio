@@ -36,7 +36,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
             <div
                 className="w-[90%] h-full max-h-screen mx-auto relative flex justify-center py-4"
             >
-                <div className="flex flex-col gap-3 justify-center items-center h-[70dvh] w-full">
+                <div className="flex flex-col gap-3 justify-center items-center h-[78dvh] w-full">
                     <div className="flex flex-row gap-3 h-3/4 w-full">
                         <motion.div
                             className="w-7/12 h-full bg-white shadow-lg rounded-xl p-3"
@@ -122,7 +122,7 @@ function TPPopup({ onClose }: { onClose: () => void }) {
 
                     </motion.div>
                 </div>
-                <div className="absolute w-full h-[95%] max-h-[85vh]">
+                <div className="absolute w-full h-[100%] max-h-[90vh]">
                     <button
                         onClick={onClose}
                         className="absolute bottom-[3%] left-1/2 transform -translate-x-1/2 p-3 rounded-full z-10 border-1 border-[#DBDBDB] shadow-xl"

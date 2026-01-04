@@ -101,37 +101,51 @@ function AboutMeFolder({
                 <div>
                     <motion.div
                         className="relative top-7 z-10 rotate-[3deg]"
-                        variants={{ rest: { translateX: 0, translateY: 0 }, hover: { translateX: 2, translateY: -12 }, tap: { translateX: 2, translateY: -12 } }}
+                        style={{ willChange: "transform" }}
+                        variants={{ rest: { x: 0, y: 0 }, hover: { x: 2, y: -12 }, tap: { x: 2, y: -12 } }}
                         transition={{ type: "tween", ease: EASE, duration: DURATION }}
                     >
-                        <CldImage src={img2} alt={alt2 ?? "Image 2"} width={52} height={52} loading={"lazy"} className="absolute z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"/>
+                        <CldImage src={img2} alt={alt2 ?? "Image 2"} width={52} height={52} loading={"eager"} className="absolute z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"/>
                         <div
-                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"
+                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                         />
                     </motion.div>
 
                     <motion.div
                         className="relative top-11 left-8 z-0 rotate-[15deg]"
-                        variants={{ rest: { translateX: 0, translateY: 0 }, hover: { translateX: 5, translateY: -10 }, tap: { translateX: 5, translateY: -10 } }}
+                        style={{ willChange: "transform" }}
+                        variants={{ rest: { x: 0, y: 0 }, hover: { x: 5, y: -10 }, tap: { x: 5, y: -10 } }}
                     >
-                        <CldImage src={img1} alt={alt1 ?? "Image 1"} width={52} height={52} loading={"lazy"} className="absolute z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"/>
+                        <CldImage src={img1} alt={alt1 ?? "Image 1"} width={52} height={52} loading={"eager"} className="absolute z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"/>
                         <div
-                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"
+                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                         />
                     </motion.div>
 
                     <motion.div
                         className="relative top-11 right-7 -z-10 rotate-[-17deg]"
-                        variants={{ rest: { translateX: 0, translateY: 0 }, hover: { translateX: -5, translateY: -10 }, tap: { translateX: -5, translateY: -10 } }}
+                        style={{ willChange: "transform" }}
+                        variants={{ rest: { x: 0, y: 0 }, hover: { x: -5, y: -10 }, tap: { x: -5, y: -10 } }}
                     >
-                        <CldImage src={img3} alt={alt3 ?? "Image 3"} width={52} height={52} loading={"lazy"} className="absolute z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"/>
+                        <CldImage src={img3} alt={alt3 ?? "Image 3"} width={52} height={52} loading={"eager"} className="absolute z-10 aspect-square object-cover rounded-[6px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"/>
                         <div
-                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-1/2"
+                            className="absolute w-[62px] aspect-square bg-white rounded-[10px] ring-1 ring-[#E8E8E8] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                         />
                     </motion.div>
                 </div>
 
                 <div className="relative w-[155px] h-[129px]">
+                    {/* Backdrop blur layer using HTML div with clip-path (better browser support) */}
+                    <div
+                        className="absolute inset-0 z-15"
+                        style={{
+                            WebkitBackdropFilter: 'blur(20px)',
+                            backdropFilter: 'blur(20px)',
+                            clipPath: 'path("M31.2494 78.179L26.8955 22.3698C26.4421 16.5581 31.0358 11.592 36.8652 11.592H63.6373C66.3638 11.592 68.9722 12.7054 70.8584 14.6743L75.2542 19.2629C77.1404 21.2318 79.7488 22.3451 82.4753 22.3451H118.828C124.724 22.3451 129.341 27.4138 128.784 33.2833C127.674 44.9751 125.888 63.7941 124.501 78.352C124.013 83.4836 119.703 87.4013 114.548 87.4013H41.2191C35.9979 87.4013 31.6555 83.3844 31.2494 78.179Z")',
+                        }}
+                    />
+
+                    {/* Stroke outline */}
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="155" height="129" viewBox="0 0 155 129"
@@ -139,14 +153,12 @@ function AboutMeFolder({
                         style={{ filter: 'drop-shadow(0 3px 7px rgba(0, 0, 0, 0.25)) drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15))' }}
                     >
                         <path
-                            d="M31.2494 78.179L26.8955 22.3698C26.4421 16.5581 31.0358 11.592 36.8652 11.592H63.6373C66.3638
-                        11.592 68.9722 12.7054 70.8584 14.6743L75.2542 19.2629C77.1404 21.2318 79.7488 22.3451 82.4753
-                        22.3451H118.828C124.724 22.3451 129.341 27.4138 128.784 33.2833C127.674 44.9751 125.888 63.7941 124.501 78.352C124.013
-                        83.4836 119.703 87.4013 114.548 87.4013H41.2191C35.9979 87.4013 31.6555 83.3844 31.2494 78.179Z"
+                            d="M31.2494 78.179L26.8955 22.3698C26.4421 16.5581 31.0358 11.592 36.8652 11.592H63.6373C66.3638 11.592 68.9722 12.7054 70.8584 14.6743L75.2542 19.2629C77.1404 21.2318 79.7488 22.3451 82.4753 22.3451H118.828C124.724 22.3451 129.341 27.4138 128.784 33.2833C127.674 44.9751 125.888 63.7941 124.501 78.352C124.013 83.4836 119.703 87.4013 114.548 87.4013H41.2191C35.9979 87.4013 31.6555 83.3844 31.2494 78.179Z"
                             stroke="white" strokeOpacity="0.9" strokeWidth="2"
                         />
                     </svg>
 
+                    {/* Fill with shadow effects */}
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={155}
@@ -156,19 +168,7 @@ function AboutMeFolder({
                         shapeRendering="geometricPrecision"
                         className="absolute inset-0 z-20"
                     >
-                        <foreignObject x={-34.1348} y={-49.408} width={223.965} height={197.809}>
-                            <svg
-                                style={{
-                                    WebkitBackdropFilter: 'blur(20px)',
-                                    backdropFilter: 'blur(20px)',
-                                    clipPath: 'url(#bgblur_0_591_752_clip_path)',
-                                    width: '100%',
-                                    height: '100%',
-                                }}
-                            />
-                        </foreignObject>
-
-                        <g filter="url(#filter0_ddi_591_752)" data-figma-bg-blur-radius="60">
+                        <g filter="url(#filter0_ddi_591_752)">
                             <path d="M31.2494 78.179L26.8955 22.3698C26.4421 16.5581 31.0358 11.592 36.8652 11.592H63.6373C66.3638 11.592 68.9722 12.7054 70.8584 14.6743L75.2542 19.2629C77.1404 21.2318 79.7488 22.3451 82.4753 22.3451H118.828C124.724 22.3451 129.341 27.4138 128.784 33.2833C127.674 44.9751 125.888 63.7941 124.501 78.352C124.013 83.4836 119.703 87.4013 114.548 87.4013H41.2191C35.9979 87.4013 31.6555 83.3844 31.2494 78.179Z" fill="#F9F9F9" fillOpacity="0.55"/>
                             <path d="M31.2494 78.179L26.8955 22.3698C26.4421 16.5581 31.0358 11.592 36.8652 11.592H63.6373C66.3638 11.592 68.9722 12.7054 70.8584 14.6743L75.2542 19.2629C77.1404 21.2318 79.7488 22.3451 82.4753 22.3451H118.828C124.724 22.3451 129.341 27.4138 128.784 33.2833C127.674 44.9751 125.888 63.7941 124.501 78.352C124.013 83.4836 119.703 87.4013 114.548 87.4013H41.2191C35.9979 87.4013 31.6555 83.3844 31.2494 78.179Z" stroke="white" strokeOpacity="0.8" strokeWidth="0"/>
                         </g>
@@ -196,13 +196,6 @@ function AboutMeFolder({
                                 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.39 0"/>
                                 <feBlend mode="normal" in2="shape" result="effect3_innerShadow_591_752"/>
                             </filter>
-
-                            <clipPath id="bgblur_0_591_752_clip_path" transform="translate(34.1348 49.408)">
-                                <path d="M31.2494 78.179L26.8955 22.3698C26.4421 16.5581 31.0358 11.592 36.8652 11.592H63.6373C66.3638
-                        11.592 68.9722 12.7054 70.8584 14.6743L75.2542 19.2629C77.1404 21.2318 79.7488 22.3451 82.4753
-                        22.3451H118.828C124.724 22.3451 129.341 27.4138 128.784 33.2833C127.674 44.9751 125.888 63.7941 124.501 78.352C124.013
-                        83.4836 119.703 87.4013 114.548 87.4013H41.2191C35.9979 87.4013 31.6555 83.3844 31.2494 78.179Z"/>
-                            </clipPath>
                         </defs>
                     </svg>
                 </div>
