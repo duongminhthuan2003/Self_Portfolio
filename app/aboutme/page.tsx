@@ -4,12 +4,14 @@ import { motion, AnimatePresence } from "motion/react";
 import SFProDisplayLight from 'next/font/local';
 import AppleGaramondItalic from "next/font/local";
 import Image from "next/image";
-import {useState, Suspense, useEffect, useRef} from "react";
+import { useState, Suspense, useEffect, useRef } from "react";
 import AboutMeTimeLine from "@/app/ui/aboutmetimeline";
 import dynamic from "next/dynamic";
 import TPPopup from "@/app/ui/aboutmepopup/education-TPpopup";
 import BKPopup from "@/app/ui/aboutmepopup/education-BKpopup";
 import EngineerPopup from "@/app/ui/aboutmepopup/skill-engineer";
+import MultimediaPopup from "@/app/ui/aboutmepopup/skill-multimedia"
+import UIUXPopup from "@/app/ui/aboutmepopup/skill-uxui"
 
 const sfProDisplayLight = SFProDisplayLight({
     src: "../../public/fonts/SFProDisplay-Light.otf",
@@ -34,13 +36,11 @@ function AboutMe() {
     const [bkPopup, setBkPopup] = useState(false);
     const [engineerPopup, setEngineerPopup] = useState(false);
     const [multimediaPopup, setMultimediaPopup] = useState(false);
-    const [designPopup, setDesignPopup] = useState(false);
+    const [uxuiPopup, setUxuiPopup] = useState(false);
 
-    // --- ADD: scroll hint state ---
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const [showScrollHint, setShowScrollHint] = useState(true);
 
-    // ADD: lock body scroll (prevents page pull / scroll chaining)
     useEffect(() => {
         document.body.style.overflow = "hidden";
         document.documentElement.style.overflow = "hidden";
@@ -85,9 +85,9 @@ function AboutMe() {
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-6">
                     <AboutMeFolderDynamic
                         images={[
-                            {src: "edu-tp-1", alt: "test"},
-                            {src: "edu-tp-2", alt: "test"},
-                            {src: "edu-tp-3", alt: "test"}
+                            { src: "edu-tp-1", alt: "test" },
+                            { src: "edu-tp-2", alt: "test" },
+                            { src: "edu-tp-3", alt: "test" }
                         ]}
                         title={"Tan Phu High School"}
                         dateText="Aug ‘18 - May ‘21"
@@ -95,19 +95,19 @@ function AboutMe() {
                     />
                 </div>
                 <AnimatePresence>
-                {
-                    tpPopup && (
-                        <TPPopup onClose={() => setTpPopup(false)} />
-                    )
-                }
+                    {
+                        tpPopup && (
+                            <TPPopup onClose={() => setTpPopup(false)} />
+                        )
+                    }
                 </AnimatePresence>
 
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-6">
                     <AboutMeFolderDynamic
                         images={[
-                            {src: "edu-bk-1", alt: "test"},
-                            {src: "edu-bk-2", alt: "test"},
-                            {src: "edu-bk-3", alt: "test"}
+                            { src: "edu-bk-1", alt: "test" },
+                            { src: "edu-bk-2", alt: "test" },
+                            { src: "edu-bk-3", alt: "test" }
                         ]}
                         title={"Bach Khoa University"}
                         dateText="Sep '21 - present"
@@ -116,23 +116,23 @@ function AboutMe() {
                 </div>
 
                 <AnimatePresence>
-                {
-                    bkPopup && (
-                        <BKPopup onClose={() => setBkPopup(false)} />
-                    )
-                }
+                    {
+                        bkPopup && (
+                            <BKPopup onClose={() => setBkPopup(false)} />
+                        )
+                    }
                 </AnimatePresence>
             </div>
 
             <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[15%]">
                 <p className={`mt-5 ${appleGaramondItalic.className} text-4xl text-center mb-5 color-word`}>Skills</p>
 
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8" >
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative -left-16" >
                     <AboutMeFolderDynamic
                         images={[
-                            {src: "reactnative", alt: "test"},
-                            {src: "nextjs", alt: "test"},
-                            {src: "tailwind", alt: "test"}
+                            { src: "reactnative", alt: "test" },
+                            { src: "nextjs", alt: "test" },
+                            { src: "tailwind", alt: "test" }
                         ]}
                         title={"Front-end Engineer"}
                         descriptionText="(Web & Mobile)"
@@ -148,12 +148,12 @@ function AboutMe() {
                     }
                 </AnimatePresence>
 
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative left-16 bottom-8">
                     <AboutMeFolderDynamic
                         images={[
-                            {src: "edu-tp-1", alt: "test"},
-                            {src: "edu-tp-2", alt: "test"},
-                            {src: "edu-tp-3", alt: "test"}
+                            { src: "edu-tp-1", alt: "test" },
+                            { src: "edu-tp-2", alt: "test" },
+                            { src: "edu-tp-3", alt: "test" }
                         ]}
                         title={"Multimedia Producer"}
                         descriptionText="(Photo & Video)"
@@ -161,18 +161,34 @@ function AboutMe() {
                     />
                 </div>
 
+                <AnimatePresence>
+                    {
+                        multimediaPopup && (
+                            <MultimediaPopup onClose={() => { setMultimediaPopup(false) }} />
+                        )
+                    }
+                </AnimatePresence>
 
-                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8">
+
+                <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative right-2 bottom-10">
                     <AboutMeFolderDynamic
                         images={[
-                            {src: "edu-tp-1", alt: "test"},
-                            {src: "edu-tp-2", alt: "test"},
-                            {src: "edu-tp-3", alt: "test"}
+                            { src: "edu-tp-1", alt: "test" },
+                            { src: "edu-tp-2", alt: "test" },
+                            { src: "edu-tp-3", alt: "test" }
                         ]}
                         title={"UI/UX Design"}
-                        onClick={() => setDesignPopup(true)}
+                        onClick={() => setUxuiPopup(true)}
                     />
                 </div>
+
+                <AnimatePresence>
+                    {
+                        uxuiPopup && (
+                            <UIUXPopup onClose={() => setUxuiPopup(false)} />
+                        )
+                    }
+                </AnimatePresence>
             </div>
 
             <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[25%]">

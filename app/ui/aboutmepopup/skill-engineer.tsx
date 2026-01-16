@@ -18,7 +18,7 @@ const sfProDisplayMedium = SFProDisplayMedium({
     variable: "--SFProDisplayMedium",
 })
 
-function TPPopup({ onClose }: { onClose: () => void }) {
+function EngineerPopup({ onClose }: { onClose: () => void }) {
     useEffect(() => {
         document.body.style.overflow = "hidden";
         return () => {
@@ -146,4 +146,4 @@ function TPPopup({ onClose }: { onClose: () => void }) {
     )
 }
 
-export default TPPopup;
+export default EngineerPopup;
