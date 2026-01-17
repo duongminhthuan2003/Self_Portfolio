@@ -216,8 +216,16 @@ export default function MobileSwiperCoverflow() {
                     }
                     .swiper-slide {
                         box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.1), 0 3px 15px 0 rgba(0, 0, 0, 0.05);
+                        cursor: pointer;
                       }
                       .swiper-slide-active { opacity: 1; }
+                      
+                      /* Cho phép click qua shadow của coverflow effect */
+                      .swiper-slide-shadow-left,
+                      .swiper-slide-shadow-right,
+                      .swiper-slide-shadow-coverflow {
+                        pointer-events: none;
+                      }
                     `}
             </style>
         </div>
