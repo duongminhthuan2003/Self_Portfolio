@@ -67,13 +67,6 @@ export default function MobileSwiperCoverflow() {
                 className="h-[330px] md:h-[400px]"
                 onInit={(swiper) => setActive(swiper.realIndex)}
                 onSlideChange={(swiper) => setActive(swiper.realIndex)}
-                touchStartPreventDefault={false}
-                onClick={(swiper) => {
-                    const clickedIndex = swiper.clickedIndex;
-                    if (clickedIndex !== undefined && slides[clickedIndex]) {
-                        myRouter.push(slides[clickedIndex].navigate);
-                    }
-                }}
             >
                 {slides.map((s, i) => (
                     <SwiperSlide
@@ -83,8 +76,10 @@ export default function MobileSwiperCoverflow() {
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             borderRadius: "5px",
-                            cursor: "pointer",
                         }}
+                        onClick={
+                            () => { myRouter.push(s.navigate) }
+                        }
                     />
                 ))}
             </Swiper>
@@ -221,10 +216,6 @@ export default function MobileSwiperCoverflow() {
                     }
                     .swiper-slide {
                         box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.1), 0 3px 15px 0 rgba(0, 0, 0, 0.05);
-                        pointer-events: auto !important;
-                        cursor: pointer;
-                        -webkit-tap-highlight-color: transparent;
-                        touch-action: manipulation;
                       }
                       .swiper-slide-active { opacity: 1; }
                     `}
