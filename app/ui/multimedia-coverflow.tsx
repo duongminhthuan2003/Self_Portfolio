@@ -67,6 +67,10 @@ export default function MultimediaSwiperCoverflow() {
                 className="h-[300px] md:h-[400px]"
                 onInit={(swiper) => setActive(swiper.realIndex)}
                 onSlideChange={(swiper) => setActive(swiper.realIndex)}
+                onTouchEnd={(swiper) => {
+                    // Đảm bảo slide đã được activate
+                    setActive(swiper.realIndex);
+                }}
 
                 slideToClickedSlide={true}
                 allowTouchMove={true}
@@ -83,6 +87,12 @@ export default function MultimediaSwiperCoverflow() {
                         onClick={
                             () => {myRouter.push(s.navigate)}
                         }
+                        onTouchEnd={(e) => {
+                            e.preventDefault();
+                            if (active === i) {
+                                myRouter.push(s.navigate);
+                            }
+                        }}
                     />
                 ))}
             </Swiper>
