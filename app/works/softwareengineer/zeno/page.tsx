@@ -77,7 +77,7 @@ export default function Ananas() {
                     initial={{opacity:0, y:20}}
                     animate={{opacity:1, y:0}}
                 >
-                    <Image src={ananas1} alt="Ananas 1" className="object-cover h-[85%] object-bottom w-10/12 mx-auto" />
+                    <Image src={ananas1} alt="Ananas 1" className="object-cover h-20 object-bottom w-10/12 mx-auto" />
                 </motion.div>
 
                 <motion.div
