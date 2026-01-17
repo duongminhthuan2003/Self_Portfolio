@@ -229,6 +229,26 @@ export default function MultimediaSwiperCoverflow() {
                       .swiper-slide-shadow-coverflow {
                         pointer-events: none;
                       }
+
+                    /* FIX CHO SAFARI iOS */
+                    .swiper-slide {
+                        -webkit-transform: translateZ(0);
+                        transform: translateZ(0);
+                        -webkit-backface-visibility: hidden;
+                        backface-visibility: hidden;
+                    }
+                    
+                    /* Force hardware acceleration trên iOS */
+                    .swiper-wrapper {
+                        -webkit-transform-style: preserve-3d;
+                        transform-style: preserve-3d;
+                    }
+                    
+                    /* Đảm bảo touch events hoạt động trên iOS */
+                    .swiper-slide > * {
+                        pointer-events: auto;
+                        -webkit-tap-highlight-color: transparent;
+                    }
                     `}
             </style>
         </div>
