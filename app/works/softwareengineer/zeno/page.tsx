@@ -44,7 +44,7 @@ export default function Ananas() {
 
     return (
         <div className="flex flex-col h-full overflow-hidden scrollbar-hide overscroll-none">
-            <div className="flex flex-col mx-4 py-4 gap-2 h-[87dvh]">
+            <div className="flex flex-col mx-4 py-4 gap-2 h-[100dvh]">
                 <div className="flex flex-row w-full justify-center items-center">
                     <div
                         className={`${sfMono.className} flex justify-center items-center gap-4 cursor-pointer text-sm`}
