@@ -44,7 +44,7 @@ export default function Ananas() {
     const myRouter = useRouter();
 
     return (
-        <div className="flex flex-col h-full p-4 gap-2 scrollbar-hide overscroll-none">
+        <div className="flex flex-col h-screen p-4 gap-2 scrollbar-hide overscroll-none">
             <div className="flex flex-row w-full justify-center items-center">
                 <div
                     className={`${sfMono.className} flex justify-center items-center gap-4 cursor-pointer text-sm`}
@@ -68,7 +68,7 @@ export default function Ananas() {
                 </div>
             </div>
 
-            <div className="flex flex-1 flex-col gap-2">
+            <div className="flex flex-col gap-2">
                 <motion.div
                     className="bg-white/30 rounded-xl border border-gray-200"
                     style={{
@@ -164,8 +164,8 @@ export default function Ananas() {
                     transition={{delay: 0.4}}
                 >
                     <p className={`${sfProDisplayLight.className} flex flex-col items-end w-full text-sm mt-3`}>
-                        A React Native app helps HCMUT students find and manage learning materials.
-                        I took the responsibility for sign in, home, document{"'"}s detail, preview, manage, and notification screens.
+                        An app that helps HCMUT students find and manage learning materials.
+                        I took the responsibility for sign in, home, notification, and documents{"'"} detail screens.
                     </p>
                     <p className=" text-sm mb-3">
                         <span className={`${sfProDisplayMedium.className}`}>Tech stack: </span><span className={`${sfProDisplayLight.className}`}>React Native, Expo</span>
