@@ -130,9 +130,9 @@ function AboutMe() {
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative -left-16" >
                     <AboutMeFolderDynamic
                         images={[
-                            { src: "reactnative", alt: "test" },
-                            { src: "nextjs", alt: "test" },
-                            { src: "tailwind", alt: "test" }
+                            { src: "expo-fill", alt: "test" },
+                            { src: "reactnative-fill", alt: "test" },
+                            { src: "typescript-fill", alt: "test" }
                         ]}
                         title={"Front-end Engineer"}
                         descriptionText="(Web & Mobile)"
@@ -151,9 +151,9 @@ function AboutMe() {
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative left-16 bottom-8">
                     <AboutMeFolderDynamic
                         images={[
-                            { src: "edu-tp-1", alt: "test" },
-                            { src: "edu-tp-2", alt: "test" },
-                            { src: "edu-tp-3", alt: "test" }
+                            { src: "media-thumb-1", alt: "test" },
+                            { src: "media-thumb-2", alt: "test" },
+                            { src: "media-thumb-3", alt: "test" }
                         ]}
                         title={"Multimedia Producer"}
                         descriptionText="(Photo & Video)"
@@ -173,9 +173,9 @@ function AboutMe() {
                 <div style={{ contentVisibility: "auto", containIntrinsicSize: "129px 155px" }} className="p-8 relative right-2 bottom-10">
                     <AboutMeFolderDynamic
                         images={[
-                            { src: "edu-tp-1", alt: "test" },
-                            { src: "edu-tp-2", alt: "test" },
-                            { src: "edu-tp-3", alt: "test" }
+                            { src: "uiux-1", alt: "test" },
+                            { src: "uiux-2", alt: "test" },
+                            { src: "uiux-3", alt: "test" }
                         ]}
                         title={"UI/UX Design"}
                         onClick={() => setUxuiPopup(true)}

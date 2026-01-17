@@ -9,7 +9,7 @@ const useMedia = (queries: string[], values: number[], defaultValue: number): nu
     // Chỉ gọi matchMedia sau khi mount (client-side)
     const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
     setValue(get());
-    
+
     const handler = () => setValue(get());
     queries.forEach(q => matchMedia(q).addEventListener('change', handler));
     return () => queries.forEach(q => matchMedia(q).removeEventListener('change', handler));
@@ -224,7 +224,7 @@ const Masonry: React.FC<MasonryProps> = ({
           data-key={item.id}
           className="absolute box-content"
           style={{ willChange: 'transform, width, height, opacity' }}
-          onClick={() => window.open(item.url, '_blank', 'noopener')}
+          // onClick={() => window.open(item.url, '_blank', 'noopener')}
           onMouseEnter={e => handleMouseEnter(item.id, e.currentTarget)}
           onMouseLeave={e => handleMouseLeave(item.id, e.currentTarget)}
         >

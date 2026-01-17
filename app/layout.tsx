@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import App from "next/app";
 import MobileNavigationBar from "@/app/ui/mobilenavigationbar";
-import Image from "next/image";
-import { AnimatePresence } from "motion/react";
+import MobileOnlyOverlay from "@/app/ui/mobile-only-overlay";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +32,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative">
+        <MobileOnlyOverlay />
+
         <div className="page-transition-enabled">
             {children}
         </div>
@@ -42,15 +42,13 @@ export default function RootLayout({
           <MobileNavigationBar />
         </div>
 
-        {/* Background pattern - z-index thấp nhất */}
-        <div className="fixed inset-0 -z-20 bg-white" 
+        <div className="fixed inset-0 -z-20 bg-white"
           style={{
             backgroundImage: 'conic-gradient(from 90deg at 12px 12px, rgba(0,0,0,0.05) 90deg, transparent 90deg)',
             backgroundSize: '16px 16px'
           }}
         />
 
-        {/* Gradient overlay để fade out pattern ở dưới navbar - z-index cao hơn pattern */}
         <div className="fixed bottom-0 left-0 right-0 h-28 pointer-events-none -z-5"
           style={{
             background: 'linear-gradient(to top, rgba(255,255,255,1.0) 0%, rgba(255,255,255,0.7) 30%, transparent 100%)'

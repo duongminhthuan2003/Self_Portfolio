@@ -43,7 +43,7 @@ export default function Ananas() {
     const myRouter = useRouter();
 
     return (
-        <div className="flex flex-col h-screen mx-4 py-4 gap-2">
+        <div className="flex flex-col h-[95dvh] mx-4 py-4 gap-2">
             <div className="flex flex-row w-full justify-center items-center">
                 <div
                     className={`${sfMono.className} flex justify-center items-center gap-4 cursor-pointer text-sm`}
@@ -69,7 +69,7 @@ export default function Ananas() {
 
             <div className="flex flex-1 flex-col gap-2">
                 <motion.div
-                    className="h-18 max-h-[300px] bg-white/30 rounded-xl border-gray-200 border-1"
+                    className="h-2/12 max-h-[300px] bg-white/30 rounded-xl border-gray-200 border-1"
                     style={{
                         boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
                         backdropFilter: "blur(4px)",
@@ -77,7 +77,7 @@ export default function Ananas() {
                     initial={{opacity:0, y:20}}
                     animate={{opacity:1, y:0}}
                 >
-                    <Image src={ananas1} alt="Ananas 1" className="object-cover h-16 object-bottom w-10/12 mx-auto" />
+                    <Image src={ananas1} alt="Ananas 1" className="object-cover h-[85%] object-bottom w-10/12 mx-auto" />
                 </motion.div>
 
                 <motion.div
