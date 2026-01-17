@@ -292,7 +292,7 @@ export default function MobileNavigationBar() {
 
     return (
         <nav
-            className="fixed bottom-4 left-1/2 -translate-x-1/2 select-none"
+            className="fixed bottom-3 left-1/2 -translate-x-1/2 select-none"
             style={{ touchAction: "none" }}
             onTouchMove={(e) => e.preventDefault()}
         >

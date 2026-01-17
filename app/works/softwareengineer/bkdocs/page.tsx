@@ -164,7 +164,7 @@ export default function Ananas() {
                     transition={{delay: 0.4}}
                 >
                     <p className={`${sfProDisplayLight.className} flex flex-col items-end w-full text-sm mt-3`}>
-                        A React Native app helps HCMUT students find, share, and manage learning materials intuitively.
+                        A React Native app helps HCMUT students find and manage learning materials.
                         I took the responsibility for sign in, home, document{"'"}s detail, preview, manage, and notification screens.
                     </p>
                     <p className=" text-sm mb-3">
