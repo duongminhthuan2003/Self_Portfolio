@@ -23,12 +23,53 @@ function MultimediaProd() {
     const myRouter = useRouter();
 
     useEffect(() => {
+        // Lưu vị trí scroll hiện tại
+        const scrollY = window.scrollY;
+        
+        // Khóa scroll với position fixed
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
         document.body.style.overflow = 'hidden';
         document.documentElement.style.overflow = 'hidden';
+        document.body.style.overscrollBehavior = 'none';
+        document.documentElement.style.overscrollBehavior = 'none';
+
+        // Chặn sự kiện scroll
+        const preventDefault = (e: Event) => {
+            e.preventDefault();
+        };
+
+        // Chặn wheel scroll và touch scroll (không chặn trong Swiper)
+        const preventScroll = (e: WheelEvent | TouchEvent) => {
+            const target = e.target as HTMLElement;
+            // Cho phép scroll trong swiper
+            if (target.closest('.swiper')) {
+                return;
+            }
+            e.preventDefault();
+        };
+
+        window.addEventListener('wheel', preventScroll, { passive: false });
+        window.addEventListener('touchmove', preventScroll, { passive: false });
 
         return () => {
+            // Khôi phục lại scroll
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
             document.body.style.overflow = '';
             document.documentElement.style.overflow = '';
+            document.body.style.overscrollBehavior = '';
+            document.documentElement.style.overscrollBehavior = '';
+            
+            // Khôi phục vị trí scroll
+            window.scrollTo(0, scrollY);
+            
+            window.removeEventListener('wheel', preventScroll);
+            window.removeEventListener('touchmove', preventScroll);
         };
     }, []);
 
