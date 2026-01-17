@@ -10,6 +10,7 @@ import ananas1 from "@/public/images/projects/ananas/overview1.png";
 import ananas2 from "@/public/images/projects/ananas/overview2.webp";
 import ananas3 from "@/public/images/projects/ananas/overview3.webp";
 import ananas4 from "@/public/images/projects/ananas/overview4.png";
+import {CldImage} from "next-cloudinary";
 
 import Image from "next/image";
 import { motion } from "motion/react";
@@ -61,8 +62,8 @@ export default function Ananas() {
                     <p>
                         Mobile Software
                     </p>
-                    <p className={`${appleGaramond.className} text-3xl -mt-2 text-[#BA0000]`}>
-                        zeno
+                    <p className={`${appleGaramond.className} text-3xl -mt-1 text-[#BA0000]`}>
+                        BKDocs
                     </p>
                 </div>
             </div>
@@ -79,9 +80,9 @@ export default function Ananas() {
                 >
                     <div className="relative w-10/12 mx-auto aspect-[12/4]">
 
-                        <div className="relative h-[85%]">
-                            <Image
-                                src={ananas1}
+                        <div className="relative h-[95%]">
+                            <CldImage
+                                src="bkdocs-thumb-1"
                                 alt="Ananas 1"
                                 fill
                                 className="object-cover object-bottom"
@@ -103,7 +104,7 @@ export default function Ananas() {
                              backdropFilter: "blur(4px)",
                          }}
                     >
-                        <Image src={ananas2} alt="Ananas 2" className="object-cover scale-95 mx-auto" />
+                        <CldImage src="bkdocs-thumb-2" alt="Ananas 2" className="object-cover scale-100 mx-auto" fill />
                     </div>
                 </motion.div>
 
@@ -113,17 +114,18 @@ export default function Ananas() {
                                 animate={{opacity:1, y:0}}
                                 transition={{delay: 0.2}}
                     >
-                        <div className="aspect-[3/2] bg-white/30 rounded-xl"
-                             style={{
-                                 boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
-                                 backdropFilter: "blur(4px)",
-                             }}
+                        <div
+                            className="relative aspect-[3/2] bg-white/30 rounded-xl overflow-hidden"
+                            style={{
+                                boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
+                                backdropFilter: "blur(4px)",
+                            }}
                         >
-                            <Image
-                                src={ananas3}
+                            <CldImage
+                                src="bkdocs-thumb-4"
                                 alt=""
                                 fill
-                                className="object-contain p-2"
+                                className="object-cover"
                             />
                         </div>
                     </motion.div>
@@ -133,17 +135,18 @@ export default function Ananas() {
                                 animate={{opacity:1, y:0}}
                                 transition={{delay: 0.3}}
                     >
-                        <div className="relative aspect-[3/2] bg-white/30 rounded-xl"
-                             style={{
-                                 boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
-                                 backdropFilter: "blur(4px)",
-                             }}
+                        <div
+                            className="relative aspect-[3/2] bg-white/30 rounded-xl overflow-hidden"
+                            style={{
+                                boxShadow: "0 2px 10px 0 rgba(0, 0, 0, 0.15)",
+                                backdropFilter: "blur(4px)",
+                            }}
                         >
-                            <Image
-                                src={ananas4}
+                            <CldImage
+                                src="bkdocs-thumb-3"
                                 alt=""
                                 fill
-                                className="object-contain p-2"
+                                className="object-cover object-top scale-100"
                             />
                         </div>
                     </motion.div>
@@ -161,11 +164,11 @@ export default function Ananas() {
                     transition={{delay: 0.4}}
                 >
                     <p className={`${sfProDisplayLight.className} flex flex-col items-end w-full text-sm mt-3`}>
-                        A React Native app connecting to an ESP32-based  smart watch, built for my Logic Design
-                        Project course. I handled  the entire app development, from UI/UX design to coding.
+                        A React Native app helps HCMUT students find, share, and manage learning materials intuitively.
+                        I took the responsibility for sign in, home, document{"'"}s detail, preview, manage, and notification screens.
                     </p>
                     <p className=" text-sm mb-3">
-                        <span className={`${sfProDisplayMedium.className}`}>Tech stack: </span><span className={`${sfProDisplayLight.className}`}>React Native, Firebase, Figma</span>
+                        <span className={`${sfProDisplayMedium.className}`}>Tech stack: </span><span className={`${sfProDisplayLight.className}`}>React Native, Expo</span>
                     </p>
                 </motion.div>
 

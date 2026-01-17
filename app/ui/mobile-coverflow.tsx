@@ -20,9 +20,9 @@ const slides = [
     },
     {
         img: "https://res.cloudinary.com/dhquqou4h/image/upload/v1765103482/bkdocs_vrhmmp.webp",
-        title: "BKDocs (Ongoing)",
+        title: "BKDocs",
         desc: "A mobile app made for HCMUT students to manage their learning materials. Built with React Native.",
-        navigate: "/works/frontendweb/ananas",
+        navigate: "/works/softwareengineer/bkdocs",
     },
 ];
 
