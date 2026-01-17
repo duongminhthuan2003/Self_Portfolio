@@ -43,7 +43,7 @@ export default function Ananas() {
     const myRouter = useRouter();
 
     return (
-        <div className="flex flex-col h-[85dvh] mx-4 py-4 gap-2 overflow-hidden scrollbar-hide overscroll-none">
+        <div className="flex flex-col h-[90dvh] mx-4 py-4 gap-2 overflow-hidden scrollbar-hide overscroll-none">
             <div className="flex flex-row w-full justify-center items-center">
                 <div
                     className={`${sfMono.className} flex justify-center items-center gap-4 cursor-pointer text-sm`}
