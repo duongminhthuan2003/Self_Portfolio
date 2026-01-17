@@ -1,11 +1,11 @@
 "use client";
 
-import MobileSwiperCoverflow from "@/app/ui/mobile-coverflow";
 import AppleGaramondItalic from "next/font/local";
 import {motion} from "motion/react";
 import SFMono from "next/font/local";
 import {useRouter} from "next/navigation";
 import { useEffect } from "react";
+import Stack from "@/app/ui/stackcard-mobile";
 
 const appleGaramondItalic = AppleGaramondItalic({
     weight:"400",
@@ -19,9 +19,9 @@ const sfMono = SFMono({
     variable: "--SFMono-Regular",
 });
 
-function MobileSoftwareEngineer() {
+function SoftwareEngineer() {
     const myRouter = useRouter();
-    
+
     useEffect(() => {
         document.body.style.overflow = 'hidden';
         document.documentElement.style.overflow = 'hidden';
@@ -31,9 +31,9 @@ function MobileSoftwareEngineer() {
             document.documentElement.style.overflow = '';
         };
     }, []);
-    
+
     return (
-        <div className="h-screen flex flex-col overflow-x-hidden">
+        <div className="h-screen flex flex-col">
             <div>
                 <motion.p
                     className={`${appleGaramondItalic.className} text-4xl text-[#BA0000] mt-12 w-full text-center`}
@@ -56,15 +56,21 @@ function MobileSoftwareEngineer() {
             </div>
 
             <motion.div
-                className="my-auto -translate-y-20"
+                className="my-auto -translate-y-20 flex justify-center items-center"
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 transition={{duration: 0.5}}
             >
-                <MobileSwiperCoverflow />
+                <div className="w-[280px] h-[350px] md:w-[320px] md:h-[400px]">
+                    <Stack
+                        randomRotation={true}
+                        sensitivity={180}
+                        sendToBackOnClick={true}
+                    />
+                </div>
             </motion.div>
         </div>
     )
 }
 
-export default MobileSoftwareEngineer;
+export default SoftwareEngineer;

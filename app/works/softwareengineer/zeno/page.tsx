@@ -68,7 +68,7 @@ export default function Ananas() {
                     </div>
                 </div>
 
-                <div className="flex flex-1 flex-col gap-2">
+                <div className="flex flex-col gap-2">
                     <motion.div
                         className="bg-white/30 rounded-xl border border-gray-200"
                         style={{

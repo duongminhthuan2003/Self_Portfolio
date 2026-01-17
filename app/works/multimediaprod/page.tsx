@@ -5,7 +5,7 @@ import {motion} from "motion/react";
 import SFMono from "next/font/local";
 import {useRouter} from "next/navigation";
 import { useEffect } from "react";
-import MultimediaSwiperCoverflow from "@/app/ui/multimedia-coverflow";
+import Stack from "@/app/ui/stackcard-multimedia";
 
 const appleGaramondItalic = AppleGaramondItalic({
     weight:"400",
@@ -56,12 +56,18 @@ function MultimediaProd() {
             </div>
 
             <motion.div
-                className="my-auto -translate-y-20"
+                className="my-auto -translate-y-20 flex justify-center items-center"
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 transition={{duration: 0.5}}
             >
-                <MultimediaSwiperCoverflow />
+                <div className="w-[280px] h-[350px] md:w-[320px] md:h-[400px]">
+                    <Stack
+                        randomRotation={true}
+                        sensitivity={180}
+                        sendToBackOnClick={true}
+                    />
+                </div>
             </motion.div>
         </div>
     )
