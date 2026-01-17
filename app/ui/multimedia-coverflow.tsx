@@ -40,7 +40,7 @@ const sfProDisplayMedium = SFProDisplayMedium({
 })
 
 
-export default function FrontendSwiperCoverflow() {
+export default function MultimediaSwiperCoverflow() {
     const myRouter = useRouter();
 
     const [active, setActive] = useState(0);
@@ -67,6 +67,9 @@ export default function FrontendSwiperCoverflow() {
                 className="h-[300px] md:h-[400px]"
                 onInit={(swiper) => setActive(swiper.realIndex)}
                 onSlideChange={(swiper) => setActive(swiper.realIndex)}
+
+                slideToClickedSlide={true}
+                allowTouchMove={true}
             >
                 {slides.map((s, i) => (
                     <SwiperSlide
