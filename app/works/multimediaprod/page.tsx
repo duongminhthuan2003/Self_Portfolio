@@ -1,11 +1,11 @@
 "use client";
 
-import FrontendSwiperCoverflow from "@/app/ui/frontend-coverflow";
 import AppleGaramondItalic from "next/font/local";
 import {motion} from "motion/react";
 import SFMono from "next/font/local";
 import {useRouter} from "next/navigation";
 import { useEffect } from "react";
+import MultimediaSwiperCoverflow from "@/app/ui/multimedia-coverflow";
 
 const appleGaramondItalic = AppleGaramondItalic({
     weight:"400",
@@ -61,7 +61,7 @@ function MultimediaProd() {
                 animate={{opacity: 1}}
                 transition={{duration: 0.5}}
             >
-                <FrontendSwiperCoverflow />
+                <MultimediaSwiperCoverflow />
             </motion.div>
         </div>
     )
