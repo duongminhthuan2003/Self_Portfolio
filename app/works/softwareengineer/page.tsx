@@ -5,6 +5,7 @@ import AppleGaramondItalic from "next/font/local";
 import {motion} from "motion/react";
 import SFMono from "next/font/local";
 import {useRouter} from "next/navigation";
+import { useEffect } from "react";
 
 const appleGaramondItalic = AppleGaramondItalic({
     weight:"400",
@@ -20,7 +21,17 @@ const sfMono = SFMono({
 
 function MobileSoftwareEngineer() {
     const myRouter = useRouter();
-
+    
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+    
+        return () => {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        };
+    }, []);
+    
     return (
         <div className="h-screen flex flex-col overflow-x-hidden">
             <div>
