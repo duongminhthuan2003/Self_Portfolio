@@ -22,7 +22,7 @@ function MultimediaProd() {
     const myRouter = useRouter();
 
     return (
-        <div className="h-screen flex flex-col overflow-x-hidden">
+        <div className="h-screen flex flex-col overflow-hidden">
             <div>
                 <motion.p
                     className={`${appleGaramondItalic.className} text-4xl text-[#BA0000] mt-12 w-full text-center`}
