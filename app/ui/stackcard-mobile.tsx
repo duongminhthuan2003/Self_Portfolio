@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useMotionValue, useTransform, type PanInfo } from 'motion/react';
-import { useState, useEffect, startTransition } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { CldImage } from 'next-cloudinary';
 
@@ -76,21 +76,17 @@ const defaultCardItems: CardItem[] = [
     id: 1,
     image: 'zeno_main',
     title: 'zeno',
-    description: 'A brief description of project 1',
+    description: 'A smartwatch companion app made for the ESP32-based smartwatch. Built with React Native and TypeScript.',
     href: '/works/softwareengineer/zeno'
   },
   {
     id: 2,
-    image: 'bkdocs_main',
+    image: 'bkdocs1_main',
     title: 'BKDocs',
-    description: 'A brief description of project 2',
+    description: 'A mobile app made for HCMUT students to manage their learning materials. Built with React Native.',
     href: '/works/softwareengineer/bkdocs'
   }
 ];
-
-function sleep(milliseconds: number) {
-  return new Promise(resolve => setTimeout(resolve, milliseconds));
-}
 
 export default function Stack({
   randomRotation = false,
@@ -109,12 +105,10 @@ export default function Stack({
   const [isPaused, setIsPaused] = useState(false);
   const [isClient, setIsClient] = useState(false);
   
-  // Generate random rotations only on client after mount to avoid hydration mismatch
   const [randomRotations, setRandomRotations] = useState<number[]>([]);
 
   useEffect(() => {
     setIsClient(true);
-    // Generate random rotations for each card (range: -3 to +3 degrees)
     if (randomRotation && cardItems.length > 0) {
       setRandomRotations(cardItems.map(() => Math.random() * 6 - 3));
     }
@@ -141,26 +135,14 @@ export default function Stack({
     }
   }, [cardItems]);
 
-  const handleCardClick = async (card: CardItem, isTopCard: boolean) => {
+  const handleCardClick = (card: CardItem, isTopCard: boolean) => {
     if (!isTopCard) {
       sendToBack(card.id);
       return;
     }
     
     if (card.href && card.href !== '#') {
-      const container = document.querySelector('.page-transition-enabled');
-      container?.classList.remove('page-transition');
-      container?.classList.add('page-transition');
-      await sleep(300);
-
-      startTransition(() => {
-        router.push(card.href);
-      });
-
-      await sleep(300);
-      requestAnimationFrame(() => {
-        container?.classList.remove('page-transition');
-      });
+      router.push(card.href);
     }
   };
 
@@ -237,7 +219,7 @@ export default function Stack({
                   {card.title}
                 </h3>
                 <p 
-                  className="text-sm line-clamp-2 text-gray-500"
+                  className="text-sm line-clamp-3 text-gray-500"
                   style={{ fontFamily: 'SFProDisplay-Light, sans-serif' }}
                 >
                   {card.description}

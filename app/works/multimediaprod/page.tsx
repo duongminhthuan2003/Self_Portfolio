@@ -61,7 +61,7 @@ function MultimediaProd() {
                 animate={{opacity: 1}}
                 transition={{duration: 0.5}}
             >
-                <div className="w-[280px] h-[350px] md:w-[320px] md:h-[400px]">
+                <div className="w-[280px] h-[400px] md:w-[320px] md:h-[450px]">
                     <Stack
                         randomRotation={true}
                         sensitivity={180}

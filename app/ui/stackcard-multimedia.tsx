@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useTransform, type PanInfo } from 'motion/react';
 import { useState, useEffect, startTransition } from 'react';
 import { useRouter } from 'next/navigation';
+import { CldImage } from 'next-cloudinary';
 
 export interface CardItem {
   id: number;
@@ -73,15 +74,15 @@ interface StackProps {
 const defaultCardItems: CardItem[] = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format',
-    title: 'Project 1',
+    image: 'media-main-2',
+    title: 'Quynh Lan\'s Graduation Day',
     description: 'A brief description of project 1',
     href: '/works/frontendweb/ananas'
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format',
-    title: 'Project 2',
+    image: 'media-thumb-2',
+    title: '1000 Eyes - Shot at HCMC Metro System',
     description: 'A brief description of project 2',
     href: '/works/frontendweb/ananas'
   }
@@ -218,17 +219,19 @@ export default function Stack({
                 damping: animationConfig.damping
               }}
             >
-              <div className="flex-1 overflow-hidden">
-                <img
+              <div className="flex-1 overflow-hidden relative">
+                <CldImage
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-full object-cover pointer-events-none"
+                  fill
+                  className="object-cover pointer-events-none"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               
               <div className="p-4 bg-[#ffffff]">
                 <h3 
-                  className="text-lg mb-1 truncate"
+                  className="text-lg mb-1"
                   style={{ fontFamily: 'SFProDisplay-Medium, sans-serif' }}
                 >
                   {card.title}
