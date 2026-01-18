@@ -74,7 +74,7 @@ interface StackProps {
 const defaultCardItems: CardItem[] = [
   {
     id: 1,
-    image: 'ananas-main',
+    image: 'ananas_main',
     title: 'Ananas Redesign',
     description: 'Redeveloped the Ananas website with a modern design. A Web Programming subject\'s project. Built with React and Tailwind CSS.',
     href: '/works/frontendweb/ananas'
@@ -108,7 +108,7 @@ export default function Stack({
   const [isMobile, setIsMobile] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  
+
   const [randomRotations, setRandomRotations] = useState<number[]>([]);
 
   useEffect(() => {
@@ -144,7 +144,7 @@ export default function Stack({
       sendToBack(card.id);
       return;
     }
-    
+
     if (card.href && card.href !== '#') {
       const container = document.querySelector('.page-transition-enabled');
       container?.classList.remove('page-transition');
@@ -226,15 +226,15 @@ export default function Stack({
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              
+
               <div className="p-4 bg-[#ffffff]">
-                <h3 
+                <h3
                   className="text-lg mb-1"
                   style={{ fontFamily: 'SFProDisplay-Medium, sans-serif' }}
                 >
                   {card.title}
                 </h3>
-                <p 
+                <p
                   className="text-sm line-clamp-2 text-gray-500"
                   style={{ fontFamily: 'SFProDisplay-Light, sans-serif' }}
                 >
