@@ -1,11 +1,11 @@
 "use client";
 
-import FrontendSwiperCoverflow from "@/app/ui/frontend-coverflow";
 import AppleGaramondItalic from "next/font/local";
 import {motion} from "motion/react";
 import SFMono from "next/font/local";
 import {useRouter} from "next/navigation";
 import { useEffect } from "react";
+import Stack from "@/app/ui/stackcard-web"
 
 const appleGaramondItalic = AppleGaramondItalic({
     weight:"400",
@@ -25,7 +25,7 @@ function FrontendWebDev() {
     useEffect(() => {
         document.body.style.overflow = 'hidden';
         document.documentElement.style.overflow = 'hidden';
-    
+
         return () => {
             document.body.style.overflow = '';
             document.documentElement.style.overflow = '';
@@ -61,7 +61,11 @@ function FrontendWebDev() {
                 animate={{opacity: 1}}
                 transition={{duration: 0.5}}
             >
-                <FrontendSwiperCoverflow />
+                <Stack
+                    randomRotation={true}
+                    sensitivity={180}
+                    sendToBackOnClick={true}
+                />
             </motion.div>
         </div>
     )
