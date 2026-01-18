@@ -77,7 +77,7 @@ function AboutMe() {
         >
             <div className={`h-screen flex flex-col justify-center -mt-20 items-center text-5xl w-full overflow-hidden ${appleGaramondItalic.className}`}>
                 <p className="color-word">About Me</p>
-                <p className={`${sfProDisplayLight.className} mx-6 text-base text-center mt-5`}>I’m Dương Minh Thuận. Here’s a quick look at my background, skills, and the experiences behind my work.</p>
+                <p className={`${sfProDisplayLight.className} mx-6 text-base text-center mt-5`}>I’m Dương Minh Thuận. Here’s a quick look at my background, skills, and the <br/>experiences behind my work.</p>
             </div>
 
             <div className="h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-[15%]">

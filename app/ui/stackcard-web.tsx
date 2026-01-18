@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useTransform, type PanInfo } from 'motion/react';
 import { useState, useEffect, startTransition } from 'react';
 import { useRouter } from 'next/navigation';
+import { CldImage } from 'next-cloudinary';
 
 export interface CardItem {
   id: number;
@@ -73,16 +74,16 @@ interface StackProps {
 const defaultCardItems: CardItem[] = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format',
-    title: 'Project 1',
-    description: 'A brief description of project 1',
+    image: 'ananas-main',
+    title: 'Ananas Redesign',
+    description: 'Redeveloped the Ananas website with a modern design. A Web Programming subject\'s project. Built with React and Tailwind CSS.',
     href: '/works/frontendweb/ananas'
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format',
-    title: 'Project 2',
-    description: 'A brief description of project 2',
+    image: 'talksign_thumb_1',
+    title: 'TalkSign',
+    description: 'A web application that translates sign language into text. Built for Naver AI Hackathon 2025 Final round, with React and Naver Cloud Platform.',
     href: '/works/frontendweb/ananas'
   }
 ];
@@ -108,12 +109,10 @@ export default function Stack({
   const [isPaused, setIsPaused] = useState(false);
   const [isClient, setIsClient] = useState(false);
   
-  // Generate random rotations only on client after mount to avoid hydration mismatch
   const [randomRotations, setRandomRotations] = useState<number[]>([]);
 
   useEffect(() => {
     setIsClient(true);
-    // Generate random rotations for each card (range: -3 to +3 degrees)
     if (randomRotation && cardItems.length > 0) {
       setRandomRotations(cardItems.map(() => Math.random() * 6 - 3));
     }
@@ -218,17 +217,19 @@ export default function Stack({
                 damping: animationConfig.damping
               }}
             >
-              <div className="flex-1 overflow-hidden">
-                <img
+              <div className="flex-1 overflow-hidden relative">
+                <CldImage
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-full object-cover pointer-events-none"
+                  fill
+                  className="object-cover pointer-events-none"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               
               <div className="p-4 bg-[#ffffff]">
                 <h3 
-                  className="text-lg mb-1 truncate"
+                  className="text-lg mb-1"
                   style={{ fontFamily: 'SFProDisplay-Medium, sans-serif' }}
                 >
                   {card.title}

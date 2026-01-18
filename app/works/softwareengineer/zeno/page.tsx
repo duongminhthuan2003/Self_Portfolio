@@ -13,6 +13,7 @@ import ananas4 from "@/public/images/projects/ananas/overview4.png";
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import { useEffect } from "react";
 
 const sfMono = SFMono({
     weight: "400",
@@ -42,6 +43,16 @@ const sfProDisplayMedium = SFProDisplayMedium({
 export default function Ananas() {
     const myRouter = useRouter();
 
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+    
+        return () => {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        };
+    }, []);
+    
     return (
         <div className="h-screen overflow-hidden">
             <div className="flex flex-col h-full p-4 gap-2 scrollbar-hide overscroll-none">
