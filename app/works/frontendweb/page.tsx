@@ -5,7 +5,7 @@ import {motion} from "motion/react";
 import SFMono from "next/font/local";
 import {useRouter} from "next/navigation";
 import { useEffect } from "react";
-import Stack from "@/app/ui/stackcard-web"
+import Stack from "@/app/ui/stackcard-web";
 
 const appleGaramondItalic = AppleGaramondItalic({
     weight:"400",
@@ -19,7 +19,7 @@ const sfMono = SFMono({
     variable: "--SFMono-Regular",
 });
 
-function FrontendWebDev() {
+function FrontendWeb() {
     const myRouter = useRouter();
 
     useEffect(() => {
@@ -33,7 +33,7 @@ function FrontendWebDev() {
     }, []);
 
     return (
-        <div className="h-screen flex flex-col overflow-x-hidden">
+        <div className="h-screen flex flex-col">
             <div>
                 <motion.p
                     className={`${appleGaramondItalic.className} text-4xl text-[#BA0000] mt-12 w-full text-center`}
@@ -56,19 +56,21 @@ function FrontendWebDev() {
             </div>
 
             <motion.div
-                className="my-auto -translate-y-20"
+                className="my-auto -translate-y-20 flex justify-center items-center"
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 transition={{duration: 0.5}}
             >
-                <Stack
-                    randomRotation={true}
-                    sensitivity={180}
-                    sendToBackOnClick={true}
-                />
+                <div className="w-[280px] h-[400px] md:w-[320px] md:h-[450px]">
+                    <Stack
+                        randomRotation={true}
+                        sensitivity={180}
+                        sendToBackOnClick={true}
+                    />
+                </div>
             </motion.div>
         </div>
     )
 }
 
-export default FrontendWebDev;
+export default FrontendWeb;
